@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Pagina di presentazione — sviluppo app e prodotti digitali." />
-  <title>Jhon — Presentazione</title>
+  <meta name="description" content="Jhon-Apps — sviluppo app e backend enterprise. Java, Spring Boot, microservizi." />
+  <title>Jhon-Apps — Presentazione</title>
+
   <style>
     :root{
       --bg:#0b0f1a;
@@ -15,34 +16,38 @@
       --border:rgba(148,163,184,.22);
       --accent:#f59e0b;
       --accent2:#60a5fa;
+      --ok:#22c55e;
       --shadow: 0 18px 60px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(900px 500px at 10% 0%, rgba(96,165,250,.18), transparent 60%),
-      radial-gradient(900px 500px at 90% 0%, rgba(245,158,11,.16), transparent 60%),
-      var(--bg);
+      background:
+              radial-gradient(900px 500px at 10% 0%, rgba(96,165,250,.18), transparent 60%),
+              radial-gradient(900px 500px at 90% 0%, rgba(245,158,11,.16), transparent 60%),
+              var(--bg);
       color:var(--fg);
       line-height:1.55;
     }
     a{color:inherit}
-    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px}
+    .wrap{max-width:1020px;margin:0 auto;padding:28px 18px 60px}
     .nav{
       display:flex;align-items:center;justify-content:space-between;gap:12px;
       padding:10px 12px;border:1px solid var(--border);
       background:rgba(18,26,43,.55);backdrop-filter: blur(14px);
       border-radius:18px;position:sticky;top:14px;z-index:50;
     }
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
     .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 18px rgba(245,158,11,.45)}
-    .brand strong{letter-spacing:.2px}
+    .brand strong{letter-spacing:.2px;white-space:nowrap}
+    .brand span{white-space:nowrap}
     .nav a.btn{
       text-decoration:none;font-weight:800;font-size:13px;
       padding:10px 12px;border-radius:14px;border:1px solid var(--border);
       background:rgba(15,23,42,.7);
     }
+    .nav .links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     .hero{
       margin-top:18px;
       border:1px solid var(--border);
@@ -51,9 +56,9 @@
       box-shadow: var(--shadow);
       padding:26px;
     }
-    .kicker{color:var(--muted);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .kicker{color:var(--muted);font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
     h1{margin:10px 0 10px;font-size:34px;line-height:1.15}
-    .sub{margin:0;color:var(--muted);max-width:70ch}
+    .sub{margin:0;color:var(--muted);max-width:78ch}
     .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
     .cta{
       display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -83,8 +88,11 @@
       .span6,.span7,.span5{grid-column: span 12}
       h1{font-size:30px}
     }
-    .list{
-      margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;font-weight:900;color:rgba(245,158,11,.95);
+      padding:6px 10px;border-radius:999px;border:1px solid rgba(245,158,11,.25);
+      background:rgba(245,158,11,.08)
     }
     .pill{
       display:flex;align-items:flex-start;gap:10px;
@@ -93,12 +101,16 @@
     }
     .pill b{font-size:13px}
     .pill small{display:block;color:var(--muted);margin-top:2px}
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      font-size:12px;font-weight:900;color:rgba(245,158,11,.95);
-      padding:6px 10px;border-radius:999px;border:1px solid rgba(245,158,11,.25);
-      background:rgba(245,158,11,.08)
+    .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{
+      font-size:12px;font-weight:900;
+      padding:6px 10px;border-radius:999px;border:1px solid var(--border);
+      background:rgba(15,23,42,.55);color:var(--muted)
     }
+    .tag.ok{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.08);color:#c7f9d8}
+    .tag.blue{border-color:rgba(96,165,250,.35);background:rgba(96,165,250,.08);color:#cfe6ff}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
     .footer{
       margin-top:18px;
       border:1px solid var(--border);
@@ -109,50 +121,65 @@
       font-size:12px;
       display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
     }
-    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .footer a{color:var(--muted);text-decoration:none}
+    .footer a:hover{text-decoration:underline}
   </style>
 </head>
+
 <body>
 <div class="wrap">
   <div class="nav">
     <a class="brand" href="#">
       <span class="dot"></span>
-      <strong>Jhon</strong>
-      <span style="color:var(--muted);font-weight:700;font-size:12px">presentazione</span>
+      <strong>Jhon-Apps</strong>
+      <span style="color:var(--muted);font-weight:800;font-size:12px" class="mono">presentazione</span>
     </a>
     <div class="links">
+      <a class="btn" href="#chi-sono">Chi sono</a>
       <a class="btn" href="#progetti">Progetti</a>
-      <a class="btn" href="#cosa-faccio">Cosa faccio</a>
       <a class="btn" href="#contatti">Contatti</a>
     </div>
   </div>
 
-  <section class="hero">
-    <div class="kicker">Sviluppo prodotti digitali</div>
-    <h1>Costruisco app e strumenti che la gente usa davvero.</h1>
+  <section class="hero" id="chi-sono">
+    <div class="kicker">Java Backend · Enterprise · Product</div>
+    <h1>Sviluppo backend solidi e prodotti che arrivano davvero in release.</h1>
     <p class="sub">
-      Sono Jhon. Mi piace trasformare idee in prodotti concreti: design pulito, logica solida, UX veloce.
-      Se una cosa non serve, non la metto. Se serve, la faccio bene.
+      Sono Jhon, sviluppatore <strong>Java Backend</strong> con oltre <strong>5 anni</strong> di esperienza in contesti enterprise e consulenza strutturata.
+      Lavoro per obiettivi, con alta autonomia tecnica e attenzione a stabilità, qualità del codice e manutenibilità.
+      Preferisco contesti organizzati, roadmap chiare e tecnologie moderne e consolidate.
     </p>
+
+    <div class="tagrow" aria-label="highlights">
+      <span class="tag ok">Autonomia tecnica</span>
+      <span class="tag blue">Spring Boot</span>
+      <span class="tag">Microservizi</span>
+      <span class="tag">REST</span>
+      <span class="tag">Git</span>
+      <span class="tag">Qualità & manutenzione</span>
+    </div>
 
     <div class="ctaRow">
       <a class="cta primary" href="#progetti">Vedi i progetti</a>
-      <a class="cta" href="#contatti">Parliamone</a>
-      <a class="cta" href="privacy.html">Privacy</a>
-      <a class="cta" href="gdpr.html">GDPR</a>
+      <a class="cta" href="mailto:info.jhonapps@gmail.com">Scrivimi</a>
+      <a class="cta" href="https://jhon-apps.github.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+      <a class="cta" href="https://jhon-apps.github.io/gdpr" target="_blank" rel="noopener noreferrer">GDPR</a>
     </div>
 
     <div class="grid">
       <div class="card span7">
-        <h3>Approccio</h3>
+        <h3>Come lavoro</h3>
         <p>
-          Pragmatico. Iterazioni piccole. Bugfix uno alla volta. Priorità a stabilità e performance.
-          L’obiettivo è la release, non la teoria.
+          Pragmatico: iterazioni piccole, bugfix uno alla volta, release come obiettivo.
+          Se una cosa non serve, non la metto. Se serve, la faccio bene e la rendo mantenibile.
         </p>
       </div>
       <div class="card span5">
-        <h3>Stack preferito</h3>
-        <p>React + Capacitor, UI curata, local-first quando ha senso, integrazioni native quando servono.</p>
+        <h3>Focus tecnico</h3>
+        <p>
+          Backend applicativi e integrazioni: API, microservizi, stabilità, refactoring sensato.
+          Quando serve, integrazioni native e automazioni di tooling.
+        </p>
       </div>
     </div>
   </section>
@@ -160,9 +187,9 @@
   <section id="progetti" class="grid" style="margin-top:18px">
     <div class="card span12">
       <div class="badge">Progetti</div>
-      <h2 style="margin:10px 0 0;font-size:20px">Cosa sto costruendo</h2>
-      <p style="margin:6px 0 0;color:var(--muted);max-width:80ch">
-        Alcuni esempi reali di prodotto, non demo da portfolio.
+      <h2 style="margin:10px 0 0;font-size:20px">Cosa sto costruendo (oltre al lavoro)</h2>
+      <p style="margin:6px 0 0;color:var(--muted);max-width:86ch">
+        Prodotti concreti, con una logica chiara: UX curata, dati locali quando ha senso, e stabilità prima di tutto.
       </p>
     </div>
 
@@ -170,14 +197,14 @@
       <h3>HAIP — How Am I Poor</h3>
       <p>
         App finanza personale con tono ironico: local-first, niente login, premium + ads non invasive.
-        Obiettivo: velocità, chiarezza, e una UX che ti “giudica” con stile.
+        Obiettivo: velocità, chiarezza, e una UX che “giudica” con stile.
       </p>
       <ul class="list">
         <li class="pill">
           <div style="min-width:10px;height:10px;border-radius:999px;background:var(--accent2);margin-top:6px"></div>
           <div>
             <b>Punti forti</b>
-            <small>Grafici + movimenti, ricorrenti premium, onboarding chiaro, notifiche Android.</small>
+            <small>Grafici, lista movimenti, ricorrenti Premium, onboarding, notifiche Android.</small>
           </div>
         </li>
         <li class="pill">
@@ -191,41 +218,74 @@
     </div>
 
     <div class="card span6">
-      <h3>Tooling & automazioni</h3>
+      <h3>Backend & integrazioni (enterprise mindset)</h3>
       <p>
-        Mi piace costruire strumenti interni per ridurre frizione: checklists di release, debug tools, pipeline di dati,
-        e tutto ciò che rende lo sviluppo più ripetibile.
+        Esperienza su sistemi organizzati: microservizi, API REST, integrazioni e manutenzione evolutiva.
+        Mi interessa ridurre emergenze continue: preferisco processi e qualità.
       </p>
       <ul class="list">
         <li class="pill">
+          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--ok);margin-top:6px"></div>
+          <div>
+            <b>Competenze principali</b>
+            <small>Java, Spring, Git, REST, stabilità, qualità e manutenibilità.</small>
+          </div>
+        </li>
+        <li class="pill">
           <div style="min-width:10px;height:10px;border-radius:999px;background:#22c55e;margin-top:6px"></div>
           <div>
-            <b>Obiettivo</b>
-            <small>Ridurre errori umani e tempi morti, soprattutto in fase di release.</small>
+            <b>Contesto ideale</b>
+            <small>Roadmap chiara, stack moderno e consolidato, team organizzato, obiettivi misurabili.</small>
           </div>
         </li>
       </ul>
     </div>
   </section>
 
-  <section id="cosa-faccio" class="grid" style="margin-top:18px">
+  <section id="esperienza" class="grid" style="margin-top:18px">
     <div class="card span12">
-      <div class="badge">In pratica</div>
-      <h2 style="margin:10px 0 0;font-size:20px">Cosa posso portare in un team</h2>
-    </div>
-
-    <div class="card span6">
-      <h3>Product + Engineering</h3>
-      <p>
-        Lavoro bene quando prodotto e tecnica sono la stessa conversazione: flussi, edge-case, priorità, e release.
+      <div class="badge">Esperienza</div>
+      <h2 style="margin:10px 0 0;font-size:20px">In breve (non CV)</h2>
+      <p style="margin:6px 0 0;color:var(--muted);max-width:86ch">
+        Lavoro da anni su backend Java in contesti enterprise/consulenza. Negli ultimi anni ho consolidato sviluppo e manutenzione
+        di servizi e integrazioni, con attenzione a stabilità e codice pulito.
       </p>
     </div>
 
     <div class="card span6">
-      <h3>Qualità e performance</h3>
-      <p>
-        Debug solido, attenzione a regressioni, UX fluida su device reali. Il “quasi” in produzione costa.
+      <h3>Software Inside Srl</h3>
+      <p class="mono" style="color:var(--muted);font-size:13px;margin:0">ott 2024 → oggi</p>
+      <p style="margin-top:8px">
+        Sviluppo back-end. Git, REST, qualità e delivery in contesto strutturato.
       </p>
+    </div>
+
+    <div class="card span6">
+      <h3>Nextre / Fides</h3>
+      <p class="mono" style="color:var(--muted);font-size:13px;margin:0">lug 2020 → ott 2024 / mag 2024 → ago 2024</p>
+      <p style="margin-top:8px">
+        Percorso di crescita su Java/Spring in contesti enterprise: sviluppo, integrazioni e manutenzione.
+      </p>
+    </div>
+
+    <div class="card span12">
+      <h3>Formazione e lingua</h3>
+      <ul class="list">
+        <li class="pill">
+          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--accent2);margin-top:6px"></div>
+          <div>
+            <b>Generation Italy (Java)</b>
+            <small>Fondamenti solidi: Java, pattern, SQL/MySQL, web (Servlet/Spring MVC), ORM (JDBC/JPA).</small>
+          </div>
+        </li>
+        <li class="pill">
+          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--ok);margin-top:6px"></div>
+          <div>
+            <b>Inglese</b>
+            <small>Conoscenza professionale completa (IELTS, livello avanzato).</small>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -233,24 +293,35 @@
     <div class="card span12">
       <div class="badge">Contatti</div>
       <h2 style="margin:10px 0 0;font-size:20px">Vuoi parlarmi?</h2>
-      <p style="margin:6px 0 0;color:var(--muted);max-width:80ch">
-        Se ti interessa collaborare o hai un’idea concreta, scrivimi con due righe: obiettivo, tempi, vincoli.
+      <p style="margin:6px 0 0;color:var(--muted);max-width:86ch">
+        Se ti interessa collaborare o hai un’idea concreta, scrivimi con due righe: obiettivo, contesto e vincoli.
       </p>
 
       <div class="ctaRow" style="margin-top:14px">
-        <!-- Sostituisci con i tuoi link reali -->
-        <a class="cta primary" href="mailto:your-email@example.com">Scrivimi via email</a>
-        <a class="cta" href="#" onclick="alert('Metti qui il link al tuo profilo GitHub/LinkedIn'); return false;">Link profilo</a>
+        <a class="cta primary" href="mailto:info.jhonapps@gmail.com">info.jhonapps@gmail.com</a>
+
+        <!-- Inserisci qui il link reale del tuo profilo -->
+        <a class="cta" href="https://www.linkedin.com/in/jhonatan-meazza-9aba1b178/" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+
+        <a class="cta" href="https://jhon-apps.github.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+        <a class="cta" href="https://jhon-apps.github.io/gdpr" target="_blank" rel="noopener noreferrer">GDPR</a>
       </div>
+
+      <p style="margin:10px 0 0;color:var(--muted);font-size:12px">
+        Sito: <span class="mono">jhon-apps.github.io</span>
+      </p>
     </div>
   </section>
 
   <div class="footer">
-    <span>© <span id="y"></span> Jhon — pagina di presentazione</span>
+    <span>© <span id="y"></span> Jhon-Apps</span>
     <span class="links">
-        <a href="privacy.html">Privacy</a>
-        <a href="gdpr.html">GDPR</a>
-      </span>
+      <a href="https://jhon-apps.github.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+      <a href="https://jhon-apps.github.io/gdpr" target="_blank" rel="noopener noreferrer">GDPR</a>
+      <a href="mailto:info.jhonapps@gmail.com">Email</a>
+    </span>
   </div>
 </div>
 
