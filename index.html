@@ -1,94 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jhonatan Meazza · Java Software Engineer</title>
-  <meta name="description" content="CV online di Jhonatan Meazza, Java Software Engineer a Milano. Esperienza con Spring, Spring Security, JPA, Maven, MySQL, JavaScript." />
-  <meta property="og:title" content="Jhonatan Meazza · Java Software Engineer" />
-  <meta property="og:description" content="Esperienza con Spring, JPA, Maven, MySQL, JavaScript. Progetti, formazione e contatti." />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="it_IT" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/stylescv.css">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Jhonatan Meazza",
-      "jobTitle": "Java Software Engineer",
-      "address": {"@type":"PostalAddress","addressLocality":"Milano","addressRegion":"Lombardia","addressCountry":"IT"},
-      "email": "mailto:Meazza.Jhonatan@gmail.com",
-      "url": "https://jhon-apps.github.io/jhon.github.io/",
-      "sameAs": [
-        "https://www.linkedin.com/in/jhonatan-meazza-9aba1b178"
-      ]
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Pagina di presentazione — sviluppo app e prodotti digitali." />
+  <title>Jhon — Presentazione</title>
+  <style>
+    :root{
+      --bg:#0b0f1a;
+      --card:#121a2b;
+      --card2:#0f172a;
+      --fg:#e5e7eb;
+      --muted:#a3b0c2;
+      --border:rgba(148,163,184,.22);
+      --accent:#f59e0b;
+      --accent2:#60a5fa;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
     }
-  </script>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(900px 500px at 10% 0%, rgba(96,165,250,.18), transparent 60%),
+      radial-gradient(900px 500px at 90% 0%, rgba(245,158,11,.16), transparent 60%),
+      var(--bg);
+      color:var(--fg);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:10px 12px;border:1px solid var(--border);
+      background:rgba(18,26,43,.55);backdrop-filter: blur(14px);
+      border-radius:18px;position:sticky;top:14px;z-index:50;
+    }
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 18px rgba(245,158,11,.45)}
+    .brand strong{letter-spacing:.2px}
+    .nav a.btn{
+      text-decoration:none;font-weight:800;font-size:13px;
+      padding:10px 12px;border-radius:14px;border:1px solid var(--border);
+      background:rgba(15,23,42,.7);
+    }
+    .hero{
+      margin-top:18px;
+      border:1px solid var(--border);
+      border-radius:26px;
+      background:linear-gradient(180deg, rgba(18,26,43,.72), rgba(15,23,42,.62));
+      box-shadow: var(--shadow);
+      padding:26px;
+    }
+    .kicker{color:var(--muted);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    h1{margin:10px 0 10px;font-size:34px;line-height:1.15}
+    .sub{margin:0;color:var(--muted);max-width:70ch}
+    .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .cta{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 14px;border-radius:16px;text-decoration:none;font-weight:900;font-size:14px;
+      border:1px solid var(--border);background:rgba(18,26,43,.55)
+    }
+    .cta.primary{
+      background:rgba(245,158,11,.92);
+      color:#1b1202;border-color:rgba(245,158,11,.2)
+    }
+    .cta.primary:hover{filter:brightness(1.02)}
+    .cta:hover{border-color:rgba(148,163,184,.4)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}
+    .card{
+      border:1px solid var(--border);
+      background:rgba(18,26,43,.45);
+      border-radius:22px;
+      padding:16px;
+    }
+    .card h3{margin:0 0 6px;font-size:15px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+    .span6{grid-column: span 6}
+    .span7{grid-column: span 7}
+    .span5{grid-column: span 5}
+    .span12{grid-column: span 12}
+    @media (max-width:860px){
+      .span6,.span7,.span5{grid-column: span 12}
+      h1{font-size:30px}
+    }
+    .list{
+      margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px
+    }
+    .pill{
+      display:flex;align-items:flex-start;gap:10px;
+      padding:12px;border-radius:18px;border:1px solid var(--border);
+      background:rgba(15,23,42,.55)
+    }
+    .pill b{font-size:13px}
+    .pill small{display:block;color:var(--muted);margin-top:2px}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;font-weight:900;color:rgba(245,158,11,.95);
+      padding:6px 10px;border-radius:999px;border:1px solid rgba(245,158,11,.25);
+      background:rgba(245,158,11,.08)
+    }
+    .footer{
+      margin-top:18px;
+      border:1px solid var(--border);
+      background:rgba(15,23,42,.55);
+      border-radius:22px;
+      padding:14px 16px;
+      color:var(--muted);
+      font-size:12px;
+      display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+    }
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+  </style>
 </head>
 <body>
-<div class="container" role="document">
-  <header class="profile" aria-labelledby="name">
-    <h1 id="name">Jhonatan Meazza</h1>
-    <p class="role">Java Software Engineer</p>
-    <p class="meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Milano, Lombardia, Italia</span></p>
-    <nav aria-label="Contatti">
-      <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:Meazza.Jhonatan@gmail.com">Meazza.Jhonatan@gmail.com</a></p>
-      <p><i class="fa-brands fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/jhonatan-meazza-9aba1b178" target="_blank" rel="noopener">linkedin.com/in/jhonatan-meazza-9aba1b178</a></p>
-    </nav>
-  </header>
+<div class="wrap">
+  <div class="nav">
+    <a class="brand" href="#">
+      <span class="dot"></span>
+      <strong>Jhon</strong>
+      <span style="color:var(--muted);font-weight:700;font-size:12px">presentazione</span>
+    </a>
+    <div class="links">
+      <a class="btn" href="#progetti">Progetti</a>
+      <a class="btn" href="#cosa-faccio">Cosa faccio</a>
+      <a class="btn" href="#contatti">Contatti</a>
+    </div>
+  </div>
 
-  <main class="content" id="main-content">
-    <section class="summary" aria-labelledby="riassunto">
-      <h2 id="riassunto">Riepilogo</h2>
-      <p>Developer Java con esperienza su Spring (Core, MVC, Security), JPA/Hibernate, Maven, MySQL e sviluppo Web (HTML, CSS, JavaScript, jQuery). Conoscenza di JSP/JSTL e progettazione REST API. Abituato a pattern come MVC, Facade, Adapter e Singleton. Programma Garanzia Giovani completato.</p>
-    </section>
+  <section class="hero">
+    <div class="kicker">Sviluppo prodotti digitali</div>
+    <h1>Costruisco app e strumenti che la gente usa davvero.</h1>
+    <p class="sub">
+      Sono Jhon. Mi piace trasformare idee in prodotti concreti: design pulito, logica solida, UX veloce.
+      Se una cosa non serve, non la metto. Se serve, la faccio bene.
+    </p>
 
-    <section class="experience" aria-labelledby="esperienza">
-      <h2 id="esperienza">Esperienza</h2>
-      <ul class="timeline">
-        <li>
-          <p><strong>Software Inside Srl</strong> — Sviluppatore Java</p>
-          <p class="when">ott 2024 – presente · Milano</p>
+    <div class="ctaRow">
+      <a class="cta primary" href="#progetti">Vedi i progetti</a>
+      <a class="cta" href="#contatti">Parliamone</a>
+      <a class="cta" href="privacy.html">Privacy</a>
+      <a class="cta" href="gdpr.html">GDPR</a>
+    </div>
+
+    <div class="grid">
+      <div class="card span7">
+        <h3>Approccio</h3>
+        <p>
+          Pragmatico. Iterazioni piccole. Bugfix uno alla volta. Priorità a stabilità e performance.
+          L’obiettivo è la release, non la teoria.
+        </p>
+      </div>
+      <div class="card span5">
+        <h3>Stack preferito</h3>
+        <p>React + Capacitor, UI curata, local-first quando ha senso, integrazioni native quando servono.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="progetti" class="grid" style="margin-top:18px">
+    <div class="card span12">
+      <div class="badge">Progetti</div>
+      <h2 style="margin:10px 0 0;font-size:20px">Cosa sto costruendo</h2>
+      <p style="margin:6px 0 0;color:var(--muted);max-width:80ch">
+        Alcuni esempi reali di prodotto, non demo da portfolio.
+      </p>
+    </div>
+
+    <div class="card span6">
+      <h3>HAIP — How Am I Poor</h3>
+      <p>
+        App finanza personale con tono ironico: local-first, niente login, premium + ads non invasive.
+        Obiettivo: velocità, chiarezza, e una UX che ti “giudica” con stile.
+      </p>
+      <ul class="list">
+        <li class="pill">
+          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--accent2);margin-top:6px"></div>
+          <div>
+            <b>Punti forti</b>
+            <small>Grafici + movimenti, ricorrenti premium, onboarding chiaro, notifiche Android.</small>
+          </div>
         </li>
-        <li>
-          <p><strong>Fides</strong> — Software Engineer</p>
-          <p class="when">mag 2024 – ago 2024</p>
-        </li>
-        <li>
-          <p><strong>Nextre</strong> — Junior Java Developer / Sviluppatore Java</p>
-          <p class="when">lug 2020 – ott 2024</p>
-        </li>
-        <li>
-          <p><strong>Samarcanda Intrattenimenti</strong> — Animatore (ragazzi 14–17)</p>
-          <p class="when">giu 2018 – set 2018</p>
+        <li class="pill">
+          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--accent);margin-top:6px"></div>
+          <div>
+            <b>Monetizzazione</b>
+            <small>Premium per feature avanzate, ads native in punti strategici (non invasive).</small>
+          </div>
         </li>
       </ul>
-    </section>
+    </div>
 
-    <section class="education" aria-labelledby="formazione">
-      <h2 id="formazione">Formazione</h2>
-      <p><strong>Programmatore Java Junior</strong> — Generation Italy (2019 – 2020)</p>
-      <p><strong>IELTS</strong> — Oxford House College (2015)</p>
-      <p><strong>Chimico Biologo</strong> — IPSIA Ferraris Pacinotti (2009 – 2013)</p>
-    </section>
-
-    <section class="projects" aria-labelledby="progetti">
-      <h2 id="progetti">Progetti personali</h2>
-      <ul>
-        <li>Portfolio / Home: <a href="https://jhon-apps.github.io/jhon.github.io/" target="_blank" rel="noopener">jhon-apps.github.io/jhon.github.io</a></li>
-        <li>Esempio: <a href="https://www.google.it" target="_blank" rel="noopener">www.google.it</a> <span class="when">(placeholder — sostituire con progetti reali)</span></li>
+    <div class="card span6">
+      <h3>Tooling & automazioni</h3>
+      <p>
+        Mi piace costruire strumenti interni per ridurre frizione: checklists di release, debug tools, pipeline di dati,
+        e tutto ciò che rende lo sviluppo più ripetibile.
+      </p>
+      <ul class="list">
+        <li class="pill">
+          <div style="min-width:10px;height:10px;border-radius:999px;background:#22c55e;margin-top:6px"></div>
+          <div>
+            <b>Obiettivo</b>
+            <small>Ridurre errori umani e tempi morti, soprattutto in fase di release.</small>
+          </div>
+        </li>
       </ul>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <section id="cosa-faccio" class="grid" style="margin-top:18px">
+    <div class="card span12">
+      <div class="badge">In pratica</div>
+      <h2 style="margin:10px 0 0;font-size:20px">Cosa posso portare in un team</h2>
+    </div>
+
+    <div class="card span6">
+      <h3>Product + Engineering</h3>
+      <p>
+        Lavoro bene quando prodotto e tecnica sono la stessa conversazione: flussi, edge-case, priorità, e release.
+      </p>
+    </div>
+
+    <div class="card span6">
+      <h3>Qualità e performance</h3>
+      <p>
+        Debug solido, attenzione a regressioni, UX fluida su device reali. Il “quasi” in produzione costa.
+      </p>
+    </div>
+  </section>
+
+  <section id="contatti" class="grid" style="margin-top:18px">
+    <div class="card span12">
+      <div class="badge">Contatti</div>
+      <h2 style="margin:10px 0 0;font-size:20px">Vuoi parlarmi?</h2>
+      <p style="margin:6px 0 0;color:var(--muted);max-width:80ch">
+        Se ti interessa collaborare o hai un’idea concreta, scrivimi con due righe: obiettivo, tempi, vincoli.
+      </p>
+
+      <div class="ctaRow" style="margin-top:14px">
+        <!-- Sostituisci con i tuoi link reali -->
+        <a class="cta primary" href="mailto:your-email@example.com">Scrivimi via email</a>
+        <a class="cta" href="#" onclick="alert('Metti qui il link al tuo profilo GitHub/LinkedIn'); return false;">Link profilo</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <span>© <span id="y"></span> Jhon — pagina di presentazione</span>
+    <span class="links">
+        <a href="privacy.html">Privacy</a>
+        <a href="gdpr.html">GDPR</a>
+      </span>
+  </div>
 </div>
 
-<div class="function-bar" role="toolbar" aria-label="Azioni rapide">
-  <button type="button" onclick="location.reload()" title="Ricarica pagina"><i class="fas fa-sync-alt" aria-hidden="true"></i> <span class="sr-only">Ricarica</span></button>
-  <button type="button" onclick="window.location.href='https://jhon-apps.github.io/jhon.github.io/'" title="Vai alla Home"><i class="fas fa-home" aria-hidden="true"></i> <span>Home</span></button>
-  <button type="button" onclick="window.print()" title="Stampa"><i class="fa-solid fa-print" aria-hidden="true"></i> <span>Stampa</span></button>
-</div>
-
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear()
+</script>
 </body>
 </html>
