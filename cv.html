@@ -1,21 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Jhonatan Meazza · Java Backend Engineer · Jhon-Apps</title>
+    <title>Jhonatan Meazza · Java Backend Engineer</title>
+    <meta name="description" content="Jhonatan Meazza — Java Backend Engineer (5+ anni). Spring Boot, microservizi, REST, integrazioni. Milano." />
 
-    <meta name="description" content="Jhonatan Meazza — Java Backend Engineer (5+ anni). Microservizi, integrazioni e backend Spring Boot in contesti enterprise. Jhon-Apps." />
-
-    <meta property="og:title" content="Jhonatan Meazza · Java Backend Engineer · Jhon-Apps" />
-    <meta property="og:description" content="Java Backend Engineer (5+ anni). Spring Boot, microservizi, REST, integrazioni, qualità e manutenibilità. Contatti e link." />
+    <meta property="og:title" content="Jhonatan Meazza · Java Backend Engineer" />
+    <meta property="og:description" content="Esperienza enterprise: Spring Boot, microservizi, REST, integrazioni, qualità e manutenibilità." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/stylescv.css">
 
     <script type="application/ld+json">
         {
@@ -23,59 +21,369 @@
             "@type": "Person",
             "name": "Jhonatan Meazza",
             "jobTitle": "Java Backend Engineer",
-            "address": {
-                "@type":"PostalAddress",
-                "addressLocality":"Milano",
-                "addressRegion":"Lombardia",
-                "addressCountry":"IT"
-            },
+            "address": {"@type":"PostalAddress","addressLocality":"Milano","addressRegion":"Lombardia","addressCountry":"IT"},
             "email": "mailto:info.jhonapps@gmail.com",
             "url": "https://jhon-apps.github.io/",
-            "sameAs": [
-                "https://www.linkedin.com/in/jhonatan-meazza-9aba1b178"
-            ]
+            "sameAs": ["https://www.linkedin.com/in/jhonatan-meazza-9aba1b178"]
         }
     </script>
+
+    <style>
+        :root{
+            --bg:#f5f7fb;
+            --card:#ffffff;
+            --ink:#0f172a;
+            --ink-soft:#334155;
+            --muted:#64748b;
+
+            --brand:#0f3b57;
+            --brand-2:#0b2e45;
+
+            --border: rgba(15, 23, 42, 0.12);
+            --shadow: 0 14px 40px rgba(2, 6, 23, 0.10);
+            --shadow-soft: 0 10px 24px rgba(2, 6, 23, 0.08);
+
+            --radius: 16px;
+            --radius-sm: 12px;
+
+            --pad: 22px;
+            --pad-sm: 16px;
+
+            --max: 1120px;
+        }
+
+        *{box-sizing:border-box}
+        html,body{height:100%}
+
+        body{
+            margin: 0;
+            padding: 14px;
+            background:
+                    radial-gradient(900px 520px at 12% -10%, rgba(59,130,246,0.10), transparent 60%),
+                    radial-gradient(900px 520px at 92% -10%, rgba(245,158,11,0.10), transparent 60%),
+                    var(--bg);
+            color: var(--ink);
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+            line-height: 1.55;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+
+        .container{
+            width: min(96%, var(--max));
+            margin: 0 auto;
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow:hidden;
+            border: 1px solid var(--border);
+            display:flex;
+        }
+
+        main.content{
+            width: 72%;
+            padding: 22px;
+            background: var(--card);
+        }
+
+        aside.side{
+            width: 28%;
+            min-width: 270px;
+            border-left: 1px solid var(--border);
+            background: rgba(2, 6, 23, 0.02);
+            padding: 18px;
+            display:flex;
+            flex-direction:column;
+            gap: 12px;
+        }
+
+        .side-card{
+            border: 1px solid rgba(15,23,42,0.10);
+            border-radius: var(--radius-sm);
+            background: rgba(255,255,255,0.72);
+            padding: 14px;
+        }
+
+        .side-title{
+            font-weight: 950;
+            color: var(--brand);
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .side-btn{
+            width: 100%;
+            display:flex;
+            align-items:center;
+            gap: 10px;
+            justify-content:flex-start;
+            border: 1px solid rgba(15,23,42,0.12);
+            background: #ffffff;
+            padding: 10px 12px;
+            border-radius: 12px;
+            cursor:pointer;
+            font-weight: 850;
+            color: var(--ink);
+            text-decoration: none;
+            transition: transform .08s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
+            margin-top: 8px;
+        }
+
+        .side-btn:hover{
+            border-color: rgba(15,23,42,0.18);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .side-btn:active{ transform: scale(0.985); }
+
+        .side-btn.primary{
+            background: linear-gradient(180deg, rgba(15,59,87,1), rgba(11,46,69,1));
+            color:#fff;
+            border-color: rgba(15,59,87,0.35);
+        }
+
+        .side-btn.primary:hover{ border-color: rgba(15,59,87,0.55); }
+
+        .side-small{
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .mono{
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        .header{
+            display:flex;
+            align-items:flex-start;
+            justify-content:space-between;
+            gap: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+            margin-bottom: 18px;
+        }
+
+        .title h1{
+            margin: 0;
+            font-size: 1.95rem;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+
+        .role{
+            margin: 6px 0 0;
+            font-weight: 950;
+            color: var(--brand);
+        }
+
+        .meta{
+            margin: 8px 0 0;
+            color: var(--muted);
+            display:flex;
+            align-items:center;
+            gap: 10px;
+        }
+
+        .chips{
+            display:flex;
+            flex-wrap:wrap;
+            gap: 8px;
+            justify-content:flex-end;
+            max-width: 380px;
+        }
+
+        .chip{
+            border: 1px solid rgba(15,23,42,0.10);
+            background: rgba(2,6,23,0.02);
+            color: var(--ink-soft);
+            font-weight: 950;
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        h2{
+            margin: 0 0 12px;
+            font-size: 1.18rem;
+            letter-spacing: -0.01em;
+            color: var(--brand);
+        }
+
+        section{ margin-bottom: 22px; }
+
+        section p{
+            margin: 8px 0;
+            color: var(--ink-soft);
+            font-size: 0.98rem;
+        }
+
+        .muted{ color: var(--muted); }
+
+        .section-head{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .section-hint{
+            font-size: 12px;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .exp-list{
+            display:flex;
+            flex-direction:column;
+            gap: 12px;
+            max-height: 560px;
+            overflow: auto;
+            padding-right: 6px;
+        }
+
+        .exp-list::-webkit-scrollbar{width:10px}
+        .exp-list::-webkit-scrollbar-track{background:transparent}
+        .exp-list::-webkit-scrollbar-thumb{
+            background: rgba(15,23,42,0.12);
+            border-radius: 999px;
+            border: 2px solid rgba(255,255,255,0.72);
+        }
+
+        .exp-card{
+            border: 1px solid rgba(15,23,42,0.10);
+            border-radius: var(--radius-sm);
+            background: rgba(2, 6, 23, 0.02);
+            padding: 14px;
+        }
+
+        .exp-top{
+            display:flex;
+            align-items:flex-start;
+            justify-content:space-between;
+            gap: 10px;
+        }
+
+        .exp-company{
+            font-weight: 950;
+            color: var(--ink);
+        }
+
+        .exp-role{
+            font-weight: 850;
+            color: var(--ink-soft);
+            margin-top: 2px;
+        }
+
+        .exp-meta{
+            color: var(--muted);
+            font-size: 12px;
+            display:flex;
+            flex-direction:column;
+            gap: 4px;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .exp-bullets{
+            margin: 10px 0 0;
+            padding-left: 18px;
+            color: var(--ink-soft);
+        }
+
+        .exp-bullets li{ margin: 6px 0; }
+
+        .exp-tags{
+            display:flex;
+            flex-wrap:wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag{
+            font-size: 12px;
+            font-weight: 950;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(15,23,42,0.10);
+            background: rgba(255,255,255,0.80);
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .edu-grid{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .edu-card{
+            border: 1px solid rgba(15,23,42,0.10);
+            border-radius: var(--radius-sm);
+            background: rgba(2,6,23,0.02);
+            padding: 14px;
+        }
+
+        .edu-title{ font-weight: 950; color: var(--ink); }
+        .edu-meta{ margin-top: 4px; color: var(--muted); font-size: 12px; }
+        .edu-desc{ margin-top: 8px; color: var(--ink-soft); font-size: 13px; }
+
+        @media (max-width: 780px){
+            body{padding: 10px}
+            .container{flex-direction: column;}
+            main.content{width: 100%; padding: 16px;}
+            aside.side{
+                width: 100%;
+                min-width: 0;
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+            .chips{justify-content:flex-start; max-width:none;}
+            .edu-grid{grid-template-columns: 1fr;}
+            .exp-list{max-height: 520px;}
+            .exp-meta{text-align:left; white-space: normal;}
+            .exp-top{flex-direction: column;}
+        }
+
+        @media print{
+            body{background:#fff;padding:0}
+            .container{
+                width:auto; max-width:none;
+                box-shadow:none; border:none;
+            }
+            aside.side{display:none}
+            .exp-list{max-height:none; overflow: visible; padding-right: 0;}
+            a[href]:after{content:" (" attr(href) ")"; font-size:.85em}
+        }
+    </style>
 </head>
 
 <body>
 <div class="container" role="document">
-    <header class="profile" aria-labelledby="name">
-        <h1 id="name">Jhonatan Meazza</h1>
-        <p class="role">Java Backend Engineer · Jhon-Apps</p>
-        <p class="meta">
-            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-            <span>Milano, Lombardia, Italia</span>
-        </p>
-
-        <nav aria-label="Contatti">
-            <p>
-                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                <a href="mailto:info.jhonapps@gmail.com">info.jhonapps@gmail.com</a>
-            </p>
-
-            <p>
-                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-                <a href="https://www.linkedin.com/in/jhonatan-meazza-9aba1b178" target="_blank" rel="noopener">
-                    linkedin.com/in/jhonatan-meazza-9aba1b178
-                </a>
-            </p>
-
-            <p>
-                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-                <a href="https://jhon-apps.github.io/privacy" target="_blank" rel="noopener">Privacy</a>
-                <span style="opacity:.6"> · </span>
-                <a href="https://jhon-apps.github.io/gdpr" target="_blank" rel="noopener">GDPR</a>
-            </p>
-
-            <p>
-                <i class="fa-solid fa-globe" aria-hidden="true"></i>
-                <a href="https://jhon-apps.github.io/" target="_blank" rel="noopener">jhon-apps.github.io</a>
-            </p>
-        </nav>
-    </header>
-
     <main class="content" id="main-content">
+        <header class="header">
+            <div class="title">
+                <h1 id="name">Jhonatan Meazza</h1>
+                <p class="role">Java Backend Engineer · Jhon-Apps</p>
+                <p class="meta">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <span>Milano, Lombardia, Italia</span>
+                </p>
+            </div>
+
+            <div class="chips" aria-label="Competenze chiave">
+                <span class="chip">Java</span>
+                <span class="chip">Spring Boot</span>
+                <span class="chip">Microservizi</span>
+                <span class="chip">REST</span>
+                <span class="chip">Git</span>
+                <span class="chip">Jenkins</span>
+            </div>
+        </header>
+
         <section class="summary" aria-labelledby="riassunto">
             <h2 id="riassunto">Presentazione</h2>
             <p>
@@ -83,90 +391,304 @@
                 Abituato a lavorare per obiettivi, con alta autonomia tecnica e minima necessità di supervisione.
                 Specializzato nello sviluppo di <strong>microservizi</strong>, integrazioni e backend applicativi basati su <strong>Spring Boot</strong>,
                 con attenzione a stabilità, qualità del codice e manutenibilità.
-                Prediligo contesti organizzati, roadmap chiare e tecnologie moderne e consolidate.
+            </p>
+            <p class="muted">
+                Preferisco contesti organizzati, roadmap chiare e tecnologie moderne e consolidate.
             </p>
         </section>
 
         <section class="experience" aria-labelledby="esperienza">
-            <h2 id="esperienza">Esperienza (sintesi)</h2>
-            <ul class="timeline">
-                <li>
-                    <p><strong>Software Inside Srl</strong> — Sviluppatore back-end</p>
-                    <p class="when">ott 2024 – presente · Milano</p>
-                    <p class="when">Focus: Java / integrazioni / REST / Git</p>
-                </li>
+            <div class="section-head">
+                <h2 id="esperienza">Esperienza</h2>
+                <div class="section-hint">Scorri: elenco completo</div>
+            </div>
 
-                <li>
-                    <p><strong>Fides</strong> — Sviluppatore back-end</p>
-                    <p class="when">mag 2024 – ago 2024</p>
-                    <p class="when">Focus: REST / contesti enterprise</p>
-                </li>
+            <div class="exp-list" role="list" aria-label="Elenco esperienze">
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">Software Inside Srl</div>
+                            <div class="exp-role">Sviluppatore back-end</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> ott 2024 – presente</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Italia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Competenze: Git, REST, Jenkins.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Git</span><span class="tag">REST</span><span class="tag">Jenkins</span>
+                    </div>
+                </article>
 
-                <li>
-                    <p><strong>Nextre</strong> — Junior Java Developer / Sviluppatore Java</p>
-                    <p class="when">lug 2020 – ott 2024 · Milano</p>
-                    <p class="when">Focus: Java / Spring / REST / Git</p>
-                </li>
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">Nextre</div>
+                            <div class="exp-role">Junior Java Developer</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> lug 2020 – ott 2024</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Lombardia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Competenze: REST.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">REST</span>
+                    </div>
+                </article>
 
-                <li>
-                    <p><strong>Samarcanda Intrattenimenti</strong> — Animatore (ragazzi 14–17)</p>
-                    <p class="when">giu 2017 – set 2018</p>
-                </li>
-            </ul>
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">Nextre</div>
+                            <div class="exp-role">Sviluppatore Java</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> lug 2020 – mag 2024</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Lombardia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Competenze: Git, REST, Angular, Java, Framework Spring, Java Persistence API, JavaScript, AngularJS, Jenkins, HTML5, HTML, CSS.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Java</span><span class="tag">Spring</span><span class="tag">JPA</span><span class="tag">REST</span>
+                        <span class="tag">Git</span><span class="tag">Jenkins</span><span class="tag">Angular</span><span class="tag">JavaScript</span>
+                        <span class="tag">HTML/CSS</span>
+                    </div>
+                </article>
+
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">Fides</div>
+                            <div class="exp-role">Sviluppatore back-end</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> mag 2024 – ago 2024</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Italia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Competenze: REST.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">REST</span>
+                    </div>
+                </article>
+
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">Samarcanda Intrattenimenti</div>
+                            <div class="exp-role">Animatore (ragazzi 14–17)</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> giu 2018 – set 2018</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Italia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Attività con ragazzi 14–17.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Team</span><span class="tag">Gestione</span>
+                    </div>
+                </article>
+
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">Samarcanda Intrattenimenti</div>
+                            <div class="exp-role">Animatore (ragazzi 14–17)</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> giu 2017 – set 2017</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Vibo Valentia, Italia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Attività con ragazzi 14–17.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Team</span><span class="tag">Responsabilità</span>
+                    </div>
+                </article>
+
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">Fidelity My App</div>
+                            <div class="exp-role">Venditore</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> apr 2017 – giu 2017</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Lombardia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Vendita e gestione clientela (software e gestione pubblicità).</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Sales</span><span class="tag">Clienti</span>
+                    </div>
+                </article>
+
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">Key Group</div>
+                            <div class="exp-role">Venditore (su appuntamento)</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> dic 2016 – mar 2017</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Lombardia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Vendita su appuntamento.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Sales</span><span class="tag">Appuntamenti</span>
+                    </div>
+                </article>
+
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">empire group</div>
+                            <div class="exp-role">Promoter vendite (Vodafone)</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> mar 2016 – dic 2016</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Lombardia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Promozione e supporto vendite (Vodafone).</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Sales</span><span class="tag">Retail</span>
+                    </div>
+                </article>
+
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">OM Group Spa</div>
+                            <div class="exp-role">Promoter vendite (Mediaset Premium)</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> lug 2016 – set 2016</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Lombardia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Promozione e supporto vendite (Mediaset Premium).</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Sales</span><span class="tag">Retail</span>
+                    </div>
+                </article>
+
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">ASA</div>
+                            <div class="exp-role">Operatore (ricercatore perdite acqua)</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> giu 2015 – set 2015</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Lombardia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Ricercatore perdite acqua (Milano e provincia).</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Operativo</span><span class="tag">Territorio</span>
+                    </div>
+                </article>
+
+                <article class="exp-card" role="listitem">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-company">Securitalia</div>
+                            <div class="exp-role">Operatore sicurezza (Expo 2015)</div>
+                        </div>
+                        <div class="exp-meta">
+                            <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> giu 2015 – lug 2015</div>
+                            <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Lombardia</div>
+                        </div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Sicurezza Expo 2015.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Sicurezza</span><span class="tag">Evento</span>
+                    </div>
+                </article>
+            </div>
         </section>
 
         <section class="education" aria-labelledby="formazione">
             <h2 id="formazione">Formazione</h2>
-            <p><strong>Programmatore Java Junior</strong> — Generation Italy (2019 – 2020)</p>
-            <p class="when">Java, pattern, SQL/MySQL, web (Servlet/Spring MVC), ORM (JDBC/JPA)</p>
-
-            <p><strong>IELTS</strong> — Oxford House College (2015)</p>
-            <p class="when">Inglese: conoscenza professionale completa</p>
-
-            <p><strong>Chimico Biologo</strong> — IPSIA Ferraris Pacinotti (2009 – 2013)</p>
-        </section>
-
-        <section class="projects" aria-labelledby="progetti">
-            <h2 id="progetti">Progetti</h2>
-            <ul>
-                <li>
-                    <strong>Jhon-Apps</strong>:
-                    <a href="https://jhon-apps.github.io/" target="_blank" rel="noopener">jhon-apps.github.io</a>
-                    <span class="when">(hub)</span>
-                </li>
-                <li>
-                    <strong>HAIP — How Am I Poor</strong>:
-                    <span class="when">app finanza personale local-first (premium + ads non invasive)</span>
-                </li>
-            </ul>
-        </section>
-
-        <section class="skills" aria-labelledby="competenze">
-            <h2 id="competenze">Competenze principali</h2>
-            <ul>
-                <li><strong>Java</strong>, backend applicativi, manutenzione evolutiva</li>
-                <li><strong>Spring Boot</strong>, architetture a servizi, integrazioni</li>
-                <li><strong>REST</strong>, API, pattern di integrazione</li>
-                <li><strong>Git</strong>, collaborazione e workflow</li>
-                <li><strong>Qualità</strong>: stabilità, refactoring ragionato, manutenibilità</li>
-            </ul>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <div class="edu-title">Generation Italy</div>
+                    <div class="edu-meta">2019 – 2020</div>
+                    <div class="edu-desc">Java, pattern, SQL/MySQL, web, ORM (JDBC/JPA).</div>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-title">Oxford House College</div>
+                    <div class="edu-meta">2015</div>
+                    <div class="edu-desc">IELTS — Inglese (conoscenza professionale completa).</div>
+                </div>
+            </div>
         </section>
     </main>
+
+    <aside class="side" aria-label="Azioni utili">
+        <div class="side-card">
+            <div class="side-title">Azioni</div>
+
+            <a class="side-btn primary" href="mailto:info.jhonapps@gmail.com">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span>Email</span>
+            </a>
+
+            <a class="side-btn" href="https://www.linkedin.com/in/jhonatan-meazza-9aba1b178" target="_blank" rel="noopener">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                <span>LinkedIn</span>
+            </a>
+
+            <a class="side-btn" href="https://jhon-apps.github.io/" target="_blank" rel="noopener">
+                <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                <span>Jhon-Apps</span>
+            </a>
+
+            <button class="side-btn" type="button" onclick="window.print()">
+                <i class="fa-solid fa-print" aria-hidden="true"></i>
+                <span>Stampa</span>
+            </button>
+
+            <button class="side-btn" type="button" onclick="navigator.clipboard && navigator.clipboard.writeText(window.location.href)">
+                <i class="fa-solid fa-link" aria-hidden="true"></i>
+                <span>Copia link</span>
+            </button>
+        </div>
+
+        <div class="side-card">
+            <div class="side-title">Contatto</div>
+            <div class="side-small mono">info.jhonapps@gmail.com</div>
+            <div class="side-small">Milano, Italia</div>
+        </div>
+    </aside>
 </div>
-
-<div class="function-bar" role="toolbar" aria-label="Azioni rapide">
-    <button type="button" onclick="location.reload()" title="Ricarica pagina">
-        <i class="fas fa-sync-alt" aria-hidden="true"></i> <span class="sr-only">Ricarica</span>
-    </button>
-
-    <button type="button" onclick="window.location.href='https://jhon-apps.github.io/'" title="Vai alla Home Jhon-Apps">
-        <i class="fas fa-home" aria-hidden="true"></i> <span>Home</span>
-    </button>
-
-    <button type="button" onclick="window.print()" title="Stampa">
-        <i class="fa-solid fa-print" aria-hidden="true"></i> <span>Stampa</span>
-    </button>
-</div>
-
 </body>
 </html>
