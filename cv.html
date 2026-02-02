@@ -22,7 +22,7 @@
             "name": "Jhonatan Meazza",
             "jobTitle": "Java Backend Engineer",
             "address": {"@type":"PostalAddress","addressLocality":"Milano","addressRegion":"Lombardia","addressCountry":"IT"},
-            "email": "mailto:info.jhonapps@gmail.com",
+            "email": "mailto:meazza.jhonatan@gmail.com",
             "url": "https://jhon-apps.github.io/",
             "sameAs": ["https://www.linkedin.com/in/jhonatan-meazza-9aba1b178"]
         }
@@ -163,6 +163,23 @@
             padding-bottom: 14px;
             border-bottom: 1px solid rgba(15, 23, 42, 0.10);
             margin-bottom: 18px;
+        }
+
+        .head-left{
+            display:flex;
+            align-items:flex-start;
+            gap: 14px;
+        }
+
+        .avatar{
+            width: 66px;
+            height: 66px;
+            border-radius: 999px;
+            border: 2px solid rgba(15,23,42,0.10);
+            box-shadow: 0 10px 22px rgba(2,6,23,0.10);
+            object-fit: cover;
+            background: rgba(2,6,23,0.02);
+            flex: 0 0 auto;
         }
 
         .title h1{
@@ -349,6 +366,7 @@
             .exp-list{max-height: 520px;}
             .exp-meta{text-align:left; white-space: normal;}
             .exp-top{flex-direction: column;}
+            .avatar{width:58px;height:58px;}
         }
 
         @media print{
@@ -383,13 +401,18 @@
         ========================== -->
         <div class="web-only">
             <header class="header">
-                <div class="title">
-                    <h1 id="name">Jhonatan Meazza</h1>
-                    <p class="role">Java Backend Engineer · Jhon-Apps</p>
-                    <p class="meta">
-                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                        <span>Milano, Lombardia, Italia</span>
-                    </p>
+                <div class="head-left">
+                    <!-- FOTO: salva la tua immagine come assets/me.png (o cambia il path) -->
+                    <img class="avatar" src="assets/me.png" alt="Foto di Jhonatan Meazza" />
+
+                    <div class="title">
+                        <h1 id="name">Jhonatan Meazza</h1>
+                        <p class="role">Java Backend Engineer · Jhon-Apps</p>
+                        <p class="meta">
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <span>Milano, Lombardia, Italia</span>
+                        </p>
+                    </div>
                 </div>
 
                 <div class="chips" aria-label="Competenze chiave">
@@ -512,7 +535,7 @@
                         </div>
                     </article>
 
-                    <!-- Le tue esperienze extra (come nel tuo HTML originale) -->
+                    <!-- Esperienze extra (come nel tuo HTML originale) -->
                     <article class="exp-card" role="listitem">
                         <div class="exp-top">
                             <div>
@@ -713,18 +736,23 @@
         <section class="print-only" aria-label="CV completo (stampa)">
             <div style="padding:22px">
                 <div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:1px solid rgba(15,23,42,0.12);padding-bottom:12px;margin-bottom:14px;">
-                    <div>
-                        <div style="font-size:22px;font-weight:950;letter-spacing:-0.02em;">Jhonatan Meazza</div>
-                        <div style="margin-top:4px;font-weight:900;color:var(--brand);">Java Backend Engineer · Jhon-Apps</div>
-                        <div style="margin-top:6px;color:var(--muted);font-size:12px;">
-                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                            Milano, Lombardia, Italia
-                            &nbsp;·&nbsp;
-                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            info.jhonapps@gmail.com
-                            &nbsp;·&nbsp;
-                            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-                            linkedin.com/in/jhonatan-meazza-9aba1b178
+                    <div style="display:flex;gap:12px;align-items:flex-start;">
+                        <!-- FOTO ANCHE IN STAMPA -->
+                        <img src="assets/me.png" alt="Foto di Jhonatan Meazza"
+                             style="width:64px;height:64px;border-radius:999px;object-fit:cover;border:2px solid rgba(15,23,42,0.10);" />
+                        <div>
+                            <div style="font-size:22px;font-weight:950;letter-spacing:-0.02em;">Jhonatan Meazza</div>
+                            <div style="margin-top:4px;font-weight:900;color:var(--brand);">Java Backend Engineer · Jhon-Apps</div>
+                            <div style="margin-top:6px;color:var(--muted);font-size:12px;">
+                                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                                Milano, Lombardia, Italia
+                                &nbsp;·&nbsp;
+                                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                                meazza.jhonatan@gmail.com
+                                &nbsp;·&nbsp;
+                                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                                linkedin.com/in/jhonatan-meazza-9aba1b178
+                            </div>
                         </div>
                     </div>
 
@@ -835,7 +863,7 @@
         <div class="side-card">
             <div class="side-title">Azioni</div>
 
-            <a class="side-btn primary" href="mailto:info.jhonapps@gmail.com">
+            <a class="side-btn primary" href="mailto:meazza.jhonatan@gmail.com">
                 <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                 <span>Email</span>
             </a>
@@ -863,7 +891,7 @@
 
         <div class="side-card">
             <div class="side-title">Contatto</div>
-            <div class="side-small mono">info.jhonapps@gmail.com</div>
+            <div class="side-small mono">meazza.jhonatan@gmail.com</div>
             <div class="side-small">Milano, Italia</div>
             <div class="side-small">Lingue: Italiano (madrelingua), Inglese (IELTS)</div>
         </div>
