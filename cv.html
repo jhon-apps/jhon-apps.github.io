@@ -47,6 +47,8 @@
             --radius-sm: 12px;
 
             --max: 1120px;
+
+            --pad: 22px;
         }
 
         *{box-sizing:border-box}
@@ -76,12 +78,14 @@
             overflow:hidden;
             border: 1px solid var(--border);
             display:flex;
+            min-width: 0; /* important per evitare overflow su flex */
         }
 
         main.content{
             width: 72%;
-            padding: 22px;
+            padding: var(--pad);
             background: var(--card);
+            min-width: 0;
         }
 
         aside.side{
@@ -93,6 +97,7 @@
             display:flex;
             flex-direction:column;
             gap: 12px;
+            min-width: 0;
         }
 
         .side-card{
@@ -146,6 +151,7 @@
             color: var(--muted);
             font-size: 13px;
             margin-top: 6px;
+            word-break: break-word;
         }
 
         .mono{
@@ -166,6 +172,7 @@
             display:flex;
             align-items:flex-start;
             gap: 14px;
+            min-width: 0;
         }
 
         .avatar{
@@ -177,6 +184,10 @@
             object-fit: cover;
             background: rgba(2,6,23,0.02);
             flex: 0 0 auto;
+        }
+
+        .title{
+            min-width: 0;
         }
 
         .title h1{
@@ -198,6 +209,7 @@
             display:flex;
             align-items:center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .chips{
@@ -272,6 +284,7 @@
             white-space: nowrap;
         }
 
+        /* Desktop: lista scrollabile, Mobile: naturale (no max-height) */
         .exp-list{
             display:flex;
             flex-direction:column;
@@ -279,6 +292,7 @@
             max-height: 560px;
             overflow: auto;
             padding-right: 6px;
+            min-width: 0;
         }
 
         .exp-list::-webkit-scrollbar{width:10px}
@@ -322,6 +336,7 @@
             gap: 4px;
             white-space: nowrap;
             text-align: right;
+            flex: 0 0 auto;
         }
 
         .exp-bullets{
@@ -418,6 +433,7 @@
             border-radius: 12px;
             background: rgba(2,6,23,0.02);
             padding: 14px;
+            min-width: 0;
         }
 
         .edu-title{ font-weight: 950; color: var(--ink); }
@@ -425,25 +441,103 @@
         .edu-desc{ margin-top: 8px; color: var(--ink-soft); font-size: 13px; }
 
         .print-only{display:none;}
+        .web-only{display:block;}
 
-        @media (max-width: 780px){
+        /* =========================
+           RESPONSIVE: chiara
+           - breakpoint 900: sidebar sotto
+           - breakpoint 520: header ancora più compatto
+        ========================== */
+
+        @media (max-width: 900px){
             body{padding: 10px}
-            .container{flex-direction: column;}
-            main.content{width: 100%; padding: 16px;}
+
+            :root{ --pad: 16px; }
+
+            .container{
+                flex-direction: column;
+            }
+
+            main.content{
+                width: 100%;
+                padding: var(--pad);
+            }
+
             aside.side{
                 width: 100%;
                 min-width: 0;
                 border-left: none;
                 border-top: 1px solid var(--border);
+                padding: 14px;
             }
-            .chips{justify-content:flex-start; max-width:none;}
-            .edu-grid{grid-template-columns: 1fr;}
-            .exp-list{max-height: 520px;}
-            .exp-meta{text-align:left; white-space: normal;}
-            .exp-top{flex-direction: column;}
-            .avatar{width:58px;height:58px;}
-            .extra-item .top{flex-direction:column;}
-            .extra-item .whenwhere{text-align:left; white-space:normal;}
+
+            .chips{
+                justify-content:flex-start;
+                max-width:none;
+            }
+
+            /* su mobile/tablet: niente scroll interno, altrimenti sembra “tagliato” */
+            .exp-list{
+                max-height: none;
+                overflow: visible;
+                padding-right: 0;
+            }
+
+            .exp-meta{
+                text-align:left;
+                white-space: normal;
+            }
+
+            .exp-top{
+                flex-direction: column;
+            }
+
+            .extra-item .top{
+                flex-direction:column;
+            }
+
+            .extra-item .whenwhere{
+                text-align:left;
+                white-space:normal;
+            }
+
+            .edu-grid{
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px){
+            .header{
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .head-left{
+                gap: 12px;
+            }
+
+            .avatar{
+                width: 56px;
+                height: 56px;
+            }
+
+            .title h1{
+                font-size: 1.55rem;
+            }
+
+            .chip{
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            .section-head{
+                flex-direction: column;
+                align-items:flex-start;
+            }
+
+            .section-hint{
+                white-space: normal;
+            }
         }
 
         @media print{
@@ -525,7 +619,7 @@
                 <div class="exp-list" role="list" aria-label="Elenco esperienze">
 
                     <div class="subhead" aria-label="Esperienze IT">
-                        <h<3><i class="fa-solid fa-code" aria-hidden="true"></i>&nbsp;Esperienze IT</h3>
+                        <h3><i class="fa-solid fa-code" aria-hidden="true"></i>&nbsp;Esperienze IT</h3>
                         <div class="subhint">dettaglio completo</div>
                     </div>
 
@@ -617,7 +711,7 @@
                         </div>
                     </article>
 
-                    <!-- NON-IT (come prima, ridotte) -->
+                    <!-- NON-IT (ridotte) -->
                     <details class="extra-wrap" aria-label="Altre esperienze (non IT)">
                         <summary>
                             <span><i class="fa-solid fa-briefcase" aria-hidden="true"></i>&nbsp;Altre esperienze (non IT)</span>
