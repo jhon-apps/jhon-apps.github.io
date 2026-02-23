@@ -47,12 +47,12 @@
             --radius-sm: 12px;
 
             --max: 1120px;
-
             --pad: 22px;
         }
 
         *{box-sizing:border-box}
-        html,body{height:100%}
+        html{height:auto}
+        body{min-height:100vh}
 
         body{
             margin: 0;
@@ -67,6 +67,7 @@
             display:flex;
             flex-direction:column;
             align-items:center;
+            overflow-y:auto;
         }
 
         .container{
@@ -78,7 +79,7 @@
             overflow:hidden;
             border: 1px solid var(--border);
             display:flex;
-            min-width: 0; /* important per evitare overflow su flex */
+            min-width: 0;
         }
 
         main.content{
@@ -186,9 +187,7 @@
             flex: 0 0 auto;
         }
 
-        .title{
-            min-width: 0;
-        }
+        .title{ min-width: 0; }
 
         .title h1{
             margin: 0;
@@ -284,23 +283,36 @@
             white-space: nowrap;
         }
 
-        /* Desktop: lista scrollabile, Mobile: naturale (no max-height) */
-        .exp-list{
+        /* =========================
+           WEB: carousel verticale per esperienze IT
+        ========================== */
+        .exp-carousel-wrap{
+            border: 1px solid rgba(15,23,42,0.10);
+            border-radius: 12px;
+            background: rgba(2, 6, 23, 0.01);
+            padding: 10px;
+        }
+
+        .exp-carousel{
             display:flex;
             flex-direction:column;
             gap: 12px;
-            max-height: 560px;
+
+            max-height: min(64vh, 560px);
             overflow: auto;
             padding-right: 6px;
-            min-width: 0;
+
+            scroll-snap-type: y proximity;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .exp-list::-webkit-scrollbar{width:10px}
-        .exp-list::-webkit-scrollbar-track{background:transparent}
-        .exp-list::-webkit-scrollbar-thumb{
-            background: rgba(15,23,42,0.12);
+        .exp-carousel::-webkit-scrollbar{width:10px}
+        .exp-carousel::-webkit-scrollbar-track{background:transparent}
+        .exp-carousel::-webkit-scrollbar-thumb{
+            background: rgba(15,23,42,0.14);
             border-radius: 999px;
-            border: 2px solid rgba(255,255,255,0.72);
+            border: 2px solid rgba(255,255,255,0.70);
         }
 
         .exp-card{
@@ -308,6 +320,7 @@
             border-radius: 12px;
             background: rgba(2, 6, 23, 0.02);
             padding: 14px;
+            scroll-snap-align: start;
         }
 
         .exp-top{
@@ -317,16 +330,8 @@
             gap: 10px;
         }
 
-        .exp-company{
-            font-weight: 950;
-            color: var(--ink);
-        }
-
-        .exp-role{
-            font-weight: 850;
-            color: var(--ink-soft);
-            margin-top: 2px;
-        }
+        .exp-company{ font-weight: 950; color: var(--ink); }
+        .exp-role{ font-weight: 850; color: var(--ink-soft); margin-top: 2px; }
 
         .exp-meta{
             color: var(--muted);
@@ -344,7 +349,6 @@
             padding-left: 18px;
             color: var(--ink-soft);
         }
-
         .exp-bullets li{ margin: 6px 0; }
 
         .exp-tags{
@@ -370,6 +374,7 @@
             border-radius: 12px;
             background: rgba(2,6,23,0.01);
             padding: 10px 12px;
+            margin-top: 12px;
         }
         details.extra-wrap > summary{
             cursor:pointer;
@@ -406,15 +411,8 @@
             gap:12px;
             align-items:flex-start;
         }
-        .extra-item .who{
-            font-weight: 950;
-            color: var(--ink);
-        }
-        .extra-item .what{
-            margin-top: 2px;
-            font-weight: 850;
-            color: var(--ink-soft);
-        }
+        .extra-item .who{ font-weight: 950; color: var(--ink); }
+        .extra-item .what{ margin-top: 2px; font-weight: 850; color: var(--ink-soft); }
         .extra-item .whenwhere{
             text-align:right;
             color: var(--muted);
@@ -427,7 +425,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 12px;
         }
-
         .edu-card{
             border: 1px solid rgba(15,23,42,0.10);
             border-radius: 12px;
@@ -435,7 +432,6 @@
             padding: 14px;
             min-width: 0;
         }
-
         .edu-title{ font-weight: 950; color: var(--ink); }
         .edu-meta{ margin-top: 4px; color: var(--muted); font-size: 12px; }
         .edu-desc{ margin-top: 8px; color: var(--ink-soft); font-size: 13px; }
@@ -444,25 +440,14 @@
         .web-only{display:block;}
 
         /* =========================
-           RESPONSIVE: chiara
-           - breakpoint 900: sidebar sotto
-           - breakpoint 520: header ancora più compatto
+           RESPONSIVE
         ========================== */
-
         @media (max-width: 900px){
             body{padding: 10px}
-
             :root{ --pad: 16px; }
 
-            .container{
-                flex-direction: column;
-            }
-
-            main.content{
-                width: 100%;
-                padding: var(--pad);
-            }
-
+            .container{ flex-direction: column; }
+            main.content{ width: 100%; padding: var(--pad); }
             aside.side{
                 width: 100%;
                 min-width: 0;
@@ -471,89 +456,181 @@
                 padding: 14px;
             }
 
-            .chips{
-                justify-content:flex-start;
-                max-width:none;
-            }
+            .chips{ justify-content:flex-start; max-width:none; }
 
-            /* su mobile/tablet: niente scroll interno, altrimenti sembra “tagliato” */
-            .exp-list{
-                max-height: none;
-                overflow: visible;
-                padding-right: 0;
-            }
+            .exp-meta{ text-align:left; white-space: normal; }
+            .exp-top{ flex-direction: column; }
 
-            .exp-meta{
-                text-align:left;
-                white-space: normal;
-            }
+            .edu-grid{ grid-template-columns: 1fr; }
 
-            .exp-top{
-                flex-direction: column;
-            }
-
-            .extra-item .top{
-                flex-direction:column;
-            }
-
-            .extra-item .whenwhere{
-                text-align:left;
-                white-space:normal;
-            }
-
-            .edu-grid{
-                grid-template-columns: 1fr;
-            }
+            .exp-carousel{ max-height: min(52vh, 520px); }
         }
 
         @media (max-width: 520px){
-            .header{
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .head-left{
-                gap: 12px;
-            }
-
-            .avatar{
-                width: 56px;
-                height: 56px;
-            }
-
-            .title h1{
-                font-size: 1.55rem;
-            }
-
-            .chip{
-                font-size: 12px;
-                padding: 6px 10px;
-            }
+            .header{ flex-direction: column; gap: 12px; }
+            .head-left{ gap: 12px; }
+            .avatar{ width: 56px; height: 56px; }
+            .title h1{ font-size: 1.55rem; }
 
             .section-head{
                 flex-direction: column;
                 align-items:flex-start;
             }
-
-            .section-hint{
-                white-space: normal;
-            }
+            .section-hint{ white-space: normal; }
         }
 
+        /* =========================
+           STAMPA: CV COMPLETO “LUNGO”
+        ========================== */
         @media print{
-            body{background:#fff;padding:0}
+            @page { size: A4; margin: 12mm; }
 
-            .container{width:auto; max-width:none; box-shadow:none; border:none;}
+            body{background:#fff;padding:0; overflow:visible;}
+            .container{
+                width:auto;
+                max-width:none;
+                box-shadow:none;
+                border:none;
+                overflow:visible; /* importantissimo in stampa */
+                display:block;
+            }
             aside.side{display:none !important;}
             main.content{width:100% !important; padding:0 !important;}
 
             .web-only{display:none !important;}
             .print-only{display:block !important;}
 
-            .exp-list{max-height:none !important; overflow:visible !important; padding-right:0 !important;}
-
             a[href]:after{content:" (" attr(href) ")"; font-size:.85em}
-            details.extra-wrap{display:none !important;}
+
+            /* Tipografia stampa più “CV” e meno foglietto */
+            .p-cv{
+                font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+                color: #0f172a;
+                line-height: 1.45;
+            }
+            .p-head{
+                display:flex;
+                justify-content:space-between;
+                align-items:flex-start;
+                gap: 16px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid rgba(15,23,42,0.18);
+                margin-bottom: 12px;
+            }
+            .p-left{
+                display:flex;
+                gap: 12px;
+                align-items:flex-start;
+            }
+            .p-avatar{
+                width: 58px;
+                height: 58px;
+                border-radius: 999px;
+                object-fit: cover;
+                border: 2px solid rgba(15,23,42,0.12);
+            }
+            .p-name{
+                font-size: 22px;
+                font-weight: 900;
+                letter-spacing: -0.02em;
+                margin:0;
+            }
+            .p-role{
+                margin: 3px 0 0;
+                font-weight: 800;
+                color: #0f3b57;
+            }
+            .p-contacts{
+                margin: 6px 0 0;
+                font-size: 11.5px;
+                color: #334155;
+            }
+            .p-right{
+                text-align:right;
+                font-size: 11.5px;
+                color: #334155;
+                max-width: 260px;
+            }
+            .p-sec{
+                margin-top: 12px;
+            }
+            .p-h2{
+                margin: 0 0 6px;
+                font-size: 12.5px;
+                color: #0f3b57;
+                letter-spacing: 0.02em;
+                text-transform: uppercase;
+            }
+            .p-text{
+                margin: 0 0 10px;
+                font-size: 11.5px;
+                color: #334155;
+            }
+
+            .p-exp{
+                border: 1px solid rgba(15,23,42,0.10);
+                border-radius: 10px;
+                padding: 10px;
+                margin-bottom: 8px;
+            }
+            .p-exp-top{
+                display:flex;
+                justify-content:space-between;
+                gap: 12px;
+                align-items:flex-start;
+            }
+            .p-exp-who{
+                font-weight: 900;
+                font-size: 12.2px;
+                margin:0;
+                color:#0f172a;
+            }
+            .p-exp-role{
+                margin: 2px 0 0;
+                font-weight: 700;
+                font-size: 11.5px;
+                color:#334155;
+            }
+            .p-exp-meta{
+                text-align:right;
+                font-size: 11px;
+                color:#64748b;
+                white-space: nowrap;
+            }
+            .p-exp-bullets{
+                margin: 7px 0 0;
+                padding-left: 16px;
+                color:#334155;
+                font-size: 11.5px;
+            }
+            .p-exp-bullets li{ margin: 4px 0; }
+            .p-exp-tech{
+                margin-top: 6px;
+                font-size: 11px;
+                color:#64748b;
+            }
+
+            .p-grid-2{
+                display:flex;
+                gap: 14px;
+            }
+            .p-col{
+                width: 50%;
+            }
+
+            .p-list{
+                margin: 0;
+                padding-left: 16px;
+                font-size: 11.5px;
+                color:#334155;
+            }
+            .p-list li{ margin: 4px 0; }
+
+            .p-footer{
+                margin-top: 10px;
+                font-size: 10.5px;
+                color:#64748b;
+            }
         }
     </style>
 </head>
@@ -613,124 +690,123 @@
             <section class="experience" aria-labelledby="esperienza">
                 <div class="section-head">
                     <h2 id="esperienza">Esperienza</h2>
-                    <div class="section-hint">IT completa · extra ridotte</div>
+                    <div class="section-hint">IT in carousel · stampa CV completo</div>
                 </div>
 
-                <div class="exp-list" role="list" aria-label="Elenco esperienze">
+                <div class="subhead" aria-label="Esperienze IT">
+                    <h3><i class="fa-solid fa-code" aria-hidden="true"></i>&nbsp;Esperienze IT</h3>
+                    <div class="subhint">scorri dentro il box</div>
+                </div>
 
-                    <div class="subhead" aria-label="Esperienze IT">
-                        <h3><i class="fa-solid fa-code" aria-hidden="true"></i>&nbsp;Esperienze IT</h3>
-                        <div class="subhint">dettaglio completo</div>
+                <div class="exp-carousel-wrap" aria-label="Carousel esperienze IT">
+                    <div class="exp-carousel" role="list" aria-label="Elenco esperienze IT (scrollabile)">
+
+                        <article class="exp-card" role="listitem">
+                            <div class="exp-top">
+                                <div>
+                                    <div class="exp-company">Software Inside</div>
+                                    <div class="exp-role">Sviluppatore · Back-end (Consulenza)</div>
+                                </div>
+                                <div class="exp-meta">
+                                    <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> giu 2024 – presente</div>
+                                    <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Italia</div>
+                                </div>
+                            </div>
+
+                            <ul class="exp-bullets">
+                                <li>Sviluppo back-end e integrazioni enterprise in ambito Java/Spring.</li>
+                                <li>Microservizi, API e integrazioni con sistemi interni/esterni (REST/SOAP).</li>
+                                <li>Qualità: test automatici e pipeline CI/CD.</li>
+                            </ul>
+
+                            <div class="exp-tags">
+                                <span class="tag">Java 8/17/21</span><span class="tag">Spring Boot</span><span class="tag">Maven</span>
+                                <span class="tag">Jenkins</span><span class="tag">JUnit 5</span><span class="tag">REST</span><span class="tag">SOAP</span>
+                                <span class="tag">Solr</span>
+                            </div>
+
+                            <div class="muted" style="margin-top:10px;font-size:13px;">
+                                <div>Cliente attuale: <strong>Accenture</strong> — <strong>dic 2025 – presente</strong></div>
+                                <div>Cliente precedente: <strong>Engineering Ingegneria Informatica S.p.A.</strong> — <strong>giu 2025 – nov 2025</strong> (concluso)</div>
+                            </div>
+                        </article>
+
+                        <article class="exp-card" role="listitem">
+                            <div class="exp-top">
+                                <div>
+                                    <div class="exp-company">Fides Consulting</div>
+                                    <div class="exp-role">Java Developer · Microservizi (Consulenza)</div>
+                                </div>
+                                <div class="exp-meta">
+                                    <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> mag 2024 – giu 2024</div>
+                                    <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Italia</div>
+                                </div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Sviluppo microservizi Spring Boot e integrazioni applicative.</li>
+                                <li>Testing (WireMock/JUnit) e sviluppo orientato a manutenibilità e robustezza.</li>
+                            </ul>
+                            <div class="exp-tags">
+                                <span class="tag">Java 11</span><span class="tag">Spring Boot</span><span class="tag">Maven</span>
+                                <span class="tag">Jenkins</span><span class="tag">WireMock</span><span class="tag">JUnit</span>
+                                <span class="tag">SQL Server</span><span class="tag">Postman</span><span class="tag">MapStruct</span>
+                            </div>
+                            <div class="muted" style="margin-top:10px;font-size:13px;">
+                                Cliente: <strong>FinconsGroup</strong> (consulenza tramite Fides)
+                            </div>
+                        </article>
+
+                        <article class="exp-card" role="listitem">
+                            <div class="exp-top">
+                                <div>
+                                    <div class="exp-company">Nextre</div>
+                                    <div class="exp-role">Java Developer · Web & Microservizi (Consulenza)</div>
+                                </div>
+                                <div class="exp-meta">
+                                    <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> lug 2020 – mag 2024</div>
+                                    <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Italia</div>
+                                </div>
+                            </div>
+
+                            <ul class="exp-bullets">
+                                <li>Progetti su più clienti: <strong>Sydema</strong>, <strong>ErmesTrade</strong>, <strong>S2E</strong>.</li>
+                                <li>Backend Java/Spring, integrazioni, attenzione a stabilità e manutenibilità.</li>
+                                <li>Web/legacy: AngularJS, FreeMarker, JasperReports, Tomcat.</li>
+                            </ul>
+
+                            <div class="exp-tags">
+                                <span class="tag">Java 8/11</span><span class="tag">Spring</span><span class="tag">Spring Boot</span>
+                                <span class="tag">Hibernate/JPA</span><span class="tag">HQL</span><span class="tag">AngularJS</span>
+                                <span class="tag">JasperReports</span><span class="tag">FreeMarker</span><span class="tag">Solr</span>
+                                <span class="tag">Tomcat</span><span class="tag">Git</span><span class="tag">SVN</span>
+                            </div>
+
+                            <div class="muted" style="margin-top:10px;font-size:13px;">
+                                Clienti (consulenza tramite Nextre): <strong>Sydema</strong> · <strong>ErmesTrade</strong> · <strong>S2E</strong>
+                            </div>
+                        </article>
+
                     </div>
-
-                    <!-- Software Inside -->
-                    <article class="exp-card" role="listitem">
-                        <div class="exp-top">
-                            <div>
-                                <div class="exp-company">Software Inside</div>
-                                <div class="exp-role">Sviluppatore · Back-end (Consulenza)</div>
-                            </div>
-                            <div class="exp-meta">
-                                <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> giu 2024 – presente</div>
-                                <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Italia</div>
-                            </div>
-                        </div>
-
-                        <ul class="exp-bullets">
-                            <li>Sviluppo back-end e integrazioni enterprise in ambito Java/Spring.</li>
-                            <li>Microservizi, API e integrazioni con sistemi interni/esterni (REST/SOAP).</li>
-                            <li>Qualità: test automatici e pipeline CI/CD.</li>
-                        </ul>
-
-                        <div class="exp-tags">
-                            <span class="tag">Java 8/17/21</span><span class="tag">Spring Boot</span><span class="tag">Maven</span>
-                            <span class="tag">Jenkins</span><span class="tag">JUnit 5</span><span class="tag">REST</span><span class="tag">SOAP</span>
-                            <span class="tag">Solr</span>
-                        </div>
-
-                        <div class="muted" style="margin-top:10px;font-size:13px;">
-                            <div>Cliente attuale: <strong>Accenture</strong> — <strong>dic 2025 – presente</strong></div>
-                            <div>Cliente precedente: <strong>Engineering Ingegneria Informatica S.p.A.</strong> — <strong>giu 2025 – nov 2025</strong> (concluso)</div>
-                        </div>
-                    </article>
-
-                    <!-- Fides -->
-                    <article class="exp-card" role="listitem">
-                        <div class="exp-top">
-                            <div>
-                                <div class="exp-company">Fides Consulting</div>
-                                <div class="exp-role">Java Developer · Microservizi (Consulenza)</div>
-                            </div>
-                            <div class="exp-meta">
-                                <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> mag 2024 – giu 2024</div>
-                                <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Italia</div>
-                            </div>
-                        </div>
-                        <ul class="exp-bullets">
-                            <li>Sviluppo microservizi Spring Boot e integrazioni applicative.</li>
-                            <li>Testing (WireMock/JUnit) e sviluppo orientato a manutenibilità e robustezza.</li>
-                        </ul>
-                        <div class="exp-tags">
-                            <span class="tag">Java 11</span><span class="tag">Spring Boot</span><span class="tag">Maven</span>
-                            <span class="tag">Jenkins</span><span class="tag">WireMock</span><span class="tag">JUnit</span>
-                            <span class="tag">SQL Server</span><span class="tag">Postman</span><span class="tag">MapStruct</span>
-                        </div>
-                        <div class="muted" style="margin-top:10px;font-size:13px;">
-                            Cliente: <strong>FinconsGroup</strong> (consulenza tramite Fides)
-                        </div>
-                    </article>
-
-                    <!-- Nextre -->
-                    <article class="exp-card" role="listitem">
-                        <div class="exp-top">
-                            <div>
-                                <div class="exp-company">Nextre</div>
-                                <div class="exp-role">Java Developer · Web & Microservizi (Consulenza)</div>
-                            </div>
-                            <div class="exp-meta">
-                                <div><i class="fa-regular fa-calendar" aria-hidden="true"></i> lug 2020 – mag 2024</div>
-                                <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Milano, Italia</div>
-                            </div>
-                        </div>
-
-                        <ul class="exp-bullets">
-                            <li>Progetti su più clienti: <strong>Sydema</strong>, <strong>ErmesTrade</strong>, <strong>S2E</strong>.</li>
-                            <li>Backend Java/Spring, integrazioni, attenzione a stabilità e manutenibilità.</li>
-                            <li>Web/legacy: AngularJS, FreeMarker, JasperReports, Tomcat.</li>
-                        </ul>
-
-                        <div class="exp-tags">
-                            <span class="tag">Java 8/11</span><span class="tag">Spring</span><span class="tag">Spring Boot</span>
-                            <span class="tag">Hibernate/JPA</span><span class="tag">HQL</span><span class="tag">AngularJS</span>
-                            <span class="tag">JasperReports</span><span class="tag">FreeMarker</span><span class="tag">Solr</span>
-                            <span class="tag">Tomcat</span><span class="tag">Git</span><span class="tag">SVN</span>
-                        </div>
-
-                        <div class="muted" style="margin-top:10px;font-size:13px;">
-                            Clienti (consulenza tramite Nextre): <strong>Sydema</strong> · <strong>ErmesTrade</strong> · <strong>S2E</strong>
-                        </div>
-                    </article>
-
-                    <!-- NON-IT (ridotte) -->
-                    <details class="extra-wrap" aria-label="Altre esperienze (non IT)">
-                        <summary>
-                            <span><i class="fa-solid fa-briefcase" aria-hidden="true"></i>&nbsp;Altre esperienze (non IT)</span>
-                            <span class="extra-hint">solo società e ruolo</span>
-                        </summary>
-
-                        <div class="extra-list">
-                            <div class="extra-item"><div class="top"><div><div class="who">Samarcanda Intrattenimenti</div><div class="what">Animatore (ragazzi 14–17)</div></div><div class="whenwhere">giu 2018 – set 2018<br/>Italia</div></div></div>
-                            <div class="extra-item"><div class="top"><div><div class="who">Samarcanda Intrattenimenti</div><div class="what">Animatore (ragazzi 14–17)</div></div><div class="whenwhere">giu 2017 – set 2017<br/>Vibo Valentia, Italia</div></div></div>
-                            <div class="extra-item"><div class="top"><div><div class="who">Fidelity My App</div><div class="what">Venditore</div></div><div class="whenwhere">apr 2017 – giu 2017<br/>Milano</div></div></div>
-                            <div class="extra-item"><div class="top"><div><div class="who">Key Group</div><div class="what">Venditore (su appuntamento)</div></div><div class="whenwhere">dic 2016 – mar 2017<br/>Milano</div></div></div>
-                            <div class="extra-item"><div class="top"><div><div class="who">Empire Group</div><div class="what">Promoter vendite (Vodafone)</div></div><div class="whenwhere">mar 2016 – dic 2016<br/>Milano</div></div></div>
-                            <div class="extra-item"><div class="top"><div><div class="who">OM Group Spa</div><div class="what">Promoter vendite (Mediaset Premium)</div></div><div class="whenwhere">lug 2016 – set 2016<br/>Milano</div></div></div>
-                            <div class="extra-item"><div class="top"><div><div class="who">ASA</div><div class="what">Operatore (ricercatore perdite acqua)</div></div><div class="whenwhere">giu 2015 – set 2015<br/>Milano</div></div></div>
-                            <div class="extra-item"><div class="top"><div><div class="who">Securitalia</div><div class="what">Operatore sicurezza (Expo 2015)</div></div><div class="whenwhere">giu 2015 – lug 2015<br/>Milano</div></div></div>
-                        </div>
-                    </details>
-
                 </div>
+
+                <details class="extra-wrap" aria-label="Altre esperienze (non IT)">
+                    <summary>
+                        <span><i class="fa-solid fa-briefcase" aria-hidden="true"></i>&nbsp;Altre esperienze (non IT)</span>
+                        <span class="extra-hint">solo società e ruolo (clicca per vedere)</span>
+                    </summary>
+
+                    <div class="extra-list">
+                        <div class="extra-item"><div class="top"><div><div class="who">Samarcanda Intrattenimenti</div><div class="what">Animatore (ragazzi 14–17)</div></div><div class="whenwhere">giu 2018 – set 2018<br/>Italia</div></div></div>
+                        <div class="extra-item"><div class="top"><div><div class="who">Samarcanda Intrattenimenti</div><div class="what">Animatore (ragazzi 14–17)</div></div><div class="whenwhere">giu 2017 – set 2017<br/>Vibo Valentia, Italia</div></div></div>
+                        <div class="extra-item"><div class="top"><div><div class="who">Fidelity My App</div><div class="what">Venditore</div></div><div class="whenwhere">apr 2017 – giu 2017<br/>Milano</div></div></div>
+                        <div class="extra-item"><div class="top"><div><div class="who">Key Group</div><div class="what">Venditore (su appuntamento)</div></div><div class="whenwhere">dic 2016 – mar 2017<br/>Milano</div></div></div>
+                        <div class="extra-item"><div class="top"><div><div class="who">Empire Group</div><div class="what">Promoter vendite (Vodafone)</div></div><div class="whenwhere">mar 2016 – dic 2016<br/>Milano</div></div></div>
+                        <div class="extra-item"><div class="top"><div><div class="who">OM Group Spa</div><div class="what">Promoter vendite (Mediaset Premium)</div></div><div class="whenwhere">lug 2016 – set 2016<br/>Milano</div></div></div>
+                        <div class="extra-item"><div class="top"><div><div class="who">ASA</div><div class="what">Operatore (ricercatore perdite acqua)</div></div><div class="whenwhere">giu 2015 – set 2015<br/>Milano</div></div></div>
+                        <div class="extra-item"><div class="top"><div><div class="who">Securitalia</div><div class="what">Operatore sicurezza (Expo 2015)</div></div><div class="whenwhere">giu 2015 – lug 2015<br/>Milano</div></div></div>
+                    </div>
+                </details>
+
             </section>
 
             <section class="education" aria-labelledby="formazione">
@@ -773,144 +849,131 @@
         </div>
 
         <!-- =========================
-             VERSIONE STAMPA
+             VERSIONE STAMPA: CV COMPLETO (LUNGO)
         ========================== -->
-        <section class="print-only" aria-label="CV completo (stampa)">
-            <div style="padding:22px">
-                <div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:1px solid rgba(15,23,42,0.12);padding-bottom:12px;margin-bottom:14px;">
-                    <div style="display:flex;gap:12px;align-items:flex-start;">
-                        <img src="assets/me.png" alt="Foto di Jhonatan Meazza"
-                             style="width:64px;height:64px;border-radius:999px;object-fit:cover;border:2px solid rgba(15,23,42,0.10);" />
-                        <div>
-                            <div style="font-size:22px;font-weight:950;letter-spacing:-0.02em;">Jhonatan Meazza</div>
-                            <div style="margin-top:4px;font-weight:900;color:var(--brand);">Java Backend Engineer</div>
-                            <div style="margin-top:6px;color:var(--muted);font-size:12px;">
-                                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                                Milano, Lombardia, Italia
-                                &nbsp;·&nbsp;
-                                <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                                3400773142
-                                &nbsp;·&nbsp;
-                                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                                meazza.jhonatan@gmail.com
-                                &nbsp;·&nbsp;
-                                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-                                linkedin.com/in/jhonatan-meazza-9aba1b178
-                            </div>
-                        </div>
-                    </div>
+        <section class="print-only p-cv" aria-label="CV completo (stampa)">
 
-                    <div style="text-align:right;color:var(--muted);font-size:12px;max-width:320px;">
-                        <div><strong>Lingue:</strong> Italiano (madrelingua), Inglese (IELTS)</div>
-                        <div style="margin-top:6px;"><strong>Focus:</strong> Microservizi · REST/SOAP · Integrazioni · CI/CD</div>
+            <div class="p-head">
+                <div class="p-left">
+                    <img class="p-avatar" src="assets/me.png" alt="Foto di Jhonatan Meazza" />
+                    <div>
+                        <h1 class="p-name">Jhonatan Meazza</h1>
+                        <div class="p-role">Java Backend Engineer</div>
+                        <div class="p-contacts">
+                            Milano, Lombardia, Italia · 3400773142 · meazza.jhonatan@gmail.com · linkedin.com/in/jhonatan-meazza-9aba1b178
+                        </div>
                     </div>
                 </div>
+                <div class="p-right">
+                    <div><strong>Lingue:</strong> Italiano (madrelingua), Inglese (IELTS)</div>
+                    <div style="margin-top:6px;"><strong>Focus:</strong> Microservizi · REST/SOAP · Integrazioni · CI/CD</div>
+                </div>
+            </div>
 
-                <h2 style="margin:0 0 8px;color:var(--brand);font-size:14px;">Profilo</h2>
-                <p style="margin:0 0 14px;color:var(--ink-soft);font-size:12.5px;line-height:1.55;">
+            <div class="p-sec">
+                <div class="p-h2">Profilo</div>
+                <p class="p-text">
                     Sviluppatore Java Back-end con esperienza in contesti enterprise e consulenza strutturata.
-                    Microservizi con Spring Boot, integrazioni REST/SOAP e componenti di integrazione.
-                    Attenzione a qualità e stabilità (JUnit/WireMock) e CI/CD (Jenkins).
+                    Realizzo microservizi con Spring Boot, integrazioni REST/SOAP e componenti di integrazione.
+                    Attenzione a qualità e stabilità (JUnit/WireMock), CI/CD (Jenkins), logging e codice manutenibile.
                 </p>
+            </div>
 
-                <h2 style="margin:0 0 8px;color:var(--brand);font-size:14px;">Competenze tecniche</h2>
-                <p style="margin:0 0 14px;color:var(--ink-soft);font-size:12.5px;line-height:1.55;">
-                    <strong>Linguaggi:</strong> Java (8/11/17/21), JavaScript, SQL, HQL, Groovy<br/>
-                    <strong>Backend:</strong> Spring, Spring Boot, Hibernate/JPA, MapStruct, Lombok, Jackson, Feign Client, RestTemplate<br/>
-                    <strong>Integrazioni:</strong> REST, SOAP<br/>
-                    <strong>Testing/Quality:</strong> JUnit 4/5, WireMock, Hibernate Validator<br/>
-                    <strong>Tooling:</strong> Maven, Jenkins, Git, SVN, Postman, JPackage<br/>
-                    <strong>Altri:</strong> Solr, Tomcat, FreeMarker, JasperReports, Apache POI, SQL Server
-                </p>
+            <div class="p-sec">
+                <div class="p-h2">Esperienza professionale</div>
 
-                <h2 style="margin:0 0 8px;color:var(--brand);font-size:14px;">Esperienza IT</h2>
-
-                <div style="border:1px solid rgba(15,23,42,0.10);border-radius:12px;padding:12px;margin-bottom:10px;">
-                    <div style="display:flex;justify-content:space-between;gap:12px;">
+                <div class="p-exp">
+                    <div class="p-exp-top">
                         <div>
-                            <div style="font-weight:950;">Software Inside</div>
-                            <div style="color:var(--ink-soft);font-weight:850;">Sviluppatore · Back-end (Consulenza)</div>
-                            <div style="margin-top:6px;color:var(--muted);font-size:12px;">
-                                Cliente attuale: <strong>Accenture</strong> (dic 2025 – presente) · Cliente precedente: <strong>Engineering</strong> (giu 2025 – nov 2025)
-                            </div>
+                            <div class="p-exp-who">Software Inside</div>
+                            <div class="p-exp-role">Sviluppatore · Back-end (Consulenza)</div>
                         </div>
-                        <div style="text-align:right;color:var(--muted);font-size:12px;white-space:nowrap;">
-                            giu 2025 – presente<br/>Italia
-                        </div>
+                        <div class="p-exp-meta">giu 2024 – presente<br/>Italia</div>
                     </div>
-                    <ul style="margin:8px 0 0;padding-left:18px;color:var(--ink-soft);font-size:12.5px;">
+                    <ul class="p-exp-bullets">
                         <li>Sviluppo back-end e integrazioni enterprise in ambito Java/Spring.</li>
                         <li>Microservizi, API e integrazioni con sistemi interni/esterni (REST/SOAP).</li>
                         <li>Qualità: test automatici e pipeline CI/CD.</li>
                     </ul>
-                    <div style="margin-top:8px;color:var(--muted);font-size:12px;">
-                        Tecnologie: Java 8/17/21 · Spring Boot · Maven · Jenkins · JUnit 5 · REST · SOAP · Solr
+                    <div class="p-exp-tech">
+                        Cliente attuale: Accenture (dic 2025 – presente) · Cliente precedente: Engineering (giu 2025 – nov 2025) ·
+                        Tech: Java 8/17/21, Spring Boot, Maven, Jenkins, JUnit, REST/SOAP, Solr
                     </div>
                 </div>
 
-                <div style="border:1px solid rgba(15,23,42,0.10);border-radius:12px;padding:12px;margin-bottom:10px;">
-                    <div style="display:flex;justify-content:space-between;gap:12px;">
+                <div class="p-exp">
+                    <div class="p-exp-top">
                         <div>
-                            <div style="font-weight:950;">Fides Consulting</div>
-                            <div style="color:var(--ink-soft);font-weight:850;">Java Developer · Microservizi (Consulenza)</div>
-                            <div style="margin-top:6px;color:var(--muted);font-size:12px;">Cliente: FinconsGroup</div>
+                            <div class="p-exp-who">Fides Consulting</div>
+                            <div class="p-exp-role">Java Developer · Microservizi (Consulenza)</div>
                         </div>
-                        <div style="text-align:right;color:var(--muted);font-size:12px;white-space:nowrap;">
-                            mag 2024 – ago 2024<br/>Milano
-                        </div>
+                        <div class="p-exp-meta">mag 2024 – giu 2024<br/>Milano</div>
                     </div>
-                    <ul style="margin:8px 0 0;padding-left:18px;color:var(--ink-soft);font-size:12.5px;">
+                    <ul class="p-exp-bullets">
                         <li>Sviluppo microservizi Spring Boot e integrazioni applicative.</li>
                         <li>Testing (WireMock/JUnit) e sviluppo orientato a manutenibilità e robustezza.</li>
                     </ul>
-                    <div style="margin-top:8px;color:var(--muted);font-size:12px;">
-                        Tecnologie: Java 11 · Spring Boot · Maven · Jenkins · WireMock · JUnit · SQL Server · Postman · MapStruct
+                    <div class="p-exp-tech">
+                        Cliente: FinconsGroup · Tech: Java 11, Spring Boot, Maven, Jenkins, WireMock, JUnit, SQL Server, Postman, MapStruct
                     </div>
                 </div>
 
-                <div style="border:1px solid rgba(15,23,42,0.10);border-radius:12px;padding:12px;margin-bottom:14px;">
-                    <div style="display:flex;justify-content:space-between;gap:12px;">
+                <div class="p-exp">
+                    <div class="p-exp-top">
                         <div>
-                            <div style="font-weight:950;">Nextre</div>
-                            <div style="color:var(--ink-soft);font-weight:850;">Java Developer · Web & Microservizi (Consulenza)</div>
-                            <div style="margin-top:6px;color:var(--muted);font-size:12px;">Clienti: Sydema · ErmesTrade · S2E</div>
+                            <div class="p-exp-who">Nextre</div>
+                            <div class="p-exp-role">Java Developer · Web & Microservizi (Consulenza)</div>
                         </div>
-                        <div style="text-align:right;color:var(--muted);font-size:12px;white-space:nowrap;">
-                            lug 2020 – mag 2024<br/>Milano
-                        </div>
+                        <div class="p-exp-meta">lug 2020 – mag 2024<br/>Milano</div>
                     </div>
-                    <ul style="margin:8px 0 0;padding-left:18px;color:var(--ink-soft);font-size:12.5px;">
-                        <li>Backend Java + Spring su più clienti; web/legacy con AngularJS.</li>
-                        <li>Template FreeMarker, report JasperReports, Solr, Tomcat.</li>
+                    <ul class="p-exp-bullets">
+                        <li>Backend Java/Spring su più clienti; integrazioni e manutenzione evolutiva.</li>
+                        <li>Web/legacy: AngularJS, FreeMarker, JasperReports, Tomcat.</li>
+                        <li>Ricerca qualità: stabilità, logging, debugging e analisi difetti.</li>
                     </ul>
-                    <div style="margin-top:8px;color:var(--muted);font-size:12px;">
-                        Tecnologie: Java 8/11 · Spring · Spring Boot · HQL · AngularJS · JasperReports · FreeMarker · Solr · Tomcat · Git · SVN
+                    <div class="p-exp-tech">
+                        Clienti: Sydema · ErmesTrade · S2E ·
+                        Tech: Java 8/11, Spring, Spring Boot, Hibernate/JPA, HQL, AngularJS, JasperReports, FreeMarker, Solr, Tomcat, Git/SVN
                     </div>
                 </div>
+            </div>
 
-                <h2 style="margin:0 0 8px;color:var(--brand);font-size:14px;">Altre esperienze</h2>
-                <ul style="margin:0 0 14px;padding-left:18px;color:var(--ink-soft);font-size:12.5px;line-height:1.6;">
-                    <li><strong>Samarcanda Intrattenimenti</strong> — Animatore (giu 2018 – set 2018)</li>
-                    <li><strong>Samarcanda Intrattenimenti</strong> — Animatore (giu 2017 – set 2017)</li>
-                    <li><strong>Fidelity My App</strong> — Venditore (apr 2017 – giu 2017)</li>
-                    <li><strong>Key Group</strong> — Venditore (dic 2016 – mar 2017)</li>
-                    <li><strong>Empire Group</strong> — Promoter vendite (mar 2016 – dic 2016)</li>
-                    <li><strong>OM Group Spa</strong> — Promoter vendite (lug 2016 – set 2016)</li>
-                    <li><strong>ASA</strong> — Operatore (giu 2015 – set 2015)</li>
-                    <li><strong>Securitalia</strong> — Operatore sicurezza (giu 2015 – lug 2015)</li>
-                </ul>
-
-                <h2 style="margin:0 0 8px;color:var(--brand);font-size:14px;">Istruzione e formazione</h2>
-                <ul style="margin:0;padding-left:18px;color:var(--ink-soft);font-size:12.5px;line-height:1.55;">
-                    <li><strong>Generation Italy</strong> — Corso Java (2019–2020)</li>
-                    <li><strong>Academy Nextre Srl</strong> — Full Stack (2020)</li>
-                    <li><strong>Oxford House College</strong> — IELTS, Londra</li>
-                    <li><strong>Diploma IPSIA Ferraris Pacinotti</strong> — Chimica e Biologia, Milano</li>
-                </ul>
-
-                <div style="margin-top:16px;color:var(--muted);font-size:11px;">
-                    Autorizzo il trattamento dei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR).
+            <div class="p-sec p-grid-2">
+                <div class="p-col">
+                    <div class="p-h2">Competenze tecniche</div>
+                    <ul class="p-list">
+                        <li><strong>Linguaggi:</strong> Java 8/11/17/21, SQL, JavaScript, HQL, Groovy</li>
+                        <li><strong>Backend:</strong> Spring, Spring Boot, Hibernate/JPA, MapStruct, Lombok, Jackson</li>
+                        <li><strong>Integrazioni:</strong> REST, SOAP</li>
+                        <li><strong>Quality:</strong> JUnit 4/5, WireMock, Validator</li>
+                        <li><strong>Tooling:</strong> Maven, Jenkins, Git, SVN, Postman</li>
+                        <li><strong>Altri:</strong> Solr, Tomcat, FreeMarker, JasperReports, Apache POI, SQL Server</li>
+                    </ul>
                 </div>
+
+                <div class="p-col">
+                    <div class="p-h2">Formazione</div>
+                    <ul class="p-list">
+                        <li><strong>Generation Italy</strong> — Corso Java (2019–2020)</li>
+                        <li><strong>Academy Nextre Srl</strong> — Full Stack (2020)</li>
+                        <li><strong>Oxford House College</strong> — IELTS, Londra</li>
+                        <li><strong>Diploma IPSIA Ferraris Pacinotti</strong> — Chimica e Biologia, Milano</li>
+                    </ul>
+
+                    <div class="p-h2" style="margin-top:10px;">Altre esperienze</div>
+                    <ul class="p-list">
+                        <li>Samarcanda Intrattenimenti — Animatore (2017, 2018)</li>
+                        <li>Fidelity My App — Venditore (2017)</li>
+                        <li>Key Group — Venditore (2016–2017)</li>
+                        <li>Empire Group / OM Group — Promoter vendite (2016)</li>
+                        <li>ASA — Operatore (2015)</li>
+                        <li>Securitalia — Operatore sicurezza (2015)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="p-footer">
+                Autorizzo il trattamento dei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR).
             </div>
         </section>
 
