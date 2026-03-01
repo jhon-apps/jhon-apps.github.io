@@ -3,311 +3,523 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Jhon-Apps — sviluppo app e backend enterprise. Java, Spring Boot, microservizi." />
-  <title>Jhon-Apps — Presentazione</title>
+  <meta name="description" content="Jhon-Apps — prodotti local-first e backend enterprise. Java, Spring Boot, microservizi, UX diretta (stile HAIP)." />
+  <title>Jhon-Apps — prodotti & backend (by Jhon)</title>
 
   <style>
     :root{
-      --bg:#0b0f1a;
-      --card:#121a2b;
-      --card2:#0f172a;
-      --fg:#e5e7eb;
-      --muted:#a3b0c2;
-      --border:rgba(148,163,184,.22);
-      --accent:#f59e0b;
-      --accent2:#60a5fa;
+      /* HAIP-ish palette */
+      --bg:#070b14;
+      --bg2:#0b1220;
+      --card: rgba(15,23,42,.62);
+      --card2: rgba(15,23,42,.42);
+      --fg:#e7eefc;
+      --muted:#a9b7d3;
+      --border: rgba(148,163,184,.22);
+      --accent:#f59e0b;   /* amber */
+      --accent2:#60a5fa;  /* blue */
       --ok:#22c55e;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --bad:#fb7185;
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --radius: 22px;
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:
-              radial-gradient(900px 500px at 10% 0%, rgba(96,165,250,.18), transparent 60%),
-              radial-gradient(900px 500px at 90% 0%, rgba(245,158,11,.16), transparent 60%),
-              var(--bg);
       color:var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       line-height:1.55;
+      background:
+              radial-gradient(900px 520px at 12% -10%, rgba(96,165,250,.16), transparent 58%),
+              radial-gradient(880px 520px at 88% -10%, rgba(245,158,11,.18), transparent 58%),
+              radial-gradient(900px 700px at 50% 120%, rgba(34,197,94,.08), transparent 55%),
+              linear-gradient(180deg, var(--bg), var(--bg2));
     }
+
     a{color:inherit}
-    .wrap{max-width:1020px;margin:0 auto;padding:28px 18px 60px}
+    .wrap{max-width:1100px;margin:0 auto;padding:22px 18px 72px}
+
+    /* Top bar */
     .nav{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:10px 12px;border:1px solid var(--border);
-      background:rgba(18,26,43,.55);backdrop-filter: blur(14px);
-      border-radius:18px;position:sticky;top:14px;z-index:50;
+      position:sticky; top:14px; z-index:50;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:rgba(7,11,20,.55);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      transition: transform .22s ease, opacity .22s ease;
+      will-change: transform;
     }
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
-    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 18px rgba(245,158,11,.45)}
-    .brand strong{letter-spacing:.2px;white-space:nowrap}
-    .brand span{white-space:nowrap}
-    .nav a.btn{
-      text-decoration:none;font-weight:800;font-size:13px;
-      padding:10px 12px;border-radius:14px;border:1px solid var(--border);
-      background:rgba(15,23,42,.7);
+    .nav.is-hidden {
+      transform: translateY(-140%);
+      opacity: 0;
+      pointer-events: none;
     }
-    .nav .links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      min-width:0;
+    }
+    .logo{
+      width:38px; height:38px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .brandText{min-width:0}
+    .brandText strong{
+      display:block;
+      font-weight:950;
+      letter-spacing:-.02em;
+      line-height:1.05;
+      white-space:nowrap;
+    }
+    .brandText span{
+      display:block;
+      color:var(--muted);
+      font-weight:800;
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    .links{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .btn{
+      text-decoration:none;
+      font-weight:900;
+      font-size:13px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(15,23,42,.55);
+    }
+    .btn:hover{border-color:rgba(148,163,184,.42)}
+    .btn.primary{
+      background:rgba(245,158,11,.92);
+      border-color:rgba(245,158,11,.25);
+      color:#1b1202;
+    }
+    .btn.primary:hover{filter:brightness(1.03)}
+
+    /* Hero */
     .hero{
-      margin-top:18px;
+      margin-top:16px;
       border:1px solid var(--border);
       border-radius:26px;
-      background:linear-gradient(180deg, rgba(18,26,43,.72), rgba(15,23,42,.62));
+      background:linear-gradient(180deg, rgba(15,23,42,.68), rgba(15,23,42,.42));
       box-shadow: var(--shadow);
       padding:26px;
+      overflow:hidden;
+      position:relative;
     }
-    .kicker{color:var(--muted);font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    h1{margin:10px 0 10px;font-size:34px;line-height:1.15}
-    .sub{margin:0;color:var(--muted);max-width:78ch}
-    .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .hero:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+              radial-gradient(700px 260px at 20% 0%, rgba(245,158,11,.10), transparent 60%),
+              radial-gradient(700px 260px at 90% 0%, rgba(96,165,250,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .hero > *{position:relative}
+
+    .kicker{
+      display:inline-flex;
+      align-items:center; gap:10px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .spark{
+      width:10px; height:10px; border-radius:999px;
+      background:var(--accent);
+      box-shadow: 0 0 20px rgba(245,158,11,.55);
+    }
+    h1{
+      margin:10px 0 10px;
+      font-size:38px;
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      max-width:88ch;
+      font-size:15px;
+    }
+
+    .tagrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+    .tag{
+      font-size:12px;
+      font-weight:950;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(15,23,42,.45);
+      color:var(--muted);
+    }
+    .tag.ok{border-color:rgba(34,197,94,.35); background:rgba(34,197,94,.08); color:#c7f9d8}
+    .tag.blue{border-color:rgba(96,165,250,.35); background:rgba(96,165,250,.08); color:#cfe6ff}
+    .tag.amber{border-color:rgba(245,158,11,.35); background:rgba(245,158,11,.08); color:#ffe3b0}
+
+    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
     .cta{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:12px 14px;border-radius:16px;text-decoration:none;font-weight:900;font-size:14px;
-      border:1px solid var(--border);background:rgba(18,26,43,.55)
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(15,23,42,.55);
+      text-decoration:none;
+      font-weight:950;
+      font-size:14px;
     }
+    .cta:hover{border-color:rgba(148,163,184,.42)}
     .cta.primary{
       background:rgba(245,158,11,.92);
-      color:#1b1202;border-color:rgba(245,158,11,.2)
+      border-color:rgba(245,158,11,.22);
+      color:#1b1202;
     }
-    .cta.primary:hover{filter:brightness(1.02)}
-    .cta:hover{border-color:rgba(148,163,184,.4)}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}
+
+    /* Sections */
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:14px}
     .card{
       border:1px solid var(--border);
-      background:rgba(18,26,43,.45);
-      border-radius:22px;
+      background:rgba(15,23,42,.38);
+      border-radius:var(--radius);
       padding:16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.28);
     }
-    .card h3{margin:0 0 6px;font-size:15px}
-    .card p{margin:0;color:var(--muted);font-size:13px}
-    .span6{grid-column: span 6}
+    .card h3{margin:0 0 6px; font-size:15px; letter-spacing:-.01em}
+    .card p{margin:0; color:var(--muted); font-size:13px}
+    .span12{grid-column: span 12}
     .span7{grid-column: span 7}
     .span5{grid-column: span 5}
-    .span12{grid-column: span 12}
-    @media (max-width:860px){
-      .span6,.span7,.span5{grid-column: span 12}
-      h1{font-size:30px}
+    .span6{grid-column: span 6}
+    @media (max-width:900px){
+      h1{font-size:32px}
+      .span7,.span5,.span6{grid-column: span 12}
+      .links{display:none}
     }
+
     .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      font-size:12px;font-weight:900;color:rgba(245,158,11,.95);
-      padding:6px 10px;border-radius:999px;border:1px solid rgba(245,158,11,.25);
-      background:rgba(245,158,11,.08)
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:12px; font-weight:950;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(245,158,11,.28);
+      background:rgba(245,158,11,.08);
+      color:#ffd08a;
+      width:fit-content;
     }
+
     .pill{
-      display:flex;align-items:flex-start;gap:10px;
-      padding:12px;border-radius:18px;border:1px solid var(--border);
-      background:rgba(15,23,42,.55)
+      display:flex; align-items:flex-start; gap:10px;
+      padding:12px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:rgba(7,11,20,.35);
     }
+    .dot2{
+      width:10px; height:10px; border-radius:999px;
+      margin-top:6px; flex:0 0 auto;
+      background:var(--accent2);
+      box-shadow: 0 0 0 3px rgba(96,165,250,.12);
+    }
+    .dot2.amber{background:var(--accent); box-shadow: 0 0 0 3px rgba(245,158,11,.12)}
+    .dot2.ok{background:var(--ok); box-shadow: 0 0 0 3px rgba(34,197,94,.12)}
     .pill b{font-size:13px}
-    .pill small{display:block;color:var(--muted);margin-top:2px}
-    .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}
-    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .tag{
-      font-size:12px;font-weight:900;
-      padding:6px 10px;border-radius:999px;border:1px solid var(--border);
-      background:rgba(15,23,42,.55);color:var(--muted)
+    .pill small{display:block; color:var(--muted); margin-top:2px}
+
+    .list{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:8px}
+
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace}
+    .muted{color:var(--muted)}
+
+    .callout{
+      border:1px solid rgba(245,158,11,.30);
+      background:rgba(245,158,11,.08);
+      border-radius:18px;
+      padding:12px 14px;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:13px;
     }
-    .tag.ok{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.08);color:#c7f9d8}
-    .tag.blue{border-color:rgba(96,165,250,.35);background:rgba(96,165,250,.08);color:#cfe6ff}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .callout b{color:var(--fg)}
+
     .footer{
       margin-top:18px;
       border:1px solid var(--border);
-      background:rgba(15,23,42,.55);
+      background:rgba(15,23,42,.42);
       border-radius:22px;
       padding:14px 16px;
       color:var(--muted);
       font-size:12px;
-      display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:space-between; align-items:center;
     }
-    .footer a{color:var(--muted);text-decoration:none}
+    .footer a{color:var(--muted); text-decoration:none}
     .footer a:hover{text-decoration:underline}
+
+    /* tiny HAIP flavor */
+    .haipLine{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .haipLine em{color:#ffd08a; font-style:normal; font-weight:950}
   </style>
 </head>
 
 <body>
 <div class="wrap">
   <div class="nav">
-    <a class="brand" href="#">
-      <span class="dot"></span>
-      <strong>Jhon-Apps</strong>
-      <span style="color:var(--muted);font-weight:800;font-size:12px" class="mono">presentazione</span>
+    <a class="brand" href="#top" aria-label="Jhon-Apps">
+        <span class="logo" title="Logo Jhon-Apps">
+          <!-- Metti il logo qui: salva l'immagine in assets/jhon-apps-logo.png -->
+          <img src="assets/jhon-apps-logo.png" alt="Jhon-Apps logo" onerror="this.style.display='none'" />
+        </span>
+      <div class="brandText">
+        <strong>Jhon-Apps</strong>
+        <span class="mono">prodotti · backend · app</span>
+      </div>
     </a>
-    <div class="links">
+
+    <div class="links" aria-label="navigazione">
       <a class="btn" href="#chi-sono">Chi sono</a>
       <a class="btn" href="#progetti">Progetti</a>
+      <a class="btn" href="#cosa-cerco">Cosa cerco</a>
       <a class="btn" href="#contatti">Contatti</a>
+      <a class="btn primary" href="#haip">HAIP</a>
     </div>
+
+    <a class="btn primary" href="mailto:info.jhonapps@gmail.com">Scrivimi</a>
   </div>
 
-  <section class="hero" id="chi-sono">
-    <div class="kicker">Java Backend · Enterprise · Product</div>
-    <h1>Sviluppo backend da anni e di recente mi cimento anche nello sviluppo di app.</h1>
+  <section class="hero" id="top">
+    <div class="kicker"><span class="spark"></span> Java backend · enterprise · prodotti “local-first”</div>
+    <h1>Costruisco software solido. E ogni tanto… ti giudico pure il saldo.</h1>
     <p class="sub">
-      Sono Jhon, sviluppatore <strong>Java Backend</strong> con oltre <strong>5 anni</strong> di esperienza in contesti enterprise e consulenza strutturata.
-      Lavoro per obiettivi, con alta autonomia tecnica e attenzione a stabilità, qualità del codice e manutenibilità.
-      Preferisco contesti organizzati, roadmap chiare e tecnologie moderne e consolidate.
-      Sto cercando di portare avanti il progetto JhonApps.
+      Jhon-Apps è il mio spazio per costruire prodotti concreti e puliti: <strong>UX diretta</strong>, performance,
+      e la regola #1: <strong>se non serve, non lo metto</strong>.
+      Di base sono un <strong>Java Backend Engineer</strong> con esperienza in contesti enterprise/consulenza,
+      microservizi e integrazioni (REST/SOAP), pipeline CI/CD e test.
     </p>
 
     <div class="tagrow" aria-label="highlights">
-      <span class="tag ok">Autonomia tecnica</span>
+      <span class="tag ok">Qualità & stabilità</span>
       <span class="tag blue">Spring Boot</span>
       <span class="tag">Microservizi</span>
-      <span class="tag">REST</span>
-      <span class="tag">Git</span>
-      <span class="tag">Qualità & manutenzione</span>
+      <span class="tag">REST / SOAP</span>
+      <span class="tag">CI/CD</span>
+      <span class="tag amber">UX “senza fronzoli”</span>
     </div>
 
     <div class="ctaRow">
-      <a class="cta primary" href="#progetti">Vedi i progetti</a>
-      <a class="cta" href="mailto:info.jhonapps@gmail.com">Scrivimi</a>
-      <a class="cta" href="https://jhon-apps.github.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
-      <a class="cta" href="https://jhon-apps.github.io/gdpr" target="_blank" rel="noopener noreferrer">GDPR</a>
+      <a class="cta primary" href="#haip">Scopri HAIP</a>
+      <a class="cta" href="#progetti">Altri progetti</a>
+      <a class="cta" href="#contatti">Contatti</a>
+      <a class="cta" href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy (HAIP)</a>
+      <a class="cta" href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR (HAIP)</a>
     </div>
 
-    <div class="grid">
-      <div class="card span7">
-        <h3>Come lavoro</h3>
-        <p>
-          Pragmatico: iterazioni piccole, bugfix uno alla volta, release come obiettivo.
-          Se una cosa non serve, non la metto. Se serve, la faccio bene e la rendo mantenibile.
-        </p>
+    <p class="haipLine">Mood di Jhon-Apps: <em>meno casino</em>, più prodotto. (E sì: niente “pop-up tossici”.)</p>
+  </section>
+
+  <section class="grid" id="chi-sono" style="margin-top:18px">
+    <div class="card span12">
+      <div class="badge">Chi sono</div>
+      <h2 style="margin:10px 0 0;font-size:20px;letter-spacing:-.02em">Jhon — backend engineer con sindrome da “codice pulito”.</h2>
+      <p style="margin:6px 0 0;color:var(--muted);max-width:92ch">
+        Lavoro da anni su backend Java in ambienti strutturati: microservizi, API, integrazioni e manutenzione evolutiva.
+        Ho un’ossessione sana per stabilità, logging, test automatici e delivery continuo.
+      </p>
+      <div class="callout">
+        <b>Regola d’oro:</b> risolvo un bug alla volta. Poi rilascio. Poi dormo. Poi ricomincio.
       </div>
-      <div class="card span5">
-        <h3>Focus tecnico</h3>
-        <p>
-          Backend applicativi e integrazioni: API, microservizi, stabilità, refactoring sensato.
-          Quando serve, integrazioni native e automazioni di tooling.
-        </p>
+    </div>
+
+    <div class="card span7">
+      <h3>Come lavoro</h3>
+      <ul class="list">
+        <li class="pill">
+          <span class="dot2 ok"></span>
+          <div>
+            <b>Pragmatico</b>
+            <small>Iterazioni piccole, refactor sensati, priorità chiare. Evito “mega-riscritture” senza motivo.</small>
+          </div>
+        </li>
+        <li class="pill">
+          <span class="dot2"></span>
+          <div>
+            <b>Enterprise-friendly</b>
+            <small>Microservizi, REST/SOAP, integrazioni e attenzione alla robustezza in produzione.</small>
+          </div>
+        </li>
+        <li class="pill">
+          <span class="dot2 amber"></span>
+          <div>
+            <b>Qualità</b>
+            <small>Test (es. JUnit/WireMock) e pipeline CI/CD: meno incidenti, più tempo per costruire.</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card span5">
+      <h3>Stack che uso spesso</h3>
+      <p class="muted">
+        Java (8/11/17/21), Spring Boot, API & integrazioni, SQL, tool di build e delivery.
+      </p>
+      <div class="tagrow" style="margin-top:10px">
+        <span class="tag blue">Java</span>
+        <span class="tag blue">Spring Boot</span>
+        <span class="tag">SQL</span>
+        <span class="tag">REST/SOAP</span>
+        <span class="tag">Jenkins / CI</span>
+        <span class="tag">JUnit / WireMock</span>
       </div>
+      <p class="muted" style="margin-top:10px;font-size:12px">
+        (Sì, mi piace anche la UX: se l’app è lenta o confusa, mi si spezza l’anima.)
+      </p>
     </div>
   </section>
 
   <section id="progetti" class="grid" style="margin-top:18px">
     <div class="card span12">
       <div class="badge">Progetti</div>
-      <h2 style="margin:10px 0 0;font-size:20px">Cosa sto costruendo (oltre al lavoro)</h2>
-      <p style="margin:6px 0 0;color:var(--muted);max-width:86ch">
-        Prodotti concreti, con una logica chiara: UX curata, dati locali quando ha senso, e stabilità prima di tutto.
+      <h2 style="margin:10px 0 0;font-size:20px;letter-spacing:-.02em">Cosa sto costruendo con Jhon-Apps</h2>
+      <p style="margin:6px 0 0;color:var(--muted);max-width:92ch">
+        Prodotti piccoli ma seri: utili, rapidi, local-first quando ha senso. Monetizzazione pulita: premium + ads non invasive.
       </p>
     </div>
 
-    <div class="card span6">
+    <div class="card span6" id="haip">
       <h3>HAIP — How Am I Poor</h3>
       <p>
-        App finanza personale con tono ironico: local-first, niente login, premium + ads non invasive.
-        Obiettivo: velocità, chiarezza, e una UX che “giudica” con un tococ di retorica.
+        App finanza personale dal tono ironico: dati locali, zero login, grafici e movimenti. Premium sblocca feature e rimuove ads.
       </p>
-      <ul class="list">
+
+      <ul class="list" style="margin-top:10px">
         <li class="pill">
-          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--accent2);margin-top:6px"></div>
+          <span class="dot2"></span>
           <div>
             <b>Punti forti</b>
-            <small>Grafici, lista movimenti, ricorrenti Premium, onboarding, notifiche Android.</small>
+            <small>Grafici, lista movimenti, ricerca e storico, ricorrenti premium, notifiche e UX diretta.</small>
           </div>
         </li>
         <li class="pill">
-          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--accent);margin-top:6px"></div>
+          <span class="dot2 amber"></span>
           <div>
-            <b>Monetizzazione</b>
-            <small>Premium per feature avanzate, ads native in punti strategici (non invasive).</small>
+            <b>Filosofia</b>
+            <small>Local-first: i dati restano sul dispositivo. Niente backend obbligatori.</small>
+          </div>
+        </li>
+        <li class="pill">
+          <span class="dot2 ok"></span>
+          <div>
+            <b>Obiettivo</b>
+            <small>Diventare “la tua app spese” quotidiana: veloce, chiara, e un filo cattiva quando serve.</small>
           </div>
         </li>
       </ul>
+
+      <div class="ctaRow" style="margin-top:12px">
+        <a class="cta" href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy HAIP</a>
+        <a class="cta" href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR HAIP</a>
+        <a class="cta primary" href="mailto:info.jhonapps@gmail.com?subject=HAIP%20-%20feedback">Suggerimenti / feedback</a>
+      </div>
+
+      <p class="muted" style="margin-top:10px;font-size:12px">
+        Nota: se hai un’idea semplice che salva tempo (o soldi), sono tutto orecchie.
+      </p>
     </div>
 
     <div class="card span6">
-      <h3>Backend & integrazioni </h3>
+      <h3>Backend & integrazioni</h3>
       <p>
-        Esperienza su sistemi organizzati: microservizi, API REST, integrazioni e manutenzione evolutiva.
-        Mi interessa ridurre emergenze continue: preferisco processi e qualità.
+        Nel lavoro quotidiano mi occupo di backend Java e integrazioni: API, microservizi, stabilità, manutenzione evolutiva e delivery.
       </p>
-      <ul class="list">
+
+      <ul class="list" style="margin-top:10px">
         <li class="pill">
-          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--ok);margin-top:6px"></div>
+          <span class="dot2 ok"></span>
           <div>
-            <b>Competenze principali</b>
-            <small>Java, Spring, Git, REST, stabilità, qualità e manutenibilità.</small>
+            <b>Focus</b>
+            <small>Stabilità, osservabilità (logging), qualità e manutenibilità.</small>
           </div>
         </li>
         <li class="pill">
-          <div style="min-width:10px;height:10px;border-radius:999px;background:#22c55e;margin-top:6px"></div>
+          <span class="dot2"></span>
           <div>
-            <b>Contesto ideale</b>
-            <small>Roadmap chiara, stack moderno e consolidato, team organizzato, obiettivi misurabili.</small>
+            <b>Integrazioni</b>
+            <small>REST/SOAP, sistemi interni/esterni, componenti di integrazione e CI/CD.</small>
+          </div>
+        </li>
+        <li class="pill">
+          <span class="dot2 amber"></span>
+          <div>
+            <b>Stile</b>
+            <small>Roadmap chiara, decisioni semplici, e niente “feature zombie”.</small>
           </div>
         </li>
       </ul>
     </div>
   </section>
 
-  <section id="esperienza" class="grid" style="margin-top:18px">
+  <section id="cosa-cerco" class="grid" style="margin-top:18px">
     <div class="card span12">
-      <div class="badge">Esperienza</div>
-      <h2 style="margin:10px 0 0;font-size:20px">In breve </h2>
-      <p style="margin:6px 0 0;color:var(--muted);max-width:86ch">
-        Lavoro da anni su backend Java in contesti enterprise/consulenza. Negli ultimi anni ho consolidato sviluppo e manutenzione
-        di servizi e integrazioni, con attenzione a stabilità e codice pulito.
+      <div class="badge">Cosa cerco</div>
+      <h2 style="margin:10px 0 0;font-size:20px;letter-spacing:-.02em">Costruire prodotti + lavorare bene, senza caos.</h2>
+      <p style="margin:6px 0 0;color:var(--muted);max-width:92ch">
+        Sto portando avanti Jhon-Apps come progetto: voglio continuare a pubblicare, iterare e far crescere un portfolio di app utili.
+        Nel lavoro cerco contesti organizzati, stack moderno e obiettivi misurabili.
       </p>
-    </div>
 
-    <div class="card span6">
-      <h3>Software Inside Srl</h3>
-      <p class="mono" style="color:var(--muted);font-size:13px;margin:0">ott 2024 → oggi</p>
-      <p style="margin-top:8px">
-        Sviluppo back-end. Git, REST, qualità e delivery in contesto strutturato.
-      </p>
-    </div>
-
-    <div class="card span6">
-      <h3>Nextre / Fides</h3>
-      <p class="mono" style="color:var(--muted);font-size:13px;margin:0">lug 2020 → ott 2024 / mag 2024 → ago 2024</p>
-      <p style="margin-top:8px">
-        Percorso di crescita su Java/Spring in contesti enterprise: sviluppo, integrazioni e manutenzione.
-      </p>
-    </div>
-
-    <div class="card span12">
-      <h3>Formazione e lingua</h3>
-      <ul class="list">
-        <li class="pill">
-          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--accent2);margin-top:6px"></div>
-          <div>
-            <b>Generation Italy (Java)</b>
-            <small>Fondamenti solidi: Java, pattern, SQL/MySQL, web (Servlet/Spring MVC), ORM (JDBC/JPA).</small>
+      <div class="grid" style="margin-top:12px">
+        <div class="card span6">
+          <h3>Contesto ideale</h3>
+          <p>Team chiaro, processi sensati, qualità prima delle “feature per far scena”.</p>
+          <div class="tagrow" style="margin-top:10px">
+            <span class="tag ok">Roadmap</span>
+            <span class="tag">Code review</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Stabilità</span>
           </div>
-        </li>
-        <li class="pill">
-          <div style="min-width:10px;height:10px;border-radius:999px;background:var(--ok);margin-top:6px"></div>
-          <div>
-            <b>Inglese</b>
-            <small>Conoscenza professionale completa (IELTS, livello avanzato).</small>
+        </div>
+        <div class="card span6">
+          <h3>Su Jhon-Apps</h3>
+          <p>Continuare a rilasciare app con UX curata e monetizzazione pulita.</p>
+          <div class="tagrow" style="margin-top:10px">
+            <span class="tag amber">Premium</span>
+            <span class="tag">Ads non invasive</span>
+            <span class="tag blue">Local-first</span>
+            <span class="tag">Release veloci</span>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="contatti" class="grid" style="margin-top:18px">
     <div class="card span12">
       <div class="badge">Contatti</div>
-      <h2 style="margin:10px 0 0;font-size:20px">Vuoi parlarmi?</h2>
-      <p style="margin:6px 0 0;color:var(--muted);max-width:86ch">
-        Se ti interessa collaborare o hai un’idea concreta, scrivimi con due righe: obiettivo, contesto e vincoli.
+      <h2 style="margin:10px 0 0;font-size:20px;letter-spacing:-.02em">Vuoi parlarmi? Due righe, niente romanzi.</h2>
+      <p style="margin:6px 0 0;color:var(--muted);max-width:92ch">
+        Scrivimi con: obiettivo, contesto, vincoli. Se hai un feedback su HAIP, ancora meglio: lo leggo davvero.
       </p>
 
       <div class="ctaRow" style="margin-top:14px">
         <a class="cta primary" href="mailto:info.jhonapps@gmail.com">info.jhonapps@gmail.com</a>
-
-        <!-- Inserisci qui il link reale del tuo profilo -->
-        <a class="cta" href="https://www.linkedin.com/in/jhonatan-meazza-9aba1b178/" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-
-        <a class="cta" href="https://jhon-apps.github.io/privacy" target="_blank" rel="noopener noreferrer">Privacy - HAIP</a>
-        <a class="cta" href="https://jhon-apps.github.io/gdpr" target="_blank" rel="noopener noreferrer">GDPR - HAIP</a>
+        <a class="cta" href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy - HAIP</a>
+        <a class="cta" href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR - HAIP</a>
       </div>
 
       <p style="margin:10px 0 0;color:var(--muted);font-size:12px">
@@ -317,17 +529,50 @@
   </section>
 
   <div class="footer">
-    <span>© <span id="y"></span> Jhon-Apps</span>
+    <span>© <span id="y"></span> Jhon-Apps · by <b>Jhon</b></span>
     <span class="links">
-      <a href="https://jhon-apps.github.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
-      <a href="https://jhon-apps.github.io/gdpr" target="_blank" rel="noopener noreferrer">GDPR</a>
-      <a href="mailto:info.jhonapps@gmail.com">Email</a>
-    </span>
+        <a href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+        <a href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR</a>
+        <a href="mailto:info.jhonapps@gmail.com">Email</a>
+      </span>
   </div>
 </div>
 
 <script>
-  document.getElementById("y").textContent = new Date().getFullYear()
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
+<script>
+  (function () {
+    const nav = document.querySelector(".nav");
+    if (!nav) return;
+
+    let lastY = window.scrollY || 0;
+    let ticking = false;
+
+    function onScroll() {
+      const y = window.scrollY || 0;
+      const goingDown = y > lastY + 6;
+      const goingUp = y < lastY - 6;
+
+      if (y < 40) {
+        nav.classList.remove("is-hidden");
+      } else if (goingDown) {
+        nav.classList.add("is-hidden");
+      } else if (goingUp) {
+        nav.classList.remove("is-hidden");
+      }
+
+      lastY = y;
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(onScroll);
+    }, { passive: true });
+  })();
 </script>
 </body>
 </html>
