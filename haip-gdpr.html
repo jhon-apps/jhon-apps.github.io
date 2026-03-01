@@ -5,67 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>HAIP — Informativa GDPR</title>
     <meta name="description" content="Informativa GDPR per HAIP — How Am I Poor (Jhon-Apps)." />
+
     <style>
         :root{
-            --bg:#0b1220;--card:#0f1a2e;--text:#e7eefc;--muted:#b6c2de;--border:rgba(255,255,255,.12);
-            --accent:#f59e0b;--ok:#10b981;
+            --bg:#0b1220;
+            --card: rgba(15, 23, 42, 0.72);
+            --card2: rgba(30, 41, 59, 0.60);
+            --text:#e5e7eb;
+            --muted:#94a3b8;
+            --border: rgba(148, 163, 184, 0.22);
+            --accent: #60a5fa;   /* HAIP blu */
+            --ok:#10b981;
+            --warn:#f59e0b;
         }
+
         *{box-sizing:border-box}
+
         body{
             margin:0;
             background:
-                    radial-gradient(1200px 800px at 20% -10%, rgba(245,158,11,0.15), transparent 55%),
-                    radial-gradient(900px 700px at 110% 0%, rgba(59,130,246,0.10), transparent 60%),
+                    radial-gradient(1200px 800px at 20% -10%, rgba(96,165,250,0.14), transparent 55%),
+                    radial-gradient(900px 700px at 110% 0%, rgba(245,158,11,0.10), transparent 60%),
+                    radial-gradient(1200px 700px at 50% -20%, rgba(17,24,39,0.75), transparent 55%),
                     var(--bg);
             color:var(--text);
             font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-            line-height:1.5;
+            line-height:1.55;
         }
+
         a{color:var(--accent);text-decoration:none}
         a:hover{text-decoration:underline}
+
         .wrap{max-width:920px;margin:0 auto;padding:32px 16px 64px}
+
         .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
         .brand{font-weight:900;letter-spacing:-.02em}
+
         .badge{
             border:1px solid var(--border);
-            background:rgba(255,255,255,.04);
+            background: rgba(15,23,42,0.55);
             padding:6px 10px;border-radius:999px;color:var(--muted);
             font-size:12px;white-space:nowrap
         }
+
         .hero{
             border:1px solid var(--border);
-            background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
+            background: rgba(15,23,42,0.55);
             border-radius:24px;padding:22px 18px;margin:16px 0 18px;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 18px 60px rgba(0,0,0,.55);
         }
+
         h1{margin:0 0 6px;font-size:24px;letter-spacing:-.02em}
         .sub{color:var(--muted);margin:0;font-size:14px}
+
         .card{
             border:1px solid var(--border);
-            background:rgba(255,255,255,.03);
+            background: rgba(15,23,42,0.55);
             border-radius:20px;padding:18px;margin:14px 0;
+            backdrop-filter: blur(14px);
         }
+
         h2{margin:0 0 10px;font-size:16px;letter-spacing:-.01em}
         p,li{color:var(--muted);font-size:14px}
         ul{margin:10px 0 0;padding-left:18px}
+
         .grid{display:grid;gap:14px;grid-template-columns:1fr}
         @media (min-width:860px){.grid{grid-template-columns:1fr 1fr}}
+
         .ok{display:inline-flex;align-items:center;gap:8px;color:var(--text);font-size:13px;margin-top:10px}
         .dot{width:10px;height:10px;border-radius:999px;background:var(--ok);box-shadow:0 0 0 3px rgba(16,185,129,.14)}
+
         .footer{margin-top:22px;color:var(--muted);font-size:12px}
+
         code{
             font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-            font-size:12px;color:var(--text);background:rgba(0,0,0,.25);
-            padding:2px 6px;border-radius:8px;border:1px solid rgba(255,255,255,.10)
+            font-size:12px;color:var(--text);
+            background: rgba(2,6,23,0.55);
+            padding:2px 6px;border-radius:8px;border:1px solid rgba(148,163,184,.18)
         }
         .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
         .small{font-size:12px}
+
         .callout{
             border:1px solid rgba(245,158,11,.35);
-            background:rgba(245,158,11,.08);
+            background: rgba(245,158,11,.08);
             border-radius:16px;padding:12px 14px;margin-top:10px
         }
     </style>
 </head>
+
 <body>
 <div class="wrap">
     <div class="top">
@@ -84,7 +113,7 @@
         </div>
         <div class="callout">
             <p style="margin:0">
-                <strong>Pubblicità:</strong> per gli utenti FREE la pubblicità è sempre attiva.
+                <strong>Pubblicità:</strong> per gli utenti FREE la pubblicità è attiva.
                 La scelta riguarda solo se la pubblicità può essere <strong>personalizzata</strong> oppure <strong>non personalizzata</strong>.
             </p>
         </div>
@@ -104,7 +133,7 @@
         <div class="card">
             <h2>2) Dati trattati</h2>
             <p>
-                HAIP salva localmente sul dispositivo i dati inseriti dall’utente (es. movimenti, categorie, ricorrenti, impostazioni, obiettivi).
+                HAIP salva localmente sul dispositivo i dati inseriti dall’utente (es. movimenti, categorie, ricorrenti, impostazioni).
                 Esempi di chiavi locali:
             </p>
             <ul>
@@ -144,7 +173,7 @@
                 Se l’app mostra annunci, i fornitori pubblicitari possono trattare dati tecnici secondo le loro policy.
             </p>
             <p>
-                <strong>Utenti FREE:</strong> la pubblicità è sempre attiva.<br />
+                <strong>Utenti FREE:</strong> la pubblicità è attiva.<br />
                 L’utente deve scegliere tra:
             </p>
             <ul>
@@ -156,10 +185,39 @@
                 La scelta viene salvata sul dispositivo. Per modificarla può essere necessario reinstallare l’app o intervenire
                 sulle impostazioni di sistema, secondo le opzioni disponibili.
             </p>
+            <p class="small">
+                Informativa Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>
+            </p>
         </div>
 
         <div class="card">
-            <h2>6) Diritti dell’interessato</h2>
+            <h2>6) Abbonamento Premium</h2>
+            <p>
+                HAIP offre un abbonamento Premium opzionale che rimuove la pubblicità e sblocca funzioni avanzate.
+            </p>
+            <p>
+                I pagamenti (quando disponibili) sono gestiti tramite <strong>Google Play</strong>.
+                HAIP non raccoglie né memorizza dati di pagamento.
+            </p>
+            <p class="small">
+                Nota: in alcune versioni l’acquisto in-app può non essere ancora attivo; in tal caso l’app mostrerà un messaggio informativo.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>7) Comunicazioni volontarie (Suggerimenti / Contatto sviluppatore)</h2>
+            <p>
+                Se l’utente contatta lo sviluppatore (ad esempio dalla sezione “Suggerimenti” o via email),
+                i dati forniti (come indirizzo email e contenuto del messaggio) saranno utilizzati <strong>solo</strong> per gestire la richiesta
+                e rispondere.
+            </p>
+            <p>
+                Questi dati non vengono condivisi con terze parti e non vengono usati per marketing.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>8) Diritti dell’interessato</h2>
             <p>Hai diritto di:</p>
             <ul>
                 <li>Accedere ai dati</li>
@@ -176,7 +234,7 @@
     </div>
 
     <div class="card">
-        <h2>7) Notifiche</h2>
+        <h2>9) Notifiche</h2>
         <p>
             Le notifiche sono gestite localmente tramite il sistema operativo (Android).
             Puoi disattivarle in app o dalle impostazioni del dispositivo.
@@ -184,7 +242,7 @@
     </div>
 
     <div class="card">
-        <h2>8) Sicurezza</h2>
+        <h2>10) Sicurezza</h2>
         <p>
             HAIP adotta un approccio “local-first” e riduce al minimo i dati trattati.
             La sicurezza dipende anche dalla protezione del dispositivo (PIN, biometria, ecc.).
@@ -192,7 +250,7 @@
     </div>
 
     <div class="card">
-        <h2>9) Aggiornamenti di questa informativa</h2>
+        <h2>11) Aggiornamenti di questa informativa</h2>
         <p>
             Potremmo aggiornare questa pagina in caso di modifiche dell’app o di requisiti legali.
             La data di ultimo aggiornamento è indicata sotto.
@@ -200,7 +258,7 @@
     </div>
 
     <div class="footer">
-        Ultimo aggiornamento: <strong>2026-01-27</strong> ·
+        Ultimo aggiornamento: <strong>2026-02-28</strong> ·
         <a href="https://jhon-apps.github.io/haip-privacy">Privacy Policy</a>
     </div>
 </div>
