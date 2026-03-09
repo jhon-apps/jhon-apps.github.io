@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HAIP – Download</title>
+    <title>HAIP – Dove finiscono i tuoi soldi?</title>
 
     <style>
 
@@ -21,18 +21,35 @@
         }
 
         .container{
-            max-width:400px;
+            max-width:420px;
             padding:30px;
         }
 
-        h1{
-            font-size:28px;
+        .logo{
+            font-size:34px;
+            font-weight:bold;
             margin-bottom:10px;
         }
 
-        p{
-            opacity:0.8;
+        .tagline{
+            font-size:20px;
+            margin-bottom:15px;
+        }
+
+        .desc{
+            opacity:0.85;
+            margin-bottom:25px;
+            line-height:1.4;
+        }
+
+        .features{
+            text-align:left;
             margin-bottom:30px;
+            opacity:0.9;
+        }
+
+        .features li{
+            margin-bottom:8px;
         }
 
         button{
@@ -44,10 +61,17 @@
             cursor:pointer;
             color:white;
             font-weight:bold;
+            width:100%;
         }
 
         button:hover{
             background:#16a34a;
+        }
+
+        .footer{
+            margin-top:20px;
+            font-size:13px;
+            opacity:0.6;
         }
 
     </style>
@@ -57,11 +81,30 @@
 
 <div class="container">
 
-    <h1>Where did your money go?</h1>
+    <div class="logo">💸 HAIP</div>
 
-    <p>Track every euro with HAIP.</p>
+    <div class="tagline">
+        Un altro giorno in cui perdi soldi?
+    </div>
 
-    <button onclick="download()">Download on Play Store</button>
+    <p class="desc">
+        HAIP è l'app semplice e veloce per capire dove spariscono i tuoi soldi.
+        Segna entrate, uscite e scopri finalmente quanto spendi davvero.
+    </p>
+
+    <ul class="features">
+        <li>📊 Tieni traccia delle spese in pochi secondi</li>
+        <li>📉 Scopri dove stai buttando soldi</li>
+        <li>📱 Tutto semplice, veloce e senza complicazioni</li>
+    </ul>
+
+    <button onclick="download()">
+        Scarica HAIP dal Play Store
+    </button>
+
+    <div class="footer">
+        Gratis • Nessun account richiesto
+    </div>
 
 </div>
 
