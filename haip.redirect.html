@@ -2,17 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HAIP Download</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- redirect immediato -->
-    <meta http-equiv="refresh" content="0; url=https://play.google.com/store/apps/details?id=com.howamipoor.app">
+    <title>HAIP – Download</title>
 
-    <script>
-        window.location.href = "https://play.google.com/store/apps/details?id=com.howamipoor.app";
-    </script>
+    <style>
 
+        body{
+            font-family: Arial, sans-serif;
+            background:#0f172a;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            height:100vh;
+            margin:0;
+            text-align:center;
+        }
+
+        .container{
+            max-width:400px;
+            padding:30px;
+        }
+
+        h1{
+            font-size:28px;
+            margin-bottom:10px;
+        }
+
+        p{
+            opacity:0.8;
+            margin-bottom:30px;
+        }
+
+        button{
+            background:#22c55e;
+            border:none;
+            padding:16px 28px;
+            font-size:18px;
+            border-radius:10px;
+            cursor:pointer;
+            color:white;
+            font-weight:bold;
+        }
+
+        button:hover{
+            background:#16a34a;
+        }
+
+    </style>
 </head>
+
 <body>
-Redirecting to download HAIP...
+
+<div class="container">
+
+    <h1>Where did your money go?</h1>
+
+    <p>Track every euro with HAIP.</p>
+
+    <button onclick="download()">Download on Play Store</button>
+
+</div>
+
+<script>
+
+    function download(){
+        window.location.href="https://play.google.com/store/apps/details?id=com.howamipoor.app";
+    }
+
+</script>
+
 </body>
 </html>
