@@ -4,76 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HAIP – Dove finiscono i tuoi soldi?</title>
+    <title>HAIP – Download ufficiale su Google Play</title>
+    <meta
+            name="description"
+            content="Scarica HAIP in modo sicuro dal Google Play Store. L'app semplice per tenere traccia di spese ed entrate."
+    />
 
     <style>
+        *{
+            box-sizing:border-box;
+        }
 
         body{
             font-family: Arial, sans-serif;
-            background:#0f172a;
+            background:linear-gradient(180deg, #0f172a 0%, #111827 100%);
             color:white;
             display:flex;
             align-items:center;
             justify-content:center;
-            height:100vh;
+            min-height:100vh;
             margin:0;
             text-align:center;
+            padding:20px;
         }
 
         .container{
-            max-width:420px;
-            padding:30px;
+            width:100%;
+            max-width:460px;
+            padding:32px 28px;
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:20px;
+            box-shadow:0 20px 50px rgba(0,0,0,0.35);
+            backdrop-filter: blur(8px);
+        }
+
+        .badge{
+            display:inline-block;
+            padding:8px 14px;
+            border-radius:999px;
+            background:rgba(34,197,94,0.12);
+            color:#86efac;
+            font-size:13px;
+            font-weight:bold;
+            margin-bottom:18px;
+            border:1px solid rgba(134,239,172,0.25);
         }
 
         .logo{
-            font-size:34px;
+            font-size:38px;
             font-weight:bold;
             margin-bottom:10px;
         }
 
         .tagline{
-            font-size:20px;
-            margin-bottom:15px;
+            font-size:24px;
+            font-weight:bold;
+            line-height:1.25;
+            margin-bottom:14px;
         }
 
         .desc{
-            opacity:0.85;
-            margin-bottom:25px;
-            line-height:1.4;
+            opacity:0.9;
+            margin-bottom:24px;
+            line-height:1.5;
+            font-size:16px;
+        }
+
+        .play-info{
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:14px;
+            padding:14px 16px;
+            margin-bottom:24px;
+            text-align:left;
+        }
+
+        .play-info-title{
+            font-size:14px;
+            font-weight:bold;
+            color:#86efac;
+            margin-bottom:8px;
+        }
+
+        .play-info p{
+            margin:0;
+            font-size:14px;
+            line-height:1.45;
+            opacity:0.9;
         }
 
         .features{
             text-align:left;
-            margin-bottom:30px;
-            opacity:0.9;
+            margin:0 0 28px 0;
+            padding-left:18px;
+            opacity:0.95;
         }
 
         .features li{
-            margin-bottom:8px;
+            margin-bottom:10px;
+            line-height:1.4;
         }
 
-        button{
+        .trust{
+            display:grid;
+            gap:10px;
+            margin-bottom:26px;
+            text-align:left;
+        }
+
+        .trust-item{
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.06);
+            border-radius:12px;
+            padding:12px 14px;
+            font-size:14px;
+            line-height:1.4;
+            opacity:0.95;
+        }
+
+        .trust-item strong{
+            color:#ffffff;
+        }
+
+        .btn{
             background:#22c55e;
             border:none;
-            padding:16px 28px;
+            padding:16px 20px;
             font-size:18px;
-            border-radius:10px;
+            border-radius:12px;
             cursor:pointer;
             color:white;
             font-weight:bold;
             width:100%;
+            transition:transform 0.15s ease, background 0.15s ease;
+            box-shadow:0 10px 25px rgba(34,197,94,0.25);
         }
 
-        button:hover{
+        .btn:hover{
             background:#16a34a;
+            transform:translateY(-1px);
+        }
+
+        .btn-sub{
+            margin-top:10px;
+            font-size:13px;
+            opacity:0.72;
+            line-height:1.4;
         }
 
         .footer{
-            margin-top:20px;
+            margin-top:22px;
             font-size:13px;
-            opacity:0.6;
+            opacity:0.65;
+            line-height:1.5;
         }
 
+        a.inline-link{
+            color:#86efac;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        a.inline-link:hover{
+            text-decoration:underline;
+        }
     </style>
 </head>
 
@@ -81,39 +176,64 @@
 
 <div class="container">
 
+    <div class="badge">Download ufficiale</div>
+
     <div class="logo">💸 HAIP</div>
 
     <div class="tagline">
-        Un altro giorno in cui perdi soldi?
+        Scarica HAIP dal Google Play Store
     </div>
 
     <p class="desc">
-        HAIP è l'app semplice e veloce per capire dove spariscono i tuoi soldi.
-        Segna entrate, uscite e scopri finalmente quanto spendi davvero.
+        HAIP ti aiuta a capire dove finiscono i tuoi soldi in modo semplice, veloce e chiaro.
+        Questa pagina ti reindirizza direttamente alla scheda ufficiale dell'app su Google Play.
     </p>
 
+    <div class="play-info">
+        <div class="play-info-title">📲 Collegamento sicuro a Google Play</div>
+        <p>
+            Quando premi il pulsante, verrai portato sul
+            <strong>Google Play Store</strong>, dove potrai vedere i dettagli dell'app
+            e scaricarla in totale tranquillità.
+        </p>
+    </div>
+
     <ul class="features">
-        <li>📊 Tieni traccia delle spese in pochi secondi</li>
-        <li>📉 Scopri dove stai buttando soldi</li>
-        <li>📱 Tutto semplice, veloce e senza complicazioni</li>
+        <li>📊 Registra spese ed entrate in pochi secondi</li>
+        <li>📉 Capisci meglio dove stai spendendo troppo</li>
+        <li>📱 Interfaccia semplice, veloce e senza complicazioni</li>
     </ul>
 
-    <button onclick="download()">
-        Scarica HAIP dal Play Store
+    <div class="trust">
+        <div class="trust-item">
+            <strong>Store ufficiale:</strong> il download avviene tramite Google Play, non da siti esterni.
+        </div>
+        <div class="trust-item">
+            <strong>Nessun account obbligatorio:</strong> puoi iniziare a usare HAIP senza creare un profilo.
+        </div>
+        <div class="trust-item">
+            <strong>Più trasparenza:</strong> prima di installare puoi controllare pagina store, info e permessi.
+        </div>
+    </div>
+
+    <button class="btn" onclick="download()">
+        Apri HAIP su Google Play
     </button>
 
+    <div class="btn-sub">
+        Verrai reindirizzato alla pagina ufficiale dell'app sul Play Store
+    </div>
+
     <div class="footer">
-        Gratis • Nessun account richiesto
+        Gratis • Download tramite Google Play • Nessun account richiesto
     </div>
 
 </div>
 
 <script>
-
     function download(){
-        window.location.href="https://play.google.com/store/apps/details?id=com.howamipoor.app";
+        window.location.href = "https://play.google.com/store/apps/details?id=com.howamipoor.app";
     }
-
 </script>
 
 </body>
