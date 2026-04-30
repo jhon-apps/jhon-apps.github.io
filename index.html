@@ -3,85 +3,104 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Jhon-Apps — prodotti local-first e backend enterprise. Java, Spring Boot, microservizi, UX diretta (stile HAIP)." />
-  <title>Jhon-Apps — prodotti & backend (by Jhon)</title>
+  <meta name="description" content="Jhon Apps crea prodotti digitali semplici, concreti e local-first. App leggere, privacy-friendly e pensate per risolvere problemi reali." />
+  <title>Jhon Apps — Digital products, built simple</title>
 
   <style>
     :root{
-      /* HAIP-ish palette */
-      --bg:#070b14;
-      --bg2:#0b1220;
-      --card: rgba(15,23,42,.62);
+      --bg:#050814;
+      --bg2:#0a1020;
+      --card: rgba(15,23,42,.64);
       --card2: rgba(15,23,42,.42);
-      --fg:#e7eefc;
-      --muted:#a9b7d3;
+      --fg:#eef4ff;
+      --muted:#aab8d4;
       --border: rgba(148,163,184,.22);
-      --accent:#f59e0b;   /* amber */
-      --accent2:#60a5fa;  /* blue */
+      --accent:#f59e0b;
+      --accent2:#60a5fa;
       --ok:#22c55e;
-      --bad:#fb7185;
-      --shadow: 0 22px 70px rgba(0,0,0,.55);
-      --radius: 22px;
+      --shadow: 0 24px 80px rgba(0,0,0,.58);
+      --radius: 24px;
     }
 
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     html,body{height:100%}
     body{
       margin:0;
       color:var(--fg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       line-height:1.55;
       background:
-              radial-gradient(900px 520px at 12% -10%, rgba(96,165,250,.16), transparent 58%),
-              radial-gradient(880px 520px at 88% -10%, rgba(245,158,11,.18), transparent 58%),
-              radial-gradient(900px 700px at 50% 120%, rgba(34,197,94,.08), transparent 55%),
+              radial-gradient(900px 520px at 10% -10%, rgba(96,165,250,.18), transparent 60%),
+              radial-gradient(880px 520px at 90% -10%, rgba(245,158,11,.18), transparent 58%),
+              radial-gradient(800px 680px at 50% 120%, rgba(34,197,94,.08), transparent 55%),
               linear-gradient(180deg, var(--bg), var(--bg2));
     }
 
     a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:22px 18px 72px}
+    .wrap{max-width:1120px;margin:0 auto;padding:22px 18px 72px}
 
-    /* Top bar */
     .nav{
-      position:sticky; top:14px; z-index:50;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      position:sticky;
+      top:14px;
+      z-index:50;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
       padding:10px 12px;
       border:1px solid var(--border);
-      border-radius:18px;
-      background:rgba(7,11,20,.55);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      border-radius:20px;
+      background:rgba(5,8,20,.58);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 34px rgba(0,0,0,.38);
       transition: transform .22s ease, opacity .22s ease;
-      will-change: transform;
     }
-    .nav.is-hidden {
+
+    .nav.is-hidden{
       transform: translateY(-140%);
-      opacity: 0;
-      pointer-events: none;
+      opacity:0;
+      pointer-events:none;
     }
+
     .brand{
-      display:flex; align-items:center; gap:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
       text-decoration:none;
       min-width:0;
     }
+
     .logo{
-      width:38px; height:38px;
-      border-radius:14px;
+      width:40px;
+      height:40px;
+      border-radius:15px;
       border:1px solid var(--border);
-      background:rgba(255,255,255,.04);
-      display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(135deg, rgba(245,158,11,.24), rgba(96,165,250,.18));
+      display:flex;
+      align-items:center;
+      justify-content:center;
       overflow:hidden;
       flex:0 0 auto;
+      font-weight:950;
+      color:#fff1d0;
     }
-    .logo img{width:100%;height:100%;object-fit:cover;display:block}
-    .brandText{min-width:0}
+
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
     .brandText strong{
       display:block;
       font-weight:950;
-      letter-spacing:-.02em;
+      letter-spacing:-.03em;
       line-height:1.05;
       white-space:nowrap;
     }
+
     .brandText span{
       display:block;
       color:var(--muted);
@@ -90,7 +109,14 @@
       white-space:nowrap;
     }
 
-    .links{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
     .btn{
       text-decoration:none;
       font-weight:900;
@@ -100,80 +126,139 @@
       border:1px solid var(--border);
       background:rgba(15,23,42,.55);
     }
+
     .btn:hover{border-color:rgba(148,163,184,.42)}
+
     .btn.primary{
-      background:rgba(245,158,11,.92);
+      background:rgba(245,158,11,.94);
       border-color:rgba(245,158,11,.25);
       color:#1b1202;
     }
-    .btn.primary:hover{filter:brightness(1.03)}
 
-    /* Hero */
+    .langSelect{
+      text-decoration:none;
+      font-weight:900;
+      font-size:13px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(15,23,42,.75);
+      color:var(--fg);
+      outline:none;
+      cursor:pointer;
+    }
+
+    .langSelect option{
+      background:#0a1020;
+      color:#eef4ff;
+    }
+
     .hero{
       margin-top:16px;
       border:1px solid var(--border);
-      border-radius:26px;
-      background:linear-gradient(180deg, rgba(15,23,42,.68), rgba(15,23,42,.42));
-      box-shadow: var(--shadow);
-      padding:26px;
+      border-radius:30px;
+      background:
+              linear-gradient(180deg, rgba(15,23,42,.74), rgba(15,23,42,.42));
+      box-shadow:var(--shadow);
+      padding:34px 30px;
       overflow:hidden;
       position:relative;
     }
+
     .hero:before{
       content:"";
-      position:absolute; inset:-1px;
+      position:absolute;
+      inset:-1px;
       background:
-              radial-gradient(700px 260px at 20% 0%, rgba(245,158,11,.10), transparent 60%),
-              radial-gradient(700px 260px at 90% 0%, rgba(96,165,250,.10), transparent 60%);
+              radial-gradient(720px 280px at 20% 0%, rgba(245,158,11,.12), transparent 62%),
+              radial-gradient(720px 280px at 88% 0%, rgba(96,165,250,.12), transparent 62%);
       pointer-events:none;
     }
+
     .hero > *{position:relative}
 
     .kicker{
       display:inline-flex;
-      align-items:center; gap:10px;
+      align-items:center;
+      gap:10px;
       color:var(--muted);
       font-size:12px;
       font-weight:950;
       letter-spacing:.14em;
       text-transform:uppercase;
     }
+
     .spark{
-      width:10px; height:10px; border-radius:999px;
+      width:10px;
+      height:10px;
+      border-radius:999px;
       background:var(--accent);
-      box-shadow: 0 0 20px rgba(245,158,11,.55);
+      box-shadow:0 0 22px rgba(245,158,11,.65);
     }
+
     h1{
-      margin:10px 0 10px;
-      font-size:38px;
-      line-height:1.1;
-      letter-spacing:-.03em;
+      margin:12px 0 12px;
+      font-size:46px;
+      line-height:1.04;
+      letter-spacing:-.045em;
+      max-width:900px;
     }
+
     .sub{
       margin:0;
       color:var(--muted);
       max-width:88ch;
-      font-size:15px;
+      font-size:16px;
     }
 
-    .tagrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+    .tagrow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
     .tag{
       font-size:12px;
       font-weight:950;
-      padding:6px 10px;
+      padding:7px 10px;
       border-radius:999px;
       border:1px solid var(--border);
       background:rgba(15,23,42,.45);
       color:var(--muted);
     }
-    .tag.ok{border-color:rgba(34,197,94,.35); background:rgba(34,197,94,.08); color:#c7f9d8}
-    .tag.blue{border-color:rgba(96,165,250,.35); background:rgba(96,165,250,.08); color:#cfe6ff}
-    .tag.amber{border-color:rgba(245,158,11,.35); background:rgba(245,158,11,.08); color:#ffe3b0}
 
-    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+    .tag.ok{
+      border-color:rgba(34,197,94,.35);
+      background:rgba(34,197,94,.08);
+      color:#c7f9d8;
+    }
+
+    .tag.blue{
+      border-color:rgba(96,165,250,.35);
+      background:rgba(96,165,250,.08);
+      color:#cfe6ff;
+    }
+
+    .tag.amber{
+      border-color:rgba(245,158,11,.35);
+      background:rgba(245,158,11,.08);
+      color:#ffe3b0;
+    }
+
+    .ctaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
     .cta{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 15px;
       border-radius:16px;
       border:1px solid var(--border);
       background:rgba(15,23,42,.55);
@@ -181,37 +266,71 @@
       font-weight:950;
       font-size:14px;
     }
+
     .cta:hover{border-color:rgba(148,163,184,.42)}
+
     .cta.primary{
-      background:rgba(245,158,11,.92);
+      background:rgba(245,158,11,.94);
       border-color:rgba(245,158,11,.22);
       color:#1b1202;
     }
 
-    /* Sections */
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:14px}
-    .card{
-      border:1px solid var(--border);
-      background:rgba(15,23,42,.38);
-      border-radius:var(--radius);
-      padding:16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.28);
-    }
-    .card h3{margin:0 0 6px; font-size:15px; letter-spacing:-.01em}
-    .card p{margin:0; color:var(--muted); font-size:13px}
-    .span12{grid-column: span 12}
-    .span7{grid-column: span 7}
-    .span5{grid-column: span 5}
-    .span6{grid-column: span 6}
-    @media (max-width:900px){
-      h1{font-size:32px}
-      .span7,.span5,.span6{grid-column: span 12}
-      .links{display:none}
+    .haipLine{
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted);
     }
 
+    .haipLine em{
+      color:#ffd08a;
+      font-style:normal;
+      font-weight:950;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background:rgba(15,23,42,.42);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 12px 34px rgba(0,0,0,.30);
+    }
+
+    .card h2{
+      margin:10px 0 0;
+      font-size:22px;
+      letter-spacing:-.025em;
+    }
+
+    .card h3{
+      margin:0 0 7px;
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .span12{grid-column:span 12}
+    .span7{grid-column:span 7}
+    .span6{grid-column:span 6}
+    .span5{grid-column:span 5}
+
     .badge{
-      display:inline-flex; align-items:center; gap:10px;
-      font-size:12px; font-weight:950;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:12px;
+      font-weight:950;
       padding:6px 10px;
       border-radius:999px;
       border:1px solid rgba(245,158,11,.28);
@@ -221,27 +340,56 @@
     }
 
     .pill{
-      display:flex; align-items:flex-start; gap:10px;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
       padding:12px;
       border-radius:18px;
       border:1px solid var(--border);
       background:rgba(7,11,20,.35);
     }
+
     .dot2{
-      width:10px; height:10px; border-radius:999px;
-      margin-top:6px; flex:0 0 auto;
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      margin-top:6px;
+      flex:0 0 auto;
       background:var(--accent2);
-      box-shadow: 0 0 0 3px rgba(96,165,250,.12);
+      box-shadow:0 0 0 3px rgba(96,165,250,.12);
     }
-    .dot2.amber{background:var(--accent); box-shadow: 0 0 0 3px rgba(245,158,11,.12)}
-    .dot2.ok{background:var(--ok); box-shadow: 0 0 0 3px rgba(34,197,94,.12)}
+
+    .dot2.amber{
+      background:var(--accent);
+      box-shadow:0 0 0 3px rgba(245,158,11,.12);
+    }
+
+    .dot2.ok{
+      background:var(--ok);
+      box-shadow:0 0 0 3px rgba(34,197,94,.12);
+    }
+
     .pill b{font-size:13px}
-    .pill small{display:block; color:var(--muted); margin-top:2px}
 
-    .list{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:8px}
+    .pill small{
+      display:block;
+      color:var(--muted);
+      margin-top:2px;
+    }
 
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace}
+    .list{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+    }
+
     .muted{color:var(--muted)}
+
+    .mono{
+      font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
 
     .callout{
       border:1px solid rgba(245,158,11,.30);
@@ -252,256 +400,336 @@
       color:var(--muted);
       font-size:13px;
     }
+
     .callout b{color:var(--fg)}
+
+    .productCard{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .productCard:after{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      right:-120px;
+      top:-120px;
+      border-radius:999px;
+      background:rgba(245,158,11,.09);
+      pointer-events:none;
+    }
+
+    .status{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:10px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(34,197,94,.28);
+      background:rgba(34,197,94,.08);
+      color:#c7f9d8;
+      font-size:12px;
+      font-weight:950;
+    }
 
     .footer{
       margin-top:18px;
       border:1px solid var(--border);
-      background:rgba(15,23,42,.42);
+      background:rgba(15,23,42,.44);
       border-radius:22px;
       padding:14px 16px;
       color:var(--muted);
       font-size:12px;
-      display:flex; flex-wrap:wrap; gap:10px;
-      justify-content:space-between; align-items:center;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+      align-items:center;
     }
-    .footer a{color:var(--muted); text-decoration:none}
+
+    .footer a{
+      color:var(--muted);
+      text-decoration:none;
+    }
+
     .footer a:hover{text-decoration:underline}
 
-    /* tiny HAIP flavor */
-    .haipLine{
-      margin-top:10px;
-      font-size:13px;
-      color:var(--muted);
+    @media (max-width:900px){
+      h1{font-size:34px}
+      .hero{padding:26px 20px}
+      .span7,.span6,.span5{grid-column:span 12}
+      .links{display:none}
     }
-    .haipLine em{color:#ffd08a; font-style:normal; font-weight:950}
+
+    @media (max-width:520px){
+      .wrap{padding:14px 12px 56px}
+      h1{font-size:30px}
+      .sub{font-size:15px}
+      .nav{top:10px}
+      .btn,.langSelect{font-size:12px;padding:9px 10px}
+      .logo{width:38px;height:38px}
+    }
   </style>
 </head>
 
 <body>
 <div class="wrap">
+
   <div class="nav">
-    <a class="brand" href="#top" aria-label="Jhon-Apps">
-        <span class="logo" title="Logo Jhon-Apps">
-          <!-- Metti il logo qui: salva l'immagine in assets/jhon-apps-logo.png -->
-          <img src="assets/jhon-apps-logo.png" alt="Jhon-Apps logo" onerror="this.style.display='none'" />
-        </span>
+    <a class="brand" href="#top" aria-label="Jhon Apps">
+      <span class="logo" title="Jhon Apps">
+        <img src="assets/jhon-apps-logo.png" alt="Jhon Apps logo" onerror="this.remove(); this.parentElement.textContent='JA';" />
+      </span>
       <div class="brandText">
-        <strong>Jhon-Apps</strong>
-        <span class="mono">prodotti · backend · app</span>
+        <strong>Jhon Apps</strong>
+        <span class="mono" data-i18n="brand.subtitle">digital products · built simple</span>
       </div>
     </a>
 
     <div class="links" aria-label="navigazione">
-      <a class="btn" href="#chi-sono">Chi sono</a>
-      <a class="btn" href="#progetti">Progetti</a>
-      <a class="btn" href="#cosa-cerco">Cosa cerco</a>
-      <a class="btn" href="#contatti">Contatti</a>
-      <a class="btn primary" href="#haip">HAIP</a>
+      <a class="btn" href="#brand" data-i18n="nav.brand">Brand</a>
+      <a class="btn" href="#principi" data-i18n="nav.principles">Principi</a>
+      <a class="btn" href="#prodotti" data-i18n="nav.products">Prodotti</a>
+      <a class="btn" href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
+      <a class="btn primary" href="#contatti" data-i18n="nav.contacts">Contatti</a>
     </div>
 
-    <a class="btn primary" href="mailto:info.jhonapps@gmail.com">Scrivimi</a>
+    <div style="display:flex;gap:8px;align-items:center">
+      <select id="langSelect" class="langSelect" aria-label="Lingua">
+        <option value="it">IT</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+        <option value="fr">FR</option>
+      </select>
+
+      <a class="btn primary" href="mailto:info.jhonapps@gmail.com" data-i18n="nav.write">Scrivimi</a>
+    </div>
   </div>
 
   <section class="hero" id="top">
-    <div class="kicker"><span class="spark"></span> Java backend · enterprise · prodotti “local-first”</div>
-    <h1>Costruisco software solido. E ogni tanto… ti giudico pure il saldo.</h1>
-    <p class="sub">
-      Jhon-Apps è il mio spazio per costruire prodotti concreti e puliti: <strong>UX diretta</strong>, performance,
-      e la regola #1: <strong>se non serve, non lo metto</strong>.
-      Di base sono un <strong>Java Backend Engineer</strong> con esperienza in contesti enterprise/consulenza,
-      microservizi e integrazioni (REST/SOAP), pipeline CI/CD e test.
+    <div class="kicker">
+      <span class="spark"></span>
+      <span data-i18n="hero.kicker">Digital products · local-first · privacy-friendly</span>
+    </div>
+
+    <h1 data-i18n="hero.title">App semplici, veloci e costruite per essere usate davvero.</h1>
+
+    <p class="sub" data-i18n="hero.subtitle">
+      Jhon Apps è un laboratorio indipendente di prodotti digitali. Creiamo app leggere, dirette e curate, con una filosofia chiara: meno complessità, più utilità reale. Ogni prodotto nasce per risolvere un problema concreto, senza login inutili, senza esperienze invasive e senza trasformare l’utente nel prodotto.
     </p>
 
     <div class="tagrow" aria-label="highlights">
-      <span class="tag ok">Qualità & stabilità</span>
-      <span class="tag blue">Spring Boot</span>
-      <span class="tag">Microservizi</span>
-      <span class="tag">REST / SOAP</span>
-      <span class="tag">CI/CD</span>
-      <span class="tag amber">UX “senza fronzoli”</span>
+      <span class="tag ok" data-i18n="tag.local">Local-first</span>
+      <span class="tag blue" data-i18n="tag.privacy">Privacy-friendly</span>
+      <span class="tag" data-i18n="tag.ux">UX pulita</span>
+      <span class="tag" data-i18n="tag.simple">Zero fronzoli</span>
+      <span class="tag amber" data-i18n="tag.premium">Premium onesto</span>
+      <span class="tag" data-i18n="tag.ads">Ads non invasive</span>
     </div>
 
     <div class="ctaRow">
-      <a class="cta primary" href="#haip">Scopri HAIP</a>
-      <a class="cta" href="#progetti">Altri progetti</a>
-      <a class="cta" href="#contatti">Contatti</a>
-      <a class="cta" href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy (HAIP)</a>
-      <a class="cta" href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR (HAIP)</a>
+      <a class="cta primary" href="#prodotti" data-i18n="cta.products">Scopri i prodotti</a>
+      <a class="cta" href="#principi" data-i18n="cta.philosophy">La filosofia</a>
+      <a class="cta" href="#contatti" data-i18n="cta.contacts">Contatti</a>
+      <a class="cta" href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy HAIP</a>
+      <a class="cta" href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR HAIP</a>
     </div>
 
-    <p class="haipLine">Mood di Jhon-Apps: <em>meno casino</em>, più prodotto. (E sì: niente “pop-up tossici”.)</p>
+    <p class="haipLine" data-i18n-html="hero.line">
+      La nostra idea di software: <em>chiaro, utile, veloce</em>. Il resto deve meritarsi spazio.
+    </p>
   </section>
 
-  <section class="grid" id="chi-sono" style="margin-top:18px">
+  <section class="grid" id="brand" style="margin-top:18px">
     <div class="card span12">
-      <div class="badge">Chi sono</div>
-      <h2 style="margin:10px 0 0;font-size:20px;letter-spacing:-.02em">Jhon — backend engineer con sindrome da “codice pulito”.</h2>
-      <p style="margin:6px 0 0;color:var(--muted);max-width:92ch">
-        Lavoro da anni su backend Java in ambienti strutturati: microservizi, API, integrazioni e manutenzione evolutiva.
-        Ho un’ossessione sana per stabilità, logging, test automatici e delivery continuo.
+      <div class="badge">Jhon Apps</div>
+
+      <h2 data-i18n="brand.title">Un brand indipendente per app concrete.</h2>
+
+      <p style="margin-top:6px;max-width:92ch" data-i18n="brand.desc">
+        Jhon Apps nasce per creare prodotti digitali piccoli, curati e sostenibili. Non inseguiamo feature inutili: costruiamo strumenti chiari, privacy-friendly e pensati per entrare nella routine quotidiana senza diventare fastidiosi.
       </p>
-      <div class="callout">
-        <b>Regola d’oro:</b> risolvo un bug alla volta. Poi rilascio. Poi dormo. Poi ricomincio.
+
+      <div class="callout" data-i18n-html="brand.callout">
+        <b>Principio guida:</b> se una funzione non rende l’app più utile, più chiara o più veloce, non entra.
       </div>
     </div>
 
-    <div class="card span7">
-      <h3>Come lavoro</h3>
+    <div class="card span7" id="principi">
+      <h3 data-i18n="principles.title">Come costruiamo</h3>
+
       <ul class="list">
         <li class="pill">
           <span class="dot2 ok"></span>
           <div>
-            <b>Pragmatico</b>
-            <small>Iterazioni piccole, refactor sensati, priorità chiare. Evito “mega-riscritture” senza motivo.</small>
+            <b data-i18n="principles.local.title">Local-first quando possibile</b>
+            <small data-i18n="principles.local.desc">I dati restano sul dispositivo quando non serve davvero un backend.</small>
           </div>
         </li>
+
         <li class="pill">
           <span class="dot2"></span>
           <div>
-            <b>Enterprise-friendly</b>
-            <small>Microservizi, REST/SOAP, integrazioni e attenzione alla robustezza in produzione.</small>
+            <b data-i18n="principles.ux.title">UX pulita</b>
+            <small data-i18n="principles.ux.desc">Interfacce dirette, comprensibili e senza passaggi inutili.</small>
           </div>
         </li>
+
         <li class="pill">
           <span class="dot2 amber"></span>
           <div>
-            <b>Qualità</b>
-            <small>Test (es. JUnit/WireMock) e pipeline CI/CD: meno incidenti, più tempo per costruire.</small>
+            <b data-i18n="principles.money.title">Monetizzazione rispettosa</b>
+            <small data-i18n="principles.money.desc">Premium chiaro, ads non invasive e nessuna pressione tossica.</small>
           </div>
         </li>
       </ul>
     </div>
 
     <div class="card span5">
-      <h3>Stack che uso spesso</h3>
-      <p class="muted">
-        Java (8/11/17/21), Spring Boot, API & integrazioni, SQL, tool di build e delivery.
+      <h3 data-i18n="philosophy.title">La nostra filosofia</h3>
+
+      <p class="muted" data-i18n="philosophy.desc">
+        Prodotti piccoli, curati e indipendenti. Ogni app deve essere veloce da capire, piacevole da usare e onesta nel modo in cui guadagna.
       </p>
+
       <div class="tagrow" style="margin-top:10px">
-        <span class="tag blue">Java</span>
-        <span class="tag blue">Spring Boot</span>
-        <span class="tag">SQL</span>
-        <span class="tag">REST/SOAP</span>
-        <span class="tag">Jenkins / CI</span>
-        <span class="tag">JUnit / WireMock</span>
+        <span class="tag blue" data-i18n="tag.privacy">Privacy-friendly</span>
+        <span class="tag blue" data-i18n="tag.local">Local-first</span>
+        <span class="tag" data-i18n="tag.design">Design pulito</span>
+        <span class="tag" data-i18n="tag.simple">Zero fronzoli</span>
+        <span class="tag amber" data-i18n="tag.premium">Premium onesto</span>
       </div>
-      <p class="muted" style="margin-top:10px;font-size:12px">
-        (Sì, mi piace anche la UX: se l’app è lenta o confusa, mi si spezza l’anima.)
-      </p>
     </div>
   </section>
 
-  <section id="progetti" class="grid" style="margin-top:18px">
+  <section id="prodotti" class="grid" style="margin-top:18px">
     <div class="card span12">
-      <div class="badge">Progetti</div>
-      <h2 style="margin:10px 0 0;font-size:20px;letter-spacing:-.02em">Cosa sto costruendo con Jhon-Apps</h2>
-      <p style="margin:6px 0 0;color:var(--muted);max-width:92ch">
-        Prodotti piccoli ma seri: utili, rapidi, local-first quando ha senso. Monetizzazione pulita: premium + ads non invasive.
+      <div class="badge" data-i18n="products.badge">Prodotti</div>
+
+      <h2 data-i18n="products.title">App leggere, dirette e costruite intorno a problemi reali.</h2>
+
+      <p style="margin-top:6px;max-width:92ch" data-i18n="products.desc">
+        Ogni prodotto Jhon Apps deve avere uno scopo chiaro: aiutare l’utente a fare qualcosa meglio, più velocemente o con meno caos.
       </p>
     </div>
 
-    <div class="card span6" id="haip">
-      <h3>HAIP — How Am I Poor</h3>
-      <p>
-        App finanza personale dal tono ironico: dati locali, zero login, grafici e movimenti. Premium sblocca feature e rimuove ads.
+    <div class="card span6 productCard" id="haip">
+      <div class="badge" data-i18n="haip.badge">Primo prodotto</div>
+
+      <h2>HAIP — How Am I Poor</h2>
+
+      <p style="margin-top:8px" data-i18n="haip.desc">
+        La prima app firmata Jhon Apps: un tracker di spese personale, ironico ma utile, pensato per capire dove finiscono i soldi senza complicazioni.
       </p>
 
-      <ul class="list" style="margin-top:10px">
+      <span class="status" data-i18n="haip.status">In sviluppo attivo</span>
+
+      <ul class="list" style="margin-top:12px">
         <li class="pill">
           <span class="dot2"></span>
           <div>
-            <b>Punti forti</b>
-            <small>Grafici, lista movimenti, ricerca e storico, ricorrenti premium, notifiche e UX diretta.</small>
+            <b data-i18n="haip.simple.title">Finanza personale semplice</b>
+            <small data-i18n="haip.simple.desc">Movimenti, categorie, grafici e storico in un’esperienza rapida e leggibile.</small>
           </div>
         </li>
+
         <li class="pill">
           <span class="dot2 amber"></span>
           <div>
-            <b>Filosofia</b>
-            <small>Local-first: i dati restano sul dispositivo. Niente backend obbligatori.</small>
+            <b data-i18n="haip.device.title">Dati sul dispositivo</b>
+            <small data-i18n="haip.device.desc">Niente account obbligatorio: l’app lavora in locale e rispetta la privacy.</small>
           </div>
         </li>
+
         <li class="pill">
           <span class="dot2 ok"></span>
           <div>
-            <b>Obiettivo</b>
-            <small>Diventare “la tua app spese” quotidiana: veloce, chiara, e un filo cattiva quando serve.</small>
+            <b data-i18n="haip.tone.title">Tono diverso</b>
+            <small data-i18n="haip.tone.desc">HAIP non fa finta che vada tutto bene: ti mostra la realtà, ma con stile.</small>
           </div>
         </li>
       </ul>
 
-      <div class="ctaRow" style="margin-top:12px">
+      <div class="ctaRow" style="margin-top:14px">
         <a class="cta" href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy HAIP</a>
         <a class="cta" href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR HAIP</a>
-        <a class="cta primary" href="mailto:info.jhonapps@gmail.com?subject=HAIP%20-%20feedback">Suggerimenti / feedback</a>
+        <a class="cta primary" href="mailto:info.jhonapps@gmail.com?subject=HAIP%20-%20feedback">Feedback</a>
       </div>
-
-      <p class="muted" style="margin-top:10px;font-size:12px">
-        Nota: se hai un’idea semplice che salva tempo (o soldi), sono tutto orecchie.
-      </p>
     </div>
 
     <div class="card span6">
-      <h3>Backend & integrazioni</h3>
-      <p>
-        Nel lavoro quotidiano mi occupo di backend Java e integrazioni: API, microservizi, stabilità, manutenzione evolutiva e delivery.
+      <h3 data-i18n="productRules.title">Cosa rende un prodotto “Jhon Apps”</h3>
+
+      <p data-i18n="productRules.desc">
+        Non basta funzionare. Un’app deve essere chiara, veloce, coerente e rispettosa dell’attenzione dell’utente.
       </p>
 
       <ul class="list" style="margin-top:10px">
         <li class="pill">
           <span class="dot2 ok"></span>
           <div>
-            <b>Focus</b>
-            <small>Stabilità, osservabilità (logging), qualità e manutenibilità.</small>
+            <b data-i18n="productRules.scope.title">Scopo evidente</b>
+            <small data-i18n="productRules.scope.desc">Apri l’app e capisci subito cosa puoi fare.</small>
           </div>
         </li>
+
         <li class="pill">
           <span class="dot2"></span>
           <div>
-            <b>Integrazioni</b>
-            <small>REST/SOAP, sistemi interni/esterni, componenti di integrazione e CI/CD.</small>
+            <b data-i18n="productRules.light.title">Esperienza leggera</b>
+            <small data-i18n="productRules.light.desc">Meno schermate inutili, meno attrito, meno rumore.</small>
           </div>
         </li>
+
         <li class="pill">
           <span class="dot2 amber"></span>
           <div>
-            <b>Stile</b>
-            <small>Roadmap chiara, decisioni semplici, e niente “feature zombie”.</small>
+            <b data-i18n="productRules.honest.title">Rapporto onesto con l’utente</b>
+            <small data-i18n="productRules.honest.desc">Niente trappole, niente dark pattern, niente promesse gonfiate.</small>
           </div>
         </li>
       </ul>
     </div>
   </section>
 
-  <section id="cosa-cerco" class="grid" style="margin-top:18px">
+  <section id="roadmap" class="grid" style="margin-top:18px">
     <div class="card span12">
-      <div class="badge">Cosa cerco</div>
-      <h2 style="margin:10px 0 0;font-size:20px;letter-spacing:-.02em">Costruire prodotti + lavorare bene, senza caos.</h2>
-      <p style="margin:6px 0 0;color:var(--muted);max-width:92ch">
-        Sto portando avanti Jhon-Apps come progetto: voglio continuare a pubblicare, iterare e far crescere un portfolio di app utili.
-        Nel lavoro cerco contesti organizzati, stack moderno e obiettivi misurabili.
+      <div class="badge">Roadmap</div>
+
+      <h2 data-i18n="roadmap.title">Un ecosistema di app leggere e indipendenti.</h2>
+
+      <p style="margin-top:6px;max-width:92ch" data-i18n="roadmap.desc">
+        Jhon Apps non nasce per essere una singola app, ma una linea di prodotti digitali: strumenti semplici, mirati e costruiti attorno a problemi reali.
       </p>
 
       <div class="grid" style="margin-top:12px">
         <div class="card span6">
-          <h3>Contesto ideale</h3>
-          <p>Team chiaro, processi sensati, qualità prima delle “feature per far scena”.</p>
+          <h3 data-i18n="roadmap.now.title">Ora</h3>
+          <p data-i18n="roadmap.now.desc">
+            Consolidare HAIP: stabilità, UX, notifiche, backup, monetizzazione rispettosa e rilascio progressivo.
+          </p>
+
           <div class="tagrow" style="margin-top:10px">
-            <span class="tag ok">Roadmap</span>
-            <span class="tag">Code review</span>
-            <span class="tag">CI/CD</span>
-            <span class="tag">Stabilità</span>
+            <span class="tag ok">HAIP</span>
+            <span class="tag">Release</span>
+            <span class="tag">Feedback</span>
+            <span class="tag">Privacy</span>
           </div>
         </div>
+
         <div class="card span6">
-          <h3>Su Jhon-Apps</h3>
-          <p>Continuare a rilasciare app con UX curata e monetizzazione pulita.</p>
+          <h3 data-i18n="roadmap.next.title">Prossimi prodotti</h3>
+          <p data-i18n="roadmap.next.desc">
+            Nuove app verticali, piccole e concrete: strumenti per gestire, capire o semplificare attività quotidiane.
+          </p>
+
           <div class="tagrow" style="margin-top:10px">
-            <span class="tag amber">Premium</span>
-            <span class="tag">Ads non invasive</span>
+            <span class="tag amber">Utility</span>
             <span class="tag blue">Local-first</span>
-            <span class="tag">Release veloci</span>
+            <span class="tag">Mobile</span>
+            <span class="tag" data-i18n="tag.independent">Prodotti indipendenti</span>
           </div>
         </div>
       </div>
@@ -510,36 +738,358 @@
 
   <section id="contatti" class="grid" style="margin-top:18px">
     <div class="card span12">
-      <div class="badge">Contatti</div>
-      <h2 style="margin:10px 0 0;font-size:20px;letter-spacing:-.02em">Vuoi parlarmi? Due righe, niente romanzi.</h2>
-      <p style="margin:6px 0 0;color:var(--muted);max-width:92ch">
-        Scrivimi con: obiettivo, contesto, vincoli. Se hai un feedback su HAIP, ancora meglio: lo leggo davvero.
+      <div class="badge" data-i18n="contacts.badge">Contatti</div>
+
+      <h2 data-i18n="contacts.title">Feedback, idee o collaborazioni?</h2>
+
+      <p style="margin-top:6px;max-width:92ch" data-i18n="contacts.desc">
+        Scrivici con un obiettivo chiaro: feedback su HAIP, proposta, bug, idea di prodotto o richiesta di collaborazione.
       </p>
 
       <div class="ctaRow" style="margin-top:14px">
         <a class="cta primary" href="mailto:info.jhonapps@gmail.com">info.jhonapps@gmail.com</a>
-        <a class="cta" href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy - HAIP</a>
-        <a class="cta" href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR - HAIP</a>
+        <a class="cta" href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy HAIP</a>
+        <a class="cta" href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR HAIP</a>
       </div>
 
-      <p style="margin:10px 0 0;color:var(--muted);font-size:12px">
+      <p style="margin-top:10px;color:var(--muted);font-size:12px">
         Sito: <span class="mono">jhon-apps.github.io</span>
       </p>
     </div>
   </section>
 
   <div class="footer">
-    <span>© <span id="y"></span> Jhon-Apps · by <b>Jhon</b></span>
+    <span>© <span id="y"></span> Jhon Apps · <span data-i18n="footer.claim">Independent digital products</span></span>
+
     <span class="links">
-        <a href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
-        <a href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR</a>
-        <a href="mailto:info.jhonapps@gmail.com">Email</a>
-      </span>
+      <a href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+      <a href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR</a>
+      <a href="mailto:info.jhonapps@gmail.com">Email</a>
+    </span>
   </div>
+
 </div>
 
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
+<script>
+  const I18N = {
+    it: {
+      "brand.subtitle": "digital products · built simple",
+      "nav.brand": "Brand",
+      "nav.principles": "Principi",
+      "nav.products": "Prodotti",
+      "nav.roadmap": "Roadmap",
+      "nav.contacts": "Contatti",
+      "nav.write": "Scrivimi",
+      "hero.kicker": "Digital products · local-first · privacy-friendly",
+      "hero.title": "App semplici, veloci e costruite per essere usate davvero.",
+      "hero.subtitle": "Jhon Apps è un laboratorio indipendente di prodotti digitali. Creiamo app leggere, dirette e curate, con una filosofia chiara: meno complessità, più utilità reale. Ogni prodotto nasce per risolvere un problema concreto, senza login inutili, senza esperienze invasive e senza trasformare l’utente nel prodotto.",
+      "hero.line": "La nostra idea di software: <em>chiaro, utile, veloce</em>. Il resto deve meritarsi spazio.",
+      "tag.local": "Local-first",
+      "tag.privacy": "Privacy-friendly",
+      "tag.ux": "UX pulita",
+      "tag.simple": "Zero fronzoli",
+      "tag.premium": "Premium onesto",
+      "tag.ads": "Ads non invasive",
+      "tag.design": "Design pulito",
+      "tag.independent": "Prodotti indipendenti",
+      "cta.products": "Scopri i prodotti",
+      "cta.philosophy": "La filosofia",
+      "cta.contacts": "Contatti",
+      "brand.title": "Un brand indipendente per app concrete.",
+      "brand.desc": "Jhon Apps nasce per creare prodotti digitali piccoli, curati e sostenibili. Non inseguiamo feature inutili: costruiamo strumenti chiari, privacy-friendly e pensati per entrare nella routine quotidiana senza diventare fastidiosi.",
+      "brand.callout": "<b>Principio guida:</b> se una funzione non rende l’app più utile, più chiara o più veloce, non entra.",
+      "principles.title": "Come costruiamo",
+      "principles.local.title": "Local-first quando possibile",
+      "principles.local.desc": "I dati restano sul dispositivo quando non serve davvero un backend.",
+      "principles.ux.title": "UX pulita",
+      "principles.ux.desc": "Interfacce dirette, comprensibili e senza passaggi inutili.",
+      "principles.money.title": "Monetizzazione rispettosa",
+      "principles.money.desc": "Premium chiaro, ads non invasive e nessuna pressione tossica.",
+      "philosophy.title": "La nostra filosofia",
+      "philosophy.desc": "Prodotti piccoli, curati e indipendenti. Ogni app deve essere veloce da capire, piacevole da usare e onesta nel modo in cui guadagna.",
+      "products.badge": "Prodotti",
+      "products.title": "App leggere, dirette e costruite intorno a problemi reali.",
+      "products.desc": "Ogni prodotto Jhon Apps deve avere uno scopo chiaro: aiutare l’utente a fare qualcosa meglio, più velocemente o con meno caos.",
+      "haip.badge": "Primo prodotto",
+      "haip.desc": "La prima app firmata Jhon Apps: un tracker di spese personale, ironico ma utile, pensato per capire dove finiscono i soldi senza complicazioni.",
+      "haip.status": "In sviluppo attivo",
+      "haip.simple.title": "Finanza personale semplice",
+      "haip.simple.desc": "Movimenti, categorie, grafici e storico in un’esperienza rapida e leggibile.",
+      "haip.device.title": "Dati sul dispositivo",
+      "haip.device.desc": "Niente account obbligatorio: l’app lavora in locale e rispetta la privacy.",
+      "haip.tone.title": "Tono diverso",
+      "haip.tone.desc": "HAIP non fa finta che vada tutto bene: ti mostra la realtà, ma con stile.",
+      "productRules.title": "Cosa rende un prodotto “Jhon Apps”",
+      "productRules.desc": "Non basta funzionare. Un’app deve essere chiara, veloce, coerente e rispettosa dell’attenzione dell’utente.",
+      "productRules.scope.title": "Scopo evidente",
+      "productRules.scope.desc": "Apri l’app e capisci subito cosa puoi fare.",
+      "productRules.light.title": "Esperienza leggera",
+      "productRules.light.desc": "Meno schermate inutili, meno attrito, meno rumore.",
+      "productRules.honest.title": "Rapporto onesto con l’utente",
+      "productRules.honest.desc": "Niente trappole, niente dark pattern, niente promesse gonfiate.",
+      "roadmap.title": "Un ecosistema di app leggere e indipendenti.",
+      "roadmap.desc": "Jhon Apps non nasce per essere una singola app, ma una linea di prodotti digitali: strumenti semplici, mirati e costruiti attorno a problemi reali.",
+      "roadmap.now.title": "Ora",
+      "roadmap.now.desc": "Consolidare HAIP: stabilità, UX, notifiche, backup, monetizzazione rispettosa e rilascio progressivo.",
+      "roadmap.next.title": "Prossimi prodotti",
+      "roadmap.next.desc": "Nuove app verticali, piccole e concrete: strumenti per gestire, capire o semplificare attività quotidiane.",
+      "contacts.badge": "Contatti",
+      "contacts.title": "Feedback, idee o collaborazioni?",
+      "contacts.desc": "Scrivici con un obiettivo chiaro: feedback su HAIP, proposta, bug, idea di prodotto o richiesta di collaborazione.",
+      "footer.claim": "Independent digital products"
+    },
+
+    en: {
+      "brand.subtitle": "digital products · built simple",
+      "nav.brand": "Brand",
+      "nav.principles": "Principles",
+      "nav.products": "Products",
+      "nav.roadmap": "Roadmap",
+      "nav.contacts": "Contacts",
+      "nav.write": "Contact us",
+      "hero.kicker": "Digital products · local-first · privacy-friendly",
+      "hero.title": "Simple, fast apps built to be actually used.",
+      "hero.subtitle": "Jhon Apps is an independent digital product lab. We create lightweight, focused and polished apps with a clear philosophy: less complexity, more real value. Every product is built to solve a concrete problem, without unnecessary logins, invasive experiences or turning the user into the product.",
+      "hero.line": "Our idea of software: <em>clear, useful, fast</em>. Everything else has to earn its space.",
+      "tag.local": "Local-first",
+      "tag.privacy": "Privacy-friendly",
+      "tag.ux": "Clean UX",
+      "tag.simple": "No clutter",
+      "tag.premium": "Honest premium",
+      "tag.ads": "Non-invasive ads",
+      "tag.design": "Clean design",
+      "tag.independent": "Independent products",
+      "cta.products": "Discover products",
+      "cta.philosophy": "The philosophy",
+      "cta.contacts": "Contacts",
+      "brand.title": "An independent brand for practical apps.",
+      "brand.desc": "Jhon Apps exists to create small, polished and sustainable digital products. We do not chase useless features: we build clear, privacy-friendly tools designed to fit into daily routines without becoming annoying.",
+      "brand.callout": "<b>Guiding principle:</b> if a feature does not make the app more useful, clearer or faster, it does not ship.",
+      "principles.title": "How we build",
+      "principles.local.title": "Local-first when possible",
+      "principles.local.desc": "Data stays on the device when a backend is not truly needed.",
+      "principles.ux.title": "Clean UX",
+      "principles.ux.desc": "Direct, understandable interfaces without unnecessary steps.",
+      "principles.money.title": "Respectful monetization",
+      "principles.money.desc": "Clear premium, non-invasive ads and no toxic pressure.",
+      "philosophy.title": "Our philosophy",
+      "philosophy.desc": "Small, polished and independent products. Every app must be easy to understand, pleasant to use and honest in how it earns.",
+      "products.badge": "Products",
+      "products.title": "Lightweight, focused apps built around real problems.",
+      "products.desc": "Every Jhon Apps product must have a clear purpose: helping users do something better, faster or with less chaos.",
+      "haip.badge": "First product",
+      "haip.desc": "The first app by Jhon Apps: a personal expense tracker, ironic but useful, designed to help you understand where your money goes without complications.",
+      "haip.status": "In active development",
+      "haip.simple.title": "Simple personal finance",
+      "haip.simple.desc": "Transactions, categories, charts and history in a fast and readable experience.",
+      "haip.device.title": "Data on your device",
+      "haip.device.desc": "No mandatory account: the app works locally and respects privacy.",
+      "haip.tone.title": "A different tone",
+      "haip.tone.desc": "HAIP does not pretend everything is fine: it shows you reality, but with style.",
+      "productRules.title": "What makes a product “Jhon Apps”",
+      "productRules.desc": "Working is not enough. An app must be clear, fast, coherent and respectful of the user’s attention.",
+      "productRules.scope.title": "Clear purpose",
+      "productRules.scope.desc": "Open the app and immediately understand what you can do.",
+      "productRules.light.title": "Light experience",
+      "productRules.light.desc": "Fewer useless screens, less friction, less noise.",
+      "productRules.honest.title": "Honest relationship with users",
+      "productRules.honest.desc": "No traps, no dark patterns, no inflated promises.",
+      "roadmap.title": "An ecosystem of lightweight, independent apps.",
+      "roadmap.desc": "Jhon Apps is not meant to be a single app, but a line of digital products: simple, focused tools built around real problems.",
+      "roadmap.now.title": "Now",
+      "roadmap.now.desc": "Consolidating HAIP: stability, UX, notifications, backup, respectful monetization and progressive releases.",
+      "roadmap.next.title": "Next products",
+      "roadmap.next.desc": "New vertical, small and practical apps: tools to manage, understand or simplify everyday activities.",
+      "contacts.badge": "Contacts",
+      "contacts.title": "Feedback, ideas or collaborations?",
+      "contacts.desc": "Write with a clear goal: HAIP feedback, proposal, bug, product idea or collaboration request.",
+      "footer.claim": "Independent digital products"
+    },
+
+    es: {
+      "brand.subtitle": "productos digitales · simples",
+      "nav.brand": "Marca",
+      "nav.principles": "Principios",
+      "nav.products": "Productos",
+      "nav.roadmap": "Roadmap",
+      "nav.contacts": "Contacto",
+      "nav.write": "Escríbenos",
+      "hero.kicker": "Productos digitales · local-first · privacidad",
+      "hero.title": "Apps simples, rápidas y hechas para usarse de verdad.",
+      "hero.subtitle": "Jhon Apps es un laboratorio independiente de productos digitales. Creamos apps ligeras, directas y cuidadas con una filosofía clara: menos complejidad, más utilidad real. Cada producto nace para resolver un problema concreto, sin inicios de sesión innecesarios, sin experiencias invasivas y sin convertir al usuario en el producto.",
+      "hero.line": "Nuestra idea de software: <em>claro, útil, rápido</em>. Todo lo demás debe ganarse su espacio.",
+      "tag.local": "Local-first",
+      "tag.privacy": "Privacidad",
+      "tag.ux": "UX limpia",
+      "tag.simple": "Sin adornos",
+      "tag.premium": "Premium honesto",
+      "tag.ads": "Ads no invasivos",
+      "tag.design": "Diseño limpio",
+      "tag.independent": "Productos independientes",
+      "cta.products": "Descubre los productos",
+      "cta.philosophy": "La filosofía",
+      "cta.contacts": "Contacto",
+      "brand.title": "Una marca independiente para apps concretas.",
+      "brand.desc": "Jhon Apps nace para crear productos digitales pequeños, cuidados y sostenibles. No perseguimos funciones inútiles: construimos herramientas claras, respetuosas con la privacidad y pensadas para entrar en la rutina diaria sin molestar.",
+      "brand.callout": "<b>Principio guía:</b> si una función no hace la app más útil, más clara o más rápida, no entra.",
+      "principles.title": "Cómo construimos",
+      "principles.local.title": "Local-first cuando es posible",
+      "principles.local.desc": "Los datos permanecen en el dispositivo cuando no hace falta un backend.",
+      "principles.ux.title": "UX limpia",
+      "principles.ux.desc": "Interfaces directas, comprensibles y sin pasos innecesarios.",
+      "principles.money.title": "Monetización respetuosa",
+      "principles.money.desc": "Premium claro, ads no invasivos y ninguna presión tóxica.",
+      "philosophy.title": "Nuestra filosofía",
+      "philosophy.desc": "Productos pequeños, cuidados e independientes. Cada app debe ser fácil de entender, agradable de usar y honesta en su forma de monetizar.",
+      "products.badge": "Productos",
+      "products.title": "Apps ligeras, directas y construidas alrededor de problemas reales.",
+      "products.desc": "Cada producto de Jhon Apps debe tener un propósito claro: ayudar al usuario a hacer algo mejor, más rápido o con menos caos.",
+      "haip.badge": "Primer producto",
+      "haip.desc": "La primera app firmada por Jhon Apps: un tracker de gastos personales, irónico pero útil, pensado para entender dónde va el dinero sin complicaciones.",
+      "haip.status": "En desarrollo activo",
+      "haip.simple.title": "Finanzas personales simples",
+      "haip.simple.desc": "Movimientos, categorías, gráficos e historial en una experiencia rápida y legible.",
+      "haip.device.title": "Datos en el dispositivo",
+      "haip.device.desc": "Sin cuenta obligatoria: la app funciona en local y respeta la privacidad.",
+      "haip.tone.title": "Un tono diferente",
+      "haip.tone.desc": "HAIP no finge que todo va bien: te muestra la realidad, pero con estilo.",
+      "productRules.title": "Qué hace que un producto sea “Jhon Apps”",
+      "productRules.desc": "No basta con funcionar. Una app debe ser clara, rápida, coherente y respetuosa con la atención del usuario.",
+      "productRules.scope.title": "Propósito evidente",
+      "productRules.scope.desc": "Abres la app y entiendes de inmediato qué puedes hacer.",
+      "productRules.light.title": "Experiencia ligera",
+      "productRules.light.desc": "Menos pantallas inútiles, menos fricción, menos ruido.",
+      "productRules.honest.title": "Relación honesta con el usuario",
+      "productRules.honest.desc": "Sin trampas, sin dark patterns, sin promesas infladas.",
+      "roadmap.title": "Un ecosistema de apps ligeras e independientes.",
+      "roadmap.desc": "Jhon Apps no nace para ser una sola app, sino una línea de productos digitales: herramientas simples, enfocadas y construidas alrededor de problemas reales.",
+      "roadmap.now.title": "Ahora",
+      "roadmap.now.desc": "Consolidar HAIP: estabilidad, UX, notificaciones, backup, monetización respetuosa y lanzamientos progresivos.",
+      "roadmap.next.title": "Próximos productos",
+      "roadmap.next.desc": "Nuevas apps verticales, pequeñas y concretas: herramientas para gestionar, entender o simplificar actividades diarias.",
+      "contacts.badge": "Contacto",
+      "contacts.title": "¿Feedback, ideas o colaboraciones?",
+      "contacts.desc": "Escríbenos con un objetivo claro: feedback sobre HAIP, propuesta, bug, idea de producto o solicitud de colaboración.",
+      "footer.claim": "Productos digitales independientes"
+    },
+
+    fr: {
+      "brand.subtitle": "produits numériques · simples",
+      "nav.brand": "Marque",
+      "nav.principles": "Principes",
+      "nav.products": "Produits",
+      "nav.roadmap": "Roadmap",
+      "nav.contacts": "Contact",
+      "nav.write": "Écris-nous",
+      "hero.kicker": "Produits numériques · local-first · respect de la vie privée",
+      "hero.title": "Des apps simples, rapides et faites pour être vraiment utilisées.",
+      "hero.subtitle": "Jhon Apps est un laboratoire indépendant de produits numériques. Nous créons des apps légères, directes et soignées avec une philosophie claire : moins de complexité, plus d’utilité réelle. Chaque produit est conçu pour résoudre un problème concret, sans connexions inutiles, sans expériences invasives et sans transformer l’utilisateur en produit.",
+      "hero.line": "Notre idée du logiciel : <em>clair, utile, rapide</em>. Le reste doit mériter sa place.",
+      "tag.local": "Local-first",
+      "tag.privacy": "Respect de la vie privée",
+      "tag.ux": "UX propre",
+      "tag.simple": "Sans superflu",
+      "tag.premium": "Premium honnête",
+      "tag.ads": "Pubs non invasives",
+      "tag.design": "Design propre",
+      "tag.independent": "Produits indépendants",
+      "cta.products": "Découvrir les produits",
+      "cta.philosophy": "La philosophie",
+      "cta.contacts": "Contact",
+      "brand.title": "Une marque indépendante pour des apps concrètes.",
+      "brand.desc": "Jhon Apps existe pour créer des produits numériques petits, soignés et durables. Nous ne poursuivons pas les fonctionnalités inutiles : nous construisons des outils clairs, respectueux de la vie privée et pensés pour entrer dans la routine quotidienne sans devenir gênants.",
+      "brand.callout": "<b>Principe directeur :</b> si une fonction ne rend pas l’app plus utile, plus claire ou plus rapide, elle n’entre pas.",
+      "principles.title": "Comment nous construisons",
+      "principles.local.title": "Local-first quand c’est possible",
+      "principles.local.desc": "Les données restent sur l’appareil lorsqu’un backend n’est pas vraiment nécessaire.",
+      "principles.ux.title": "UX propre",
+      "principles.ux.desc": "Des interfaces directes, compréhensibles et sans étapes inutiles.",
+      "principles.money.title": "Monétisation respectueuse",
+      "principles.money.desc": "Premium clair, pubs non invasives et aucune pression toxique.",
+      "philosophy.title": "Notre philosophie",
+      "philosophy.desc": "Des produits petits, soignés et indépendants. Chaque app doit être facile à comprendre, agréable à utiliser et honnête dans sa manière de générer des revenus.",
+      "products.badge": "Produits",
+      "products.title": "Des apps légères, directes et construites autour de vrais problèmes.",
+      "products.desc": "Chaque produit Jhon Apps doit avoir un objectif clair : aider l’utilisateur à faire quelque chose mieux, plus vite ou avec moins de chaos.",
+      "haip.badge": "Premier produit",
+      "haip.desc": "La première app signée Jhon Apps : un tracker de dépenses personnelles, ironique mais utile, pensé pour comprendre où va l’argent sans complications.",
+      "haip.status": "En développement actif",
+      "haip.simple.title": "Finances personnelles simples",
+      "haip.simple.desc": "Mouvements, catégories, graphiques et historique dans une expérience rapide et lisible.",
+      "haip.device.title": "Données sur l’appareil",
+      "haip.device.desc": "Aucun compte obligatoire : l’app fonctionne localement et respecte la vie privée.",
+      "haip.tone.title": "Un ton différent",
+      "haip.tone.desc": "HAIP ne fait pas semblant que tout va bien : elle montre la réalité, mais avec style.",
+      "productRules.title": "Ce qui rend un produit “Jhon Apps”",
+      "productRules.desc": "Fonctionner ne suffit pas. Une app doit être claire, rapide, cohérente et respecter l’attention de l’utilisateur.",
+      "productRules.scope.title": "Objectif évident",
+      "productRules.scope.desc": "Tu ouvres l’app et tu comprends immédiatement ce que tu peux faire.",
+      "productRules.light.title": "Expérience légère",
+      "productRules.light.desc": "Moins d’écrans inutiles, moins de friction, moins de bruit.",
+      "productRules.honest.title": "Relation honnête avec l’utilisateur",
+      "productRules.honest.desc": "Pas de pièges, pas de dark patterns, pas de promesses gonflées.",
+      "roadmap.title": "Un écosystème d’apps légères et indépendantes.",
+      "roadmap.desc": "Jhon Apps n’est pas pensée comme une seule app, mais comme une ligne de produits numériques : des outils simples, ciblés et construits autour de vrais problèmes.",
+      "roadmap.now.title": "Maintenant",
+      "roadmap.now.desc": "Consolider HAIP : stabilité, UX, notifications, backup, monétisation respectueuse et sorties progressives.",
+      "roadmap.next.title": "Prochains produits",
+      "roadmap.next.desc": "De nouvelles apps verticales, petites et concrètes : des outils pour gérer, comprendre ou simplifier les activités quotidiennes.",
+      "contacts.badge": "Contact",
+      "contacts.title": "Feedback, idées ou collaborations ?",
+      "contacts.desc": "Écris-nous avec un objectif clair : feedback sur HAIP, proposition, bug, idée de produit ou demande de collaboration.",
+      "footer.claim": "Produits numériques indépendants"
+    }
+  };
+
+  function applyLang(lang) {
+    const dict = I18N[lang] || I18N.it;
+
+    document.documentElement.lang = lang;
+    localStorage.setItem("jhonapps:lang", lang);
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) el.textContent = dict[key];
+    });
+
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-html");
+      if (dict[key]) el.innerHTML = dict[key];
+    });
+
+    const descriptions = {
+      it: "Jhon Apps crea prodotti digitali semplici, concreti e local-first. App leggere, privacy-friendly e pensate per risolvere problemi reali.",
+      en: "Jhon Apps creates simple, practical and local-first digital products. Lightweight, privacy-friendly apps designed to solve real problems.",
+      es: "Jhon Apps crea productos digitales simples, concretos y local-first. Apps ligeras, respetuosas con la privacidad y pensadas para resolver problemas reales.",
+      fr: "Jhon Apps crée des produits numériques simples, concrets et local-first. Des apps légères, respectueuses de la vie privée et conçues pour résoudre de vrais problèmes."
+    };
+
+    const titles = {
+      it: "Jhon Apps — Prodotti digitali semplici",
+      en: "Jhon Apps — Digital products, built simple",
+      es: "Jhon Apps — Productos digitales simples",
+      fr: "Jhon Apps — Produits numériques simples"
+    };
+
+    document.title = titles[lang] || titles.it;
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) metaDescription.setAttribute("content", descriptions[lang] || descriptions.it);
+  }
+
+  const langSelect = document.getElementById("langSelect");
+  const savedLang = localStorage.getItem("jhonapps:lang") || "it";
+
+  if (langSelect) {
+    langSelect.value = savedLang;
+    langSelect.addEventListener("change", () => applyLang(langSelect.value));
+  }
+
+  applyLang(savedLang);
 </script>
 
 <script>
@@ -574,5 +1124,6 @@
     }, { passive: true });
   })();
 </script>
+
 </body>
 </html>
