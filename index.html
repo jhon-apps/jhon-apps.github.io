@@ -11,7 +11,6 @@
       --bg:#050814;
       --bg2:#0a1020;
       --card: rgba(15,23,42,.64);
-      --card2: rgba(15,23,42,.42);
       --fg:#eef4ff;
       --muted:#aab8d4;
       --border: rgba(148,163,184,.22);
@@ -25,10 +24,11 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     html,body{height:100%}
+
     body{
       margin:0;
       color:var(--fg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       line-height:1.55;
       background:
               radial-gradient(900px 520px at 10% -10%, rgba(96,165,250,.18), transparent 60%),
@@ -52,13 +52,14 @@
       border:1px solid var(--border);
       border-radius:20px;
       background:rgba(5,8,20,.58);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 12px 34px rgba(0,0,0,.38);
-      transition: transform .22s ease, opacity .22s ease;
+      backdrop-filter:blur(16px);
+      box-shadow:0 12px 34px rgba(0,0,0,.38);
+      transition:transform .22s ease, opacity .22s ease;
+      flex-wrap:wrap;
     }
 
     .nav.is-hidden{
-      transform: translateY(-140%);
+      transform:translateY(-140%);
       opacity:0;
       pointer-events:none;
     }
@@ -117,6 +118,13 @@
       align-items:center;
     }
 
+    .navActions{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex:0 0 auto;
+    }
+
     .btn{
       text-decoration:none;
       font-weight:900;
@@ -136,7 +144,6 @@
     }
 
     .langSelect{
-      text-decoration:none;
       font-weight:900;
       font-size:13px;
       padding:10px 12px;
@@ -157,8 +164,7 @@
       margin-top:16px;
       border:1px solid var(--border);
       border-radius:30px;
-      background:
-              linear-gradient(180deg, rgba(15,23,42,.74), rgba(15,23,42,.42));
+      background:linear-gradient(180deg, rgba(15,23,42,.74), rgba(15,23,42,.42));
       box-shadow:var(--shadow);
       padding:34px 30px;
       overflow:hidden;
@@ -194,6 +200,7 @@
       border-radius:999px;
       background:var(--accent);
       box-shadow:0 0 22px rgba(245,158,11,.65);
+      flex:0 0 auto;
     }
 
     h1{
@@ -457,19 +464,156 @@
     .footer a:hover{text-decoration:underline}
 
     @media (max-width:900px){
-      h1{font-size:34px}
-      .hero{padding:26px 20px}
-      .span7,.span6,.span5{grid-column:span 12}
-      .links{display:none}
+      .wrap{
+        padding:14px 12px 56px;
+      }
+
+      .nav{
+        top:10px;
+        padding:9px;
+        gap:8px;
+      }
+
+      .brandText strong{
+        font-size:14px;
+      }
+
+      .brandText span{
+        font-size:10px;
+      }
+
+      .links{
+        display:none;
+      }
+
+      .hero{
+        margin-top:12px;
+        padding:24px 18px;
+        border-radius:24px;
+      }
+
+      h1{
+        font-size:32px;
+        line-height:1.08;
+        letter-spacing:-.035em;
+      }
+
+      .sub{
+        font-size:15px;
+        line-height:1.55;
+      }
+
+      .ctaRow{
+        gap:8px;
+      }
+
+      .cta{
+        width:100%;
+        justify-content:center;
+        padding:12px 14px;
+      }
+
+      .tagrow{
+        gap:7px;
+      }
+
+      .tag{
+        font-size:11px;
+        padding:6px 9px;
+      }
+
+      .card{
+        padding:16px;
+        border-radius:20px;
+      }
+
+      .card h2{
+        font-size:20px;
+      }
+
+      .pill{
+        padding:11px;
+      }
+
+      .span12,.span7,.span6,.span5{
+        grid-column:span 12;
+      }
+
+      .footer{
+        flex-direction:column;
+        align-items:flex-start;
+      }
     }
 
     @media (max-width:520px){
-      .wrap{padding:14px 12px 56px}
-      h1{font-size:30px}
-      .sub{font-size:15px}
-      .nav{top:10px}
-      .btn,.langSelect{font-size:12px;padding:9px 10px}
-      .logo{width:38px;height:38px}
+      .wrap{
+        padding:12px 10px 48px;
+      }
+
+      .nav{
+        border-radius:18px;
+      }
+
+      .logo{
+        width:36px;
+        height:36px;
+        border-radius:13px;
+      }
+
+      .brandText span{
+        max-width:135px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      .btn,
+      .langSelect{
+        font-size:12px;
+        padding:9px 10px;
+        border-radius:12px;
+      }
+
+      .nav .btn.primary[data-i18n="nav.write"]{
+        display:none;
+      }
+
+      h1{
+        font-size:29px;
+      }
+
+      .kicker{
+        font-size:10px;
+        letter-spacing:.10em;
+        line-height:1.4;
+      }
+
+      .hero{
+        padding:22px 16px;
+      }
+
+      .hero .ctaRow .cta:not(.primary){
+        display:none;
+      }
+
+      .hero .ctaRow .cta.primary{
+        display:flex;
+      }
+
+      .grid{
+        gap:12px;
+      }
+
+      .productCard:after{
+        width:180px;
+        height:180px;
+        right:-95px;
+        top:-95px;
+      }
+
+      .footer .links{
+        display:flex;
+        gap:12px;
+      }
     }
   </style>
 </head>
@@ -496,7 +640,7 @@
       <a class="btn primary" href="#contatti" data-i18n="nav.contacts">Contatti</a>
     </div>
 
-    <div style="display:flex;gap:8px;align-items:center">
+    <div class="navActions">
       <select id="langSelect" class="langSelect" aria-label="Lingua">
         <option value="it">IT</option>
         <option value="en">EN</option>
@@ -1045,7 +1189,7 @@
     }
   };
 
-  function applyLang(lang) {
+  function applyLang(lang){
     const dict = I18N[lang] || I18N.it;
 
     document.documentElement.lang = lang;
