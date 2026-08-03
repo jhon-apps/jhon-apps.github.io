@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Informativa sulla privacy dell'app Due Date di Jhon Apps." />
+  <title>Privacy Policy – Due Date</title>
+  <style>
+    :root {
+      --paper: #fffaf0;
+      --ink: #2e2a28;
+      --muted: #716964;
+      --food: #d86b63;
+      --home: #dfaa45;
+      --car: #5487be;
+      --pet: #6fa277;
+      --recurring: #9a6fc2;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(216,107,99,.14), transparent 32%),
+        radial-gradient(circle at 92% 8%, rgba(84,135,190,.14), transparent 34%),
+        var(--paper);
+    }
+
+    main {
+      width: min(900px, calc(100% - 28px));
+      margin: 28px auto 56px;
+    }
+
+    .tabs {
+      display: flex;
+      align-items: end;
+      gap: 6px;
+      padding-left: 18px;
+    }
+
+    .tab {
+      width: 58px;
+      height: 28px;
+      border-radius: 16px 16px 5px 5px;
+      border: 2px solid currentColor;
+      border-bottom: 0;
+      background: color-mix(in srgb, currentColor 16%, var(--paper));
+    }
+
+    .food { color: var(--food); }
+    .home { color: var(--home); }
+    .car { color: var(--car); }
+    .pet { color: var(--pet); }
+    .recurring { color: var(--recurring); }
+
+    article {
+      padding: clamp(24px, 5vw, 48px);
+      background: rgba(255,255,255,.72);
+      border: 3px solid var(--car);
+      border-radius: 28px;
+      box-shadow: 7px 9px 0 rgba(84,135,190,.10);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 7vw, 48px);
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+
+    .subtitle, .updated {
+      color: var(--muted);
+    }
+
+    .updated {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    h2 {
+      margin: 34px 0 8px;
+      font-size: 20px;
+    }
+
+    p { margin: 8px 0; }
+    ul { margin: 8px 0; padding-left: 22px; }
+
+    a {
+      color: #376fa8;
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 28px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(154,111,194,.10);
+      border: 2px dashed rgba(154,111,194,.55);
+    }
+
+    footer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      main { width: min(100% - 18px, 900px); margin-top: 16px; }
+      .tab { width: 44px; height: 24px; }
+      article { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="tabs" aria-hidden="true">
+    <span class="tab food"></span>
+    <span class="tab home"></span>
+    <span class="tab car"></span>
+    <span class="tab pet"></span>
+    <span class="tab recurring"></span>
+  </div>
+
+  <article>
+    <header>
+      <h1>Due Date</h1>
+      <p class="subtitle">Informativa sulla privacy</p>
+      <p class="updated"><strong>Ultimo aggiornamento:</strong> 3 agosto 2026 · <strong>Publisher:</strong> Jhon Apps</p>
+    </header>
+
+    <h2>1. In breve</h2>
+    <p>
+      Due Date aiuta a ricordare scadenze di alimenti, casa, auto, animali e attività
+      ricorrenti. Le scadenze e la cache dei prodotti vengono conservate localmente sul
+      dispositivo. Jhon Apps non gestisce un account utente e non riceve una copia di
+      questi contenuti su un proprio server.
+    </p>
+
+    <h2>2. Dati salvati sul dispositivo</h2>
+    <p>L’App salva localmente le informazioni inserite dall’utente, tra cui:</p>
+    <ul>
+      <li>titolo, nota, categoria e data della scadenza;</li>
+      <li>impostazioni di promemoria e ricorrenza;</li>
+      <li>codice a barre, nome e marca degli alimenti riconosciuti;</li>
+      <li>preferenze dell’App, come tema, tutorial e notifiche.</li>
+    </ul>
+    <p>
+      Questi dati possono essere inclusi nei sistemi di backup e ripristino messi a
+      disposizione da Android, in base alle impostazioni dell’utente e del dispositivo.
+      La disinstallazione o la cancellazione dei dati dell’App può rimuoverli dal dispositivo.
+    </p>
+
+    <h2>3. Scansione dei codici a barre e dati alimentari</h2>
+    <p>
+      La lettura dei codici a barre utilizza Google Code Scanner, fornito tramite Google
+      Play Services. Il codice rilevato viene usato per cercare nome e marca del prodotto
+      nell’API pubblica di Open Food Facts. Quando una ricerca online è necessaria, il
+      codice a barre e le normali informazioni tecniche della connessione, come l’indirizzo
+      IP, vengono trasmessi al servizio interrogato.
+    </p>
+    <p>
+      I prodotti riconosciuti vengono memorizzati nella cache locale per ridurre le
+      richieste successive. Si applicano anche le informative dei rispettivi fornitori:
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy di Google</a>
+      e
+      <a href="https://world.openfoodfacts.org/privacy" target="_blank" rel="noopener noreferrer">Privacy di Open Food Facts</a>.
+    </p>
+
+    <h2>4. Pubblicità e consenso</h2>
+    <p>
+      La versione gratuita mostra annunci tramite Google AdMob. Google può trattare
+      identificatori del dispositivo, indirizzo IP, dati diagnostici, interazioni con gli
+      annunci e altre informazioni descritte nella propria informativa. Dove previsto,
+      l’App utilizza la User Messaging Platform di Google per raccogliere e gestire le
+      preferenze relative alla pubblicità.
+    </p>
+    <p>
+      Le opzioni privacy possono essere ripresentate nell’App quando richiesto dalle
+      regole applicabili. L’acquisto Premium rimuove gli annunci dall’esperienza dell’App.
+    </p>
+
+    <h2>5. Acquisto Premium</h2>
+    <p>
+      L’acquisto una tantum è gestito da Google Play. Jhon Apps non riceve né conserva
+      numeri di carta o altri dati completi di pagamento. L’App verifica con Google Play
+      lo stato dell’acquisto per attivare e ripristinare le funzioni Premium.
+    </p>
+
+    <h2>6. Notifiche</h2>
+    <p>
+      Con il consenso dell’utente, Due Date programma notifiche locali per le scadenze e
+      per ricordare di aggiungerne di nuove dopo un periodo di inattività. Il relativo
+      permesso può essere modificato dalle impostazioni Android. Le scadenze non vengono
+      inviate a Jhon Apps per generare queste notifiche.
+    </p>
+
+    <h2>7. Conservazione e cancellazione</h2>
+    <p>
+      Le scadenze possono essere eliminate direttamente nell’App. Tutti i dati locali
+      possono essere cancellati dalle impostazioni Android o disinstallando l’App, salvo
+      eventuali copie gestite dal sistema di backup Android. Le preferenze pubblicitarie
+      sono gestite secondo i meccanismi messi a disposizione da Google.
+    </p>
+
+    <h2>8. Minori</h2>
+    <p>
+      Due Date è uno strumento di utilità generale e non è progettata specificamente per
+      bambini. Jhon Apps non raccoglie consapevolmente dati personali di minori tramite
+      propri server.
+    </p>
+
+    <h2>9. Modifiche</h2>
+    <p>
+      Questa informativa può essere aggiornata quando cambiano le funzioni dell’App o i
+      servizi utilizzati. La data in cima alla pagina indica l’ultima revisione.
+    </p>
+
+    <div class="note">
+      <strong>Contatti</strong><br />
+      Per domande sulla privacy o sull’App:
+      <a href="mailto:info.jhonapps@gmail.com">info.jhonapps@gmail.com</a>
+    </div>
+
+    <footer>Due Date · una app Jhon Apps</footer>
+  </article>
+</main>
+</body>
+</html>
