@@ -1,0 +1,12 @@
+{
+  "latestVersion": "1.0.0",
+  "minimumVersion": "1.0.0",
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=it.jhonapps.duedate",
+  "message": {
+    "it": "È disponibile una nuova versione di Due Date.",
+    "en": "A new version of Due Date is available.",
+    "es": "Hay una nueva versión de Due Date disponible.",
+    "fr": "Une nouvelle version de Due Date est disponible.",
+    "ru": "Доступна новая версия Due Date."
+  }
+}
