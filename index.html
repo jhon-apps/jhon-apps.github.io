@@ -463,6 +463,12 @@
       font-weight:950;
     }
 
+    .status.building{
+      border-color:rgba(245,158,11,.34);
+      background:rgba(245,158,11,.09);
+      color:#ffe0a3;
+    }
+
     .footer{
       margin-top:18px;
       border:1px solid var(--border);
@@ -789,7 +795,7 @@
       </p>
     </div>
 
-    <div class="card span4 productCard" id="due-date">
+    <div class="card span6 productCard" id="due-date">
       <div class="badge" data-i18n="due.badge">Scadenze quotidiane</div>
 
       <h2>Due Date — Scadenze</h2>
@@ -806,7 +812,7 @@
       </div>
     </div>
 
-    <div class="card span4 productCard" id="haip">
+    <div class="card span6 productCard" id="haip">
       <div class="badge" data-i18n="haip.badge">Finanza personale</div>
 
       <h2>HAIP — How Am I Poor</h2>
@@ -849,23 +855,6 @@
       </div>
     </div>
 
-    <div class="card span4 productCard" id="endoscope">
-      <div class="badge" data-i18n="camera.badge">Utility hardware</div>
-
-      <h2>Endoscope USB Camera</h2>
-
-      <p style="margin-top:8px" data-i18n="camera.desc">
-        Collega una videocamera USB compatibile al dispositivo Android e visualizza il flusso in modo diretto, essenziale e pratico.
-      </p>
-
-      <span class="status" data-i18n="product.available">Disponibile su Google Play</span>
-
-      <div class="ctaRow productActions">
-        <a class="cta primary" href="https://play.google.com/store/apps/details?id=it.jhonapps.endoscopecamera" target="_blank" rel="noopener noreferrer">Google Play</a>
-        <a class="cta" href="https://jhon-apps.github.io/endoscope-usb-camera-privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
-      </div>
-    </div>
-
     <div class="card span12">
       <h3 data-i18n="productRules.title">Cosa rende un prodotto “Jhon Apps”</h3>
 
@@ -901,6 +890,37 @@
     </div>
   </section>
 
+  <section id="in-costruzione" class="grid" style="margin-top:18px">
+    <div class="card span12">
+      <div class="badge" data-i18n="building.badge">In costruzione</div>
+      <h2 data-i18n="building.title">Progetti che stiamo trasformando in prodotti completi.</h2>
+      <p style="margin-top:6px;max-width:92ch" data-i18n="building.desc">Esperimenti nati da necessità concrete, sviluppati apertamente e pubblicati soltanto quando sono davvero pronti.</p>
+    </div>
+
+    <div class="card span6 productCard" id="endoscope">
+      <div class="badge" data-i18n="camera.badge">Utility hardware</div>
+
+      <h2>Endoscope USB Camera</h2>
+
+      <p style="margin-top:8px" data-i18n="camera.desc">
+        È nata perché l’app proprietaria di una webcam USB non funzionava: abbiamo costruito una soluzione nostra, diretta e pratica. Il progetto è ancora in valutazione e potrebbe non essere pubblicato.
+      </p>
+
+      <span class="status building" data-i18n="product.building">In costruzione</span>
+
+      <div class="ctaRow productActions">
+        <a class="cta" href="https://jhon-apps.github.io/endoscope-usb-camera-privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+      </div>
+    </div>
+
+    <div class="card span6 productCard" id="jhon-web">
+      <div class="badge" data-i18n="browser.badge">Browser Android</div>
+      <h2>Jhon Web</h2>
+      <p style="margin-top:8px" data-i18n="browser.desc">Il browser Jhon-Apps che stiamo costruendo: navigazione essenziale, schede, cronologia locale, controlli privacy e blocco dei contenuti indesiderati, con uno sviluppo progressivo e verificabile.</p>
+      <span class="status building" data-i18n="product.building">In costruzione</span>
+    </div>
+  </section>
+
   <section id="roadmap" class="grid" style="margin-top:18px">
     <div class="card span12">
       <div class="badge">Roadmap</div>
@@ -915,14 +935,14 @@
         <div class="card span6">
           <h3 data-i18n="roadmap.now.title">Ora</h3>
           <p data-i18n="roadmap.now.desc">
-            Consolidare Due Date, HAIP ed Endoscope USB Camera: stabilità, UX, privacy e aggiornamenti continui.
+            Consolidare Due Date e HAIP, mentre Jhon Web ed Endoscope USB Camera continuano il loro percorso di sviluppo.
           </p>
 
           <div class="tagrow" style="margin-top:10px">
+            <span class="tag ok">Due Date</span>
             <span class="tag ok">HAIP</span>
-            <span class="tag">Release</span>
-            <span class="tag">Feedback</span>
-            <span class="tag">Privacy</span>
+            <span class="tag">Jhon Web</span>
+            <span class="tag">Endoscope</span>
           </div>
         </div>
 
@@ -1024,10 +1044,16 @@
       "products.title": "App leggere, dirette e costruite intorno a problemi reali.",
       "products.desc": "Ogni prodotto Jhon Apps deve avere uno scopo chiaro: aiutare l’utente a fare qualcosa meglio, più velocemente o con meno caos.",
       "product.available": "Disponibile su Google Play",
+      "product.building": "In costruzione",
+      "building.badge": "In costruzione",
+      "building.title": "Progetti che stiamo trasformando in prodotti completi.",
+      "building.desc": "Esperimenti nati da necessità concrete, sviluppati apertamente e pubblicati soltanto quando sono davvero pronti.",
       "due.badge": "Scadenze quotidiane",
       "due.desc": "Scadenze, promemoria e ricorrenze in un unico raccoglitore semplice da consultare, con categorie dedicate alla vita di ogni giorno.",
       "camera.badge": "Utility hardware",
-      "camera.desc": "Collega una videocamera USB compatibile al dispositivo Android e visualizza il flusso in modo diretto, essenziale e pratico.",
+      "camera.desc": "È nata perché l’app proprietaria di una webcam USB non funzionava: abbiamo costruito una soluzione nostra, diretta e pratica. Il progetto è ancora in valutazione e potrebbe non essere pubblicato.",
+      "browser.badge": "Browser Android",
+      "browser.desc": "Il browser Jhon-Apps che stiamo costruendo: navigazione essenziale, schede, cronologia locale, controlli privacy e blocco dei contenuti indesiderati, con uno sviluppo progressivo e verificabile.",
       "haip.badge": "Finanza personale",
       "haip.desc": "La prima app firmata Jhon Apps: un tracker di spese personale, ironico ma utile, pensato per capire dove finiscono i soldi senza complicazioni.",
       "haip.status": "Disponibile su Google Play",
@@ -1048,7 +1074,7 @@
       "roadmap.title": "Un ecosistema di app leggere e indipendenti.",
       "roadmap.desc": "Jhon Apps non nasce per essere una singola app, ma una linea di prodotti digitali: strumenti semplici, mirati e costruiti attorno a problemi reali.",
       "roadmap.now.title": "Ora",
-      "roadmap.now.desc": "Consolidare Due Date, HAIP ed Endoscope USB Camera: stabilità, UX, privacy e aggiornamenti continui.",
+      "roadmap.now.desc": "Consolidare Due Date e HAIP, mentre Jhon Web ed Endoscope USB Camera continuano il loro percorso di sviluppo.",
       "roadmap.next.title": "Prossimi prodotti",
       "roadmap.next.desc": "Nuove app verticali, piccole e concrete: strumenti per gestire, capire o semplificare attività quotidiane.",
       "contacts.badge": "Contatti",
@@ -1096,10 +1122,16 @@
       "products.title": "Lightweight, focused apps built around real problems.",
       "products.desc": "Every Jhon Apps product must have a clear purpose: helping users do something better, faster or with less chaos.",
       "product.available": "Available on Google Play",
+      "product.building": "In development",
+      "building.badge": "In development",
+      "building.title": "Projects we are turning into complete products.",
+      "building.desc": "Experiments born from real needs, developed openly and published only when they are genuinely ready.",
       "due.badge": "Everyday deadlines",
       "due.desc": "Deadlines, reminders and recurring events in one easy-to-browse organizer, with categories designed for everyday life.",
       "camera.badge": "Hardware utility",
-      "camera.desc": "Connect a compatible USB camera to your Android device and view its feed through a direct, focused and practical interface.",
+      "camera.desc": "It began because the proprietary app supplied with a USB webcam did not work, so we built our own direct and practical solution. The project is still being evaluated and may not be published.",
+      "browser.badge": "Android browser",
+      "browser.desc": "The Jhon-Apps browser we are building: focused navigation, tabs, local history, privacy controls and unwanted-content blocking, developed progressively and transparently.",
       "haip.badge": "Personal finance",
       "haip.desc": "The first app by Jhon Apps: a personal expense tracker, ironic but useful, designed to help you understand where your money goes without complications.",
       "haip.status": "Available on Google Play",
@@ -1120,7 +1152,7 @@
       "roadmap.title": "An ecosystem of lightweight, independent apps.",
       "roadmap.desc": "Jhon Apps is not meant to be a single app, but a line of digital products: simple, focused tools built around real problems.",
       "roadmap.now.title": "Now",
-      "roadmap.now.desc": "Consolidating Due Date, HAIP and Endoscope USB Camera through stability, UX, privacy and continuous updates.",
+      "roadmap.now.desc": "Consolidating Due Date and HAIP while Jhon Web and Endoscope USB Camera continue their development journey.",
       "roadmap.next.title": "Next products",
       "roadmap.next.desc": "New vertical, small and practical apps: tools to manage, understand or simplify everyday activities.",
       "contacts.badge": "Contacts",
@@ -1168,10 +1200,16 @@
       "products.title": "Apps ligeras, directas y construidas alrededor de problemas reales.",
       "products.desc": "Cada producto de Jhon Apps debe tener un propósito claro: ayudar al usuario a hacer algo mejor, más rápido o con menos caos.",
       "product.available": "Disponible en Google Play",
+      "product.building": "En construcción",
+      "building.badge": "En construcción",
+      "building.title": "Proyectos que estamos convirtiendo en productos completos.",
+      "building.desc": "Experimentos nacidos de necesidades reales, desarrollados abiertamente y publicados solo cuando están realmente listos.",
       "due.badge": "Vencimientos cotidianos",
       "due.desc": "Vencimientos, recordatorios y recurrencias en un único organizador fácil de consultar, con categorías para la vida diaria.",
       "camera.badge": "Utilidad de hardware",
-      "camera.desc": "Conecta una cámara USB compatible a tu dispositivo Android y visualiza su imagen con una interfaz directa, esencial y práctica.",
+      "camera.desc": "Nació porque la app propietaria incluida con una webcam USB no funcionaba, así que construimos nuestra propia solución directa y práctica. El proyecto sigue en evaluación y podría no publicarse.",
+      "browser.badge": "Navegador Android",
+      "browser.desc": "El navegador Jhon-Apps que estamos construyendo: navegación esencial, pestañas, historial local, controles de privacidad y bloqueo de contenido no deseado, con desarrollo progresivo y transparente.",
       "haip.badge": "Finanzas personales",
       "haip.desc": "La primera app firmada por Jhon Apps: un tracker de gastos personales, irónico pero útil, pensado para entender dónde va el dinero sin complicaciones.",
       "haip.status": "Disponible en Google Play",
@@ -1192,7 +1230,7 @@
       "roadmap.title": "Un ecosistema de apps ligeras e independientes.",
       "roadmap.desc": "Jhon Apps no nace para ser una sola app, sino una línea de productos digitales: herramientas simples, enfocadas y construidas alrededor de problemas reales.",
       "roadmap.now.title": "Ahora",
-      "roadmap.now.desc": "Consolidar Due Date, HAIP y Endoscope USB Camera con estabilidad, UX, privacidad y actualizaciones continuas.",
+      "roadmap.now.desc": "Consolidar Due Date y HAIP mientras Jhon Web y Endoscope USB Camera continúan su desarrollo.",
       "roadmap.next.title": "Próximos productos",
       "roadmap.next.desc": "Nuevas apps verticales, pequeñas y concretas: herramientas para gestionar, entender o simplificar actividades diarias.",
       "contacts.badge": "Contacto",
@@ -1240,10 +1278,16 @@
       "products.title": "Des apps légères, directes et construites autour de vrais problèmes.",
       "products.desc": "Chaque produit Jhon Apps doit avoir un objectif clair : aider l’utilisateur à faire quelque chose mieux, plus vite ou avec moins de chaos.",
       "product.available": "Disponible sur Google Play",
+      "product.building": "En construction",
+      "building.badge": "En construction",
+      "building.title": "Des projets que nous transformons en produits complets.",
+      "building.desc": "Des expériences nées de besoins concrets, développées ouvertement et publiées uniquement lorsqu’elles sont réellement prêtes.",
       "due.badge": "Échéances du quotidien",
       "due.desc": "Échéances, rappels et récurrences dans un organiseur unique et simple à consulter, avec des catégories pour la vie quotidienne.",
       "camera.badge": "Utilitaire matériel",
-      "camera.desc": "Connectez une caméra USB compatible à votre appareil Android et affichez son flux dans une interface directe, essentielle et pratique.",
+      "camera.desc": "Le projet est né parce que l’app propriétaire fournie avec une webcam USB ne fonctionnait pas. Nous avons donc construit notre propre solution, directe et pratique. Il est encore en évaluation et pourrait ne pas être publié.",
+      "browser.badge": "Navigateur Android",
+      "browser.desc": "Le navigateur Jhon-Apps que nous construisons : navigation essentielle, onglets, historique local, contrôles de confidentialité et blocage des contenus indésirables, avec un développement progressif et transparent.",
       "haip.badge": "Finances personnelles",
       "haip.desc": "La première app signée Jhon Apps : un tracker de dépenses personnelles, ironique mais utile, pensé pour comprendre où va l’argent sans complications.",
       "haip.status": "Disponible sur Google Play",
@@ -1264,7 +1308,7 @@
       "roadmap.title": "Un écosystème d’apps légères et indépendantes.",
       "roadmap.desc": "Jhon Apps n’est pas pensée comme une seule app, mais comme une ligne de produits numériques : des outils simples, ciblés et construits autour de vrais problèmes.",
       "roadmap.now.title": "Maintenant",
-      "roadmap.now.desc": "Consolider Due Date, HAIP et Endoscope USB Camera avec stabilité, UX, respect de la vie privée et mises à jour continues.",
+      "roadmap.now.desc": "Consolider Due Date et HAIP tandis que Jhon Web et Endoscope USB Camera poursuivent leur développement.",
       "roadmap.next.title": "Prochains produits",
       "roadmap.next.desc": "De nouvelles apps verticales, petites et concrètes : des outils pour gérer, comprendre ou simplifier les activités quotidiennes.",
       "contacts.badge": "Contact",
