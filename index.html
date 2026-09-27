@@ -171,6 +171,23 @@
       position:relative;
     }
 
+    .heroBrand{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(220px,340px);
+      gap:28px;
+      align-items:center;
+    }
+
+    .brandPoster{
+      width:100%;
+      aspect-ratio:1;
+      object-fit:cover;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 24px 70px rgba(0,0,0,.48);
+      background:#fff;
+    }
+
     .hero:before{
       content:"";
       position:absolute;
@@ -330,6 +347,7 @@
     .span12{grid-column:span 12}
     .span7{grid-column:span 7}
     .span6{grid-column:span 6}
+    .span4{grid-column:span 4}
     .span5{grid-column:span 5}
 
     .badge{
@@ -413,7 +431,11 @@
     .productCard{
       position:relative;
       overflow:hidden;
+      display:flex;
+      flex-direction:column;
     }
+
+    .productActions{margin-top:auto;padding-top:16px}
 
     .productCard:after{
       content:"";
@@ -492,6 +514,9 @@
         border-radius:24px;
       }
 
+      .heroBrand{grid-template-columns:1fr}
+      .brandPoster{max-width:280px;margin:4px auto 0}
+
       h1{
         font-size:32px;
         line-height:1.08;
@@ -535,7 +560,7 @@
         padding:11px;
       }
 
-      .span12,.span7,.span6,.span5{
+      .span12,.span7,.span6,.span5,.span4{
         grid-column:span 12;
       }
 
@@ -653,16 +678,21 @@
   </div>
 
   <section class="hero" id="top">
-    <div class="kicker">
-      <span class="spark"></span>
-      <span data-i18n="hero.kicker">Digital products · local-first · privacy-friendly</span>
+    <div class="heroBrand">
+      <div>
+        <div class="kicker">
+          <span class="spark"></span>
+          <span data-i18n="hero.kicker">Digital products · local-first · privacy-friendly</span>
+        </div>
+
+        <h1 data-i18n="hero.title">App semplici, veloci e costruite per essere usate davvero.</h1>
+
+        <p class="sub" data-i18n="hero.subtitle">
+          Jhon Apps è un laboratorio indipendente di prodotti digitali. Creiamo app leggere, dirette e curate, con una filosofia chiara: meno complessità, più utilità reale. Ogni prodotto nasce per risolvere un problema concreto, senza login inutili, senza esperienze invasive e senza trasformare l’utente nel prodotto.
+        </p>
+      </div>
+      <img class="brandPoster" src="assets/jhon-apps-brand-card.png" alt="Jhon Apps · marchio ufficiale" />
     </div>
-
-    <h1 data-i18n="hero.title">App semplici, veloci e costruite per essere usate davvero.</h1>
-
-    <p class="sub" data-i18n="hero.subtitle">
-      Jhon Apps è un laboratorio indipendente di prodotti digitali. Creiamo app leggere, dirette e curate, con una filosofia chiara: meno complessità, più utilità reale. Ogni prodotto nasce per risolvere un problema concreto, senza login inutili, senza esperienze invasive e senza trasformare l’utente nel prodotto.
-    </p>
 
     <div class="tagrow" aria-label="highlights">
       <span class="tag ok" data-i18n="tag.local">Local-first</span>
@@ -759,8 +789,25 @@
       </p>
     </div>
 
-    <div class="card span6 productCard" id="haip">
-      <div class="badge" data-i18n="haip.badge">Primo prodotto</div>
+    <div class="card span4 productCard" id="due-date">
+      <div class="badge" data-i18n="due.badge">Scadenze quotidiane</div>
+
+      <h2>Due Date — Scadenze</h2>
+
+      <p style="margin-top:8px" data-i18n="due.desc">
+        Scadenze, promemoria e ricorrenze in un unico raccoglitore semplice da consultare, con categorie dedicate alla vita di ogni giorno.
+      </p>
+
+      <span class="status" data-i18n="product.available">Disponibile su Google Play</span>
+
+      <div class="ctaRow productActions">
+        <a class="cta primary" href="https://play.google.com/store/apps/details?id=it.jhonapps.duedate" target="_blank" rel="noopener noreferrer">Google Play</a>
+        <a class="cta" href="https://jhon-apps.github.io/due-date-privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+      </div>
+    </div>
+
+    <div class="card span4 productCard" id="haip">
+      <div class="badge" data-i18n="haip.badge">Finanza personale</div>
 
       <h2>HAIP — How Am I Poor</h2>
 
@@ -768,7 +815,7 @@
         La prima app firmata Jhon Apps: un tracker di spese personale, ironico ma utile, pensato per capire dove finiscono i soldi senza complicazioni.
       </p>
 
-      <span class="status" data-i18n="haip.status">In sviluppo attivo</span>
+      <span class="status" data-i18n="product.available">Disponibile su Google Play</span>
 
       <ul class="list" style="margin-top:12px">
         <li class="pill">
@@ -796,14 +843,30 @@
         </li>
       </ul>
 
-      <div class="ctaRow" style="margin-top:14px">
+      <div class="ctaRow productActions">
+        <a class="cta primary" href="https://play.google.com/store/apps/details?id=com.howamipoor.app" target="_blank" rel="noopener noreferrer">Google Play</a>
         <a class="cta" href="https://jhon-apps.github.io/haip-privacy" target="_blank" rel="noopener noreferrer">Privacy HAIP</a>
-        <a class="cta" href="https://jhon-apps.github.io/haip-gdpr" target="_blank" rel="noopener noreferrer">GDPR HAIP</a>
-        <a class="cta primary" href="mailto:info.jhonapps@gmail.com?subject=HAIP%20-%20feedback">Feedback</a>
       </div>
     </div>
 
-    <div class="card span6">
+    <div class="card span4 productCard" id="endoscope">
+      <div class="badge" data-i18n="camera.badge">Utility hardware</div>
+
+      <h2>Endoscope USB Camera</h2>
+
+      <p style="margin-top:8px" data-i18n="camera.desc">
+        Collega una videocamera USB compatibile al dispositivo Android e visualizza il flusso in modo diretto, essenziale e pratico.
+      </p>
+
+      <span class="status" data-i18n="product.available">Disponibile su Google Play</span>
+
+      <div class="ctaRow productActions">
+        <a class="cta primary" href="https://play.google.com/store/apps/details?id=it.jhonapps.endoscopecamera" target="_blank" rel="noopener noreferrer">Google Play</a>
+        <a class="cta" href="https://jhon-apps.github.io/endoscope-usb-camera-privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+      </div>
+    </div>
+
+    <div class="card span12">
       <h3 data-i18n="productRules.title">Cosa rende un prodotto “Jhon Apps”</h3>
 
       <p data-i18n="productRules.desc">
@@ -852,7 +915,7 @@
         <div class="card span6">
           <h3 data-i18n="roadmap.now.title">Ora</h3>
           <p data-i18n="roadmap.now.desc">
-            Consolidare HAIP: stabilità, UX, notifiche, backup, monetizzazione rispettosa e rilascio progressivo.
+            Consolidare Due Date, HAIP ed Endoscope USB Camera: stabilità, UX, privacy e aggiornamenti continui.
           </p>
 
           <div class="tagrow" style="margin-top:10px">
@@ -887,7 +950,7 @@
       <h2 data-i18n="contacts.title">Feedback, idee o collaborazioni?</h2>
 
       <p style="margin-top:6px;max-width:92ch" data-i18n="contacts.desc">
-        Scrivici con un obiettivo chiaro: feedback su HAIP, proposta, bug, idea di prodotto o richiesta di collaborazione.
+        Scrivici con un obiettivo chiaro: feedback su un’app, proposta, bug, idea di prodotto o richiesta di collaborazione.
       </p>
 
       <div class="ctaRow" style="margin-top:14px">
@@ -960,9 +1023,14 @@
       "products.badge": "Prodotti",
       "products.title": "App leggere, dirette e costruite intorno a problemi reali.",
       "products.desc": "Ogni prodotto Jhon Apps deve avere uno scopo chiaro: aiutare l’utente a fare qualcosa meglio, più velocemente o con meno caos.",
-      "haip.badge": "Primo prodotto",
+      "product.available": "Disponibile su Google Play",
+      "due.badge": "Scadenze quotidiane",
+      "due.desc": "Scadenze, promemoria e ricorrenze in un unico raccoglitore semplice da consultare, con categorie dedicate alla vita di ogni giorno.",
+      "camera.badge": "Utility hardware",
+      "camera.desc": "Collega una videocamera USB compatibile al dispositivo Android e visualizza il flusso in modo diretto, essenziale e pratico.",
+      "haip.badge": "Finanza personale",
       "haip.desc": "La prima app firmata Jhon Apps: un tracker di spese personale, ironico ma utile, pensato per capire dove finiscono i soldi senza complicazioni.",
-      "haip.status": "In sviluppo attivo",
+      "haip.status": "Disponibile su Google Play",
       "haip.simple.title": "Finanza personale semplice",
       "haip.simple.desc": "Movimenti, categorie, grafici e storico in un’esperienza rapida e leggibile.",
       "haip.device.title": "Dati sul dispositivo",
@@ -980,12 +1048,12 @@
       "roadmap.title": "Un ecosistema di app leggere e indipendenti.",
       "roadmap.desc": "Jhon Apps non nasce per essere una singola app, ma una linea di prodotti digitali: strumenti semplici, mirati e costruiti attorno a problemi reali.",
       "roadmap.now.title": "Ora",
-      "roadmap.now.desc": "Consolidare HAIP: stabilità, UX, notifiche, backup, monetizzazione rispettosa e rilascio progressivo.",
+      "roadmap.now.desc": "Consolidare Due Date, HAIP ed Endoscope USB Camera: stabilità, UX, privacy e aggiornamenti continui.",
       "roadmap.next.title": "Prossimi prodotti",
       "roadmap.next.desc": "Nuove app verticali, piccole e concrete: strumenti per gestire, capire o semplificare attività quotidiane.",
       "contacts.badge": "Contatti",
       "contacts.title": "Feedback, idee o collaborazioni?",
-      "contacts.desc": "Scrivici con un obiettivo chiaro: feedback su HAIP, proposta, bug, idea di prodotto o richiesta di collaborazione.",
+      "contacts.desc": "Scrivici con un obiettivo chiaro: feedback su un’app, proposta, bug, idea di prodotto o richiesta di collaborazione.",
       "footer.claim": "Independent digital products"
     },
 
@@ -1027,9 +1095,14 @@
       "products.badge": "Products",
       "products.title": "Lightweight, focused apps built around real problems.",
       "products.desc": "Every Jhon Apps product must have a clear purpose: helping users do something better, faster or with less chaos.",
-      "haip.badge": "First product",
+      "product.available": "Available on Google Play",
+      "due.badge": "Everyday deadlines",
+      "due.desc": "Deadlines, reminders and recurring events in one easy-to-browse organizer, with categories designed for everyday life.",
+      "camera.badge": "Hardware utility",
+      "camera.desc": "Connect a compatible USB camera to your Android device and view its feed through a direct, focused and practical interface.",
+      "haip.badge": "Personal finance",
       "haip.desc": "The first app by Jhon Apps: a personal expense tracker, ironic but useful, designed to help you understand where your money goes without complications.",
-      "haip.status": "In active development",
+      "haip.status": "Available on Google Play",
       "haip.simple.title": "Simple personal finance",
       "haip.simple.desc": "Transactions, categories, charts and history in a fast and readable experience.",
       "haip.device.title": "Data on your device",
@@ -1047,12 +1120,12 @@
       "roadmap.title": "An ecosystem of lightweight, independent apps.",
       "roadmap.desc": "Jhon Apps is not meant to be a single app, but a line of digital products: simple, focused tools built around real problems.",
       "roadmap.now.title": "Now",
-      "roadmap.now.desc": "Consolidating HAIP: stability, UX, notifications, backup, respectful monetization and progressive releases.",
+      "roadmap.now.desc": "Consolidating Due Date, HAIP and Endoscope USB Camera through stability, UX, privacy and continuous updates.",
       "roadmap.next.title": "Next products",
       "roadmap.next.desc": "New vertical, small and practical apps: tools to manage, understand or simplify everyday activities.",
       "contacts.badge": "Contacts",
       "contacts.title": "Feedback, ideas or collaborations?",
-      "contacts.desc": "Write with a clear goal: HAIP feedback, proposal, bug, product idea or collaboration request.",
+      "contacts.desc": "Write with a clear goal: app feedback, a proposal, a bug, a product idea or a collaboration request.",
       "footer.claim": "Independent digital products"
     },
 
@@ -1094,9 +1167,14 @@
       "products.badge": "Productos",
       "products.title": "Apps ligeras, directas y construidas alrededor de problemas reales.",
       "products.desc": "Cada producto de Jhon Apps debe tener un propósito claro: ayudar al usuario a hacer algo mejor, más rápido o con menos caos.",
-      "haip.badge": "Primer producto",
+      "product.available": "Disponible en Google Play",
+      "due.badge": "Vencimientos cotidianos",
+      "due.desc": "Vencimientos, recordatorios y recurrencias en un único organizador fácil de consultar, con categorías para la vida diaria.",
+      "camera.badge": "Utilidad de hardware",
+      "camera.desc": "Conecta una cámara USB compatible a tu dispositivo Android y visualiza su imagen con una interfaz directa, esencial y práctica.",
+      "haip.badge": "Finanzas personales",
       "haip.desc": "La primera app firmada por Jhon Apps: un tracker de gastos personales, irónico pero útil, pensado para entender dónde va el dinero sin complicaciones.",
-      "haip.status": "En desarrollo activo",
+      "haip.status": "Disponible en Google Play",
       "haip.simple.title": "Finanzas personales simples",
       "haip.simple.desc": "Movimientos, categorías, gráficos e historial en una experiencia rápida y legible.",
       "haip.device.title": "Datos en el dispositivo",
@@ -1114,12 +1192,12 @@
       "roadmap.title": "Un ecosistema de apps ligeras e independientes.",
       "roadmap.desc": "Jhon Apps no nace para ser una sola app, sino una línea de productos digitales: herramientas simples, enfocadas y construidas alrededor de problemas reales.",
       "roadmap.now.title": "Ahora",
-      "roadmap.now.desc": "Consolidar HAIP: estabilidad, UX, notificaciones, backup, monetización respetuosa y lanzamientos progresivos.",
+      "roadmap.now.desc": "Consolidar Due Date, HAIP y Endoscope USB Camera con estabilidad, UX, privacidad y actualizaciones continuas.",
       "roadmap.next.title": "Próximos productos",
       "roadmap.next.desc": "Nuevas apps verticales, pequeñas y concretas: herramientas para gestionar, entender o simplificar actividades diarias.",
       "contacts.badge": "Contacto",
       "contacts.title": "¿Feedback, ideas o colaboraciones?",
-      "contacts.desc": "Escríbenos con un objetivo claro: feedback sobre HAIP, propuesta, bug, idea de producto o solicitud de colaboración.",
+      "contacts.desc": "Escríbenos con un objetivo claro: feedback sobre una app, una propuesta, un bug, una idea de producto o una colaboración.",
       "footer.claim": "Productos digitales independientes"
     },
 
@@ -1161,9 +1239,14 @@
       "products.badge": "Produits",
       "products.title": "Des apps légères, directes et construites autour de vrais problèmes.",
       "products.desc": "Chaque produit Jhon Apps doit avoir un objectif clair : aider l’utilisateur à faire quelque chose mieux, plus vite ou avec moins de chaos.",
-      "haip.badge": "Premier produit",
+      "product.available": "Disponible sur Google Play",
+      "due.badge": "Échéances du quotidien",
+      "due.desc": "Échéances, rappels et récurrences dans un organiseur unique et simple à consulter, avec des catégories pour la vie quotidienne.",
+      "camera.badge": "Utilitaire matériel",
+      "camera.desc": "Connectez une caméra USB compatible à votre appareil Android et affichez son flux dans une interface directe, essentielle et pratique.",
+      "haip.badge": "Finances personnelles",
       "haip.desc": "La première app signée Jhon Apps : un tracker de dépenses personnelles, ironique mais utile, pensé pour comprendre où va l’argent sans complications.",
-      "haip.status": "En développement actif",
+      "haip.status": "Disponible sur Google Play",
       "haip.simple.title": "Finances personnelles simples",
       "haip.simple.desc": "Mouvements, catégories, graphiques et historique dans une expérience rapide et lisible.",
       "haip.device.title": "Données sur l’appareil",
@@ -1181,12 +1264,12 @@
       "roadmap.title": "Un écosystème d’apps légères et indépendantes.",
       "roadmap.desc": "Jhon Apps n’est pas pensée comme une seule app, mais comme une ligne de produits numériques : des outils simples, ciblés et construits autour de vrais problèmes.",
       "roadmap.now.title": "Maintenant",
-      "roadmap.now.desc": "Consolider HAIP : stabilité, UX, notifications, backup, monétisation respectueuse et sorties progressives.",
+      "roadmap.now.desc": "Consolider Due Date, HAIP et Endoscope USB Camera avec stabilité, UX, respect de la vie privée et mises à jour continues.",
       "roadmap.next.title": "Prochains produits",
       "roadmap.next.desc": "De nouvelles apps verticales, petites et concrètes : des outils pour gérer, comprendre ou simplifier les activités quotidiennes.",
       "contacts.badge": "Contact",
       "contacts.title": "Feedback, idées ou collaborations ?",
-      "contacts.desc": "Écris-nous avec un objectif clair : feedback sur HAIP, proposition, bug, idée de produit ou demande de collaboration.",
+      "contacts.desc": "Écris-nous avec un objectif clair : retour sur une app, proposition, bug, idée de produit ou demande de collaboration.",
       "footer.claim": "Produits numériques indépendants"
     }
   };
